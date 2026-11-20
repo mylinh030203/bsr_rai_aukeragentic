@@ -1,0 +1,948 @@
+===JSON-BEGIN===
+{
+  "base": "http://127.0.0.1:8123",
+  "routes": {
+    "login|light": {
+      "themePersist": false,
+      "themeAfterReload": "light",
+      "localStorage": null,
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "login|dark": {
+      "themePersist": true,
+      "themeAfterReload": "dark",
+      "localStorage": "dark",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "overview|light": {
+      "themePersist": true,
+      "themeAfterReload": "light",
+      "localStorage": "light",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "overview|dark": {
+      "themePersist": true,
+      "themeAfterReload": "dark",
+      "localStorage": "dark",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "market-data|light": {
+      "themePersist": true,
+      "themeAfterReload": "light",
+      "localStorage": "light",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "market-data|dark": {
+      "themePersist": true,
+      "themeAfterReload": "dark",
+      "localStorage": "dark",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "news|light": {
+      "themePersist": true,
+      "themeAfterReload": "light",
+      "localStorage": "light",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "news|dark": {
+      "themePersist": true,
+      "themeAfterReload": "dark",
+      "localStorage": "dark",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "forecast|light": {
+      "themePersist": true,
+      "themeAfterReload": "light",
+      "localStorage": "light",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "forecast|dark": {
+      "themePersist": true,
+      "themeAfterReload": "dark",
+      "localStorage": "dark",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "analysis|light": {
+      "themePersist": true,
+      "themeAfterReload": "light",
+      "localStorage": "light",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "analysis|dark": {
+      "themePersist": true,
+      "themeAfterReload": "dark",
+      "localStorage": "dark",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "assistant|light": {
+      "themePersist": true,
+      "themeAfterReload": "light",
+      "localStorage": "light",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "assistant|dark": {
+      "themePersist": true,
+      "themeAfterReload": "dark",
+      "localStorage": "dark",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "reports|light": {
+      "themePersist": true,
+      "themeAfterReload": "light",
+      "localStorage": "light",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "reports|dark": {
+      "themePersist": true,
+      "themeAfterReload": "dark",
+      "localStorage": "dark",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "admin|light": {
+      "themePersist": true,
+      "themeAfterReload": "light",
+      "localStorage": "light",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    },
+    "admin|dark": {
+      "themePersist": true,
+      "themeAfterReload": "dark",
+      "localStorage": "dark",
+      "overflowPx": 0,
+      "viewport": 1440,
+      "consoleErrors": []
+    }
+  },
+  "contrast_dark": {
+    "market-data": [
+      {
+        "selector": ".muted",
+        "count": 8,
+        "text": "\u00b7",
+        "fg": "rgb(159,179,184)",
+        "bg": "rgb(11,26,32)",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "large": false,
+        "ratio": 8.13,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".chip",
+        "count": 19,
+        "text": "Th\u1eddi gian th\u1ef1c",
+        "fg": "rgb(92,179,166)",
+        "bg": "rgb(16,49,44)",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "large": false,
+        "ratio": 5.64,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".card-sub",
+        "count": 4,
+        "text": "13 hi\u1ec3n th\u1ecb",
+        "fg": "rgb(159,179,184)",
+        "bg": "rgb(18,36,43)",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "large": false,
+        "ratio": 7.32,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".tape-item",
+        "count": 5,
+        "text": "Brent\n                78.42 USD/bbl08:30 ICT\n               ",
+        "fg": "rgb(232,238,240)",
+        "bg": "rgb(18,36,43)",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "large": false,
+        "ratio": 13.65,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".perm-badge",
+        "count": 0
+      },
+      {
+        "selector": "th",
+        "count": 7,
+        "text": "Ng\u00e0y th\u1ecb tr\u01b0\u1eddng",
+        "fg": "rgb(143,165,171)",
+        "bg": "rgb(22,48,58)",
+        "fontSize": 9,
+        "fontWeight": 600,
+        "large": false,
+        "ratio": 5.36,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".small.muted",
+        "count": 0
+      },
+      {
+        "selector": "table.data td",
+        "count": 84,
+        "text": "14/11/2026",
+        "fg": "rgb(232,238,240)",
+        "bg": "rgb(18,36,43)",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "large": false,
+        "ratio": 13.65,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".pipeline-step",
+        "count": 0
+      },
+      {
+        "selector": ".timeline-row dt",
+        "count": 0
+      },
+      {
+        "selector": ".dedup-row",
+        "count": 0
+      },
+      {
+        "selector": ".impact-q",
+        "count": 0
+      }
+    ],
+    "news": [
+      {
+        "selector": ".muted",
+        "count": 6,
+        "text": "\u00b7",
+        "fg": "rgb(159,179,184)",
+        "bg": "rgb(11,26,32)",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "large": false,
+        "ratio": 8.13,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".chip",
+        "count": 42,
+        "text": "7 m\u1ee5c",
+        "fg": "rgb(143,165,171)",
+        "bg": "rgb(22,48,58)",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "large": false,
+        "ratio": 5.36,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".card-sub",
+        "count": 3,
+        "text": "\u0110i\u1ec1u c\u00e1c ngu\u1ed3n c\u00f9ng c\u00f3 v\u00e0 \u0111i\u1ec1u b\u1ed5 sung",
+        "fg": "rgb(159,179,184)",
+        "bg": "rgb(18,36,43)",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "large": false,
+        "ratio": 7.32,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".tape-item",
+        "count": 5,
+        "text": "Brent\n                78.42 USD/bbl08:30 ICT\n               ",
+        "fg": "rgb(232,238,240)",
+        "bg": "rgb(18,36,43)",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "large": false,
+        "ratio": 13.65,
+        "threshold": 4.5,
+        "pass": true
+      },
+      {
+        "selector": ".perm-badge",
+        "count": 0
+      },
+      {
+        "selector": "th",
+        "count": 0
+      },
+      {
+        "selector": ".small.muted",
+        "count": 0
+      },
+      {
+        "selector": "table.data td",
+        "count": 0
+      },
+      {
+        "selector": ".pipeline-step",
+        "count": 0
+      },
+      {
+        "selector": ".timeline-row dt",
+        "count": 0
+      },
+      {
+        "selector": ".dedup-row",
+        "count": 0
+      },
+      {
+        "selector": ".impact-q",
+        "count": 0
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "found": true,
+      "count": 7,
+      "sample": "T\u1ed5ng quan / D\u1eef li\u1ec7u th\u1ecb tr\u01b0\u1eddng / Tin th\u1ecb tr\u01b0\u1eddng / D\u1ef1 b\u00e1o / Ph\u00e2n t\u00edch / Tr\u1ee3 l\u00fd AI / B\u00e1o c\u00e1o | nav_locators=7",
+      "item": "1. Six-module navigation",
+      "route": "overview",
+      "status": "FOUND"
+    },
+    {
+      "found": false,
+      "count": 0,
+      "sample": "nav=[] admin_area_text=0",
+      "item": "2. Administration area",
+      "route": "admin",
+      "status": "NOT-FOUND"
+    },
+    {
+      "found": true,
+      "count": 4,
+      "sample": "tables=0 charts=4",
+      "item": "3. AI answer table/chart",
+      "route": "assistant",
+      "status": "FOUND"
+    },
+    {
+      "found": true,
+      "count": 7,
+      "sample": "Ph\u00e2n t\u00edch th\u1ecb tr\u01b0\u1eddng theo y\u00eau c\u1ea7u; B\u1ea3n tin s\u00e1ng; B\u00e1o c\u00e1o cu\u1ed1i ng\u00e0y; B\u00e1o c\u00e1o th\u1ecb tr\u01b0\u1eddng ng\u00e0y; B\u00e1o c\u00e1o th\u1ecb tr\u01b0\u1eddng tu\u1ea7n; B\u00e1o c\u00e1o th\u1ecb tr\u01b0\u1eddng th\u00e1ng; B\u00e1o c\u00e1o th\u1ecb tr\u01b0\u1eddng theo s\u1ef1 ki\u1ec7n",
+      "prep": "open-report-builder clicked",
+      "item": "4. Seven report types",
+      "route": "reports",
+      "status": "FOUND"
+    },
+    {
+      "found": true,
+      "count": 4,
+      "sample": "Trong ng\u00e0y; Theo ng\u00e0y; Theo tu\u1ea7n; Theo th\u00e1ng",
+      "item": "5. Chart modes",
+      "route": "market-data",
+      "status": "FOUND"
+    },
+    {
+      "found": false,
+      "count": 0,
+      "sample": "url_input=False file_input=False accept=",
+      "prep": "open-news-input clicked",
+      "item": "6. News intake URL + Office upload",
+      "route": "news",
+      "status": "NOT-FOUND"
+    },
+    {
+      "found": false,
+      "count": 11,
+      "sample": "steps=11 retry=0 manual=0 | 01\n      Ti\u1ebfp nh\u1eadn\n      Xong; 02\n      Ki\u1ec3m tra\n      Xong; 03\n      Tr\u00edch xu\u1ea5t\n      Xong; 04\n      Chu\u1ea9n ho\u00e1 metadata\n  ; 05\n      Lo\u1ea1i tr\u00f9ng l\u1eb7p\n      ; 06\n      Ph\u00e2n lo\u1ea1i\n      Xong; 07\n      Th\u1ef1c th\u1ec3 & s\u1ef1 ki\u1ec7n\n  ; 08\n      T\u00f3m t\u1eaft\n      Xong; 09\n      Li\u00ean k\u1ebft th\u1ecb tr\u01b0\u1eddng\n ; 10\n      L\u01b0u & l\u1eadp ch\u1ec9 m\u1ee5c\n   ; 11\n      D\u00f2ng tin & quy tr\u00ecnh\n",
+      "prep": true,
+      "item": "7. Eleven-step pipeline",
+      "route": "news",
+      "status": "NOT-FOUND"
+    },
+    {
+      "found": true,
+      "count": 13,
+      "sample": "T\u1ea5t c\u1ea3 ch\u1ee7 \u0111\u1ec1; Ngu\u1ed3n cung d\u1ea7u th\u00f4; Nhu c\u1ea7u d\u1ea7u th\u00f4; V\u1eadn h\u00e0nh l\u1ecdc d\u1ea7u; S\u1ea3n ph\u1ea9m tinh ch\u1ebf; OPEC+; \u0110\u1ecba ch\u00ednh tr\u1ecb; V\u1eadn t\u1ea3i & c\u01b0\u1edbc bi\u1ec3n; T\u1ed3n kho; Kinh t\u1ebf v\u0129 m\u00f4; T\u1ef7 gi\u00e1; Ch\u00ednh s\u00e1ch n\u0103ng l\u01b0\u1ee3ng",
+      "item": "8. Twelve news topics",
+      "route": "news",
+      "status": "FOUND"
+    },
+    {
+      "found": true,
+      "count": 7,
+      "sample": "monitoring=1 alert=6",
+      "prep": true,
+      "item": "9. Continuous monitoring + alerts",
+      "route": "news",
+      "status": "FOUND"
+    },
+    {
+      "found": true,
+      "count": 4,
+      "sample": "Tr\u00f9ng g\u1ea7n nh\u01b0 ho\u00e0n to\u00e0nC\u00f9ng d\u1eef ki\u1ec7n, c\u00f9ng c\u00e1ch di\u1ec5n \u0111\u1ea1t. B\u00e0i \u0111\u1ebfn sau \u0111\u01b0\u1ee3c li\u00ean k",
+      "prep": true,
+      "item": "10. Dedup relations",
+      "route": "news",
+      "status": "FOUND"
+    },
+    {
+      "found": false,
+      "count": 0,
+      "sample": "source-manager-table=0 columns=0 label=0",
+      "item": "11. Source manager",
+      "route": "admin",
+      "status": "NOT-FOUND"
+    },
+    {
+      "found": false,
+      "count": 0,
+      "sample": "label=0 perm_badges=0 dept_col=False doc_col=False",
+      "item": "12. Department + document permissions",
+      "route": "admin",
+      "status": "NOT-FOUND"
+    },
+    {
+      "found": true,
+      "count": 12,
+      "sample": "Th\u1eddi \u0111i\u1ec3m th\u1ecb tr\u01b0\u1eddng14/11/2026 \u00b7 07:48 I; Th\u1eddi \u0111i\u1ec3m s\u1ef1 ki\u1ec7n13/11/2026 \u00b7 18:00 ICT; Th\u1eddi \u0111i\u1ec3m c\u00f4ng b\u1ed114/11/2026 \u00b7 07:50 ICT; Th\u1eddi \u0111i\u1ec3m n\u1ea1p d\u1eef li\u1ec7u14/11/2026 \u00b7 08:02 ; Th\u1eddi \u0111i\u1ec3m x\u1eed l\u00fd14/11/2026 \u00b7 08:04 ICT; Th\u1eddi \u0111i\u1ec3m t\u1ea1o14/11/2026 \u00b7 08:05 ICT",
+      "prep": true,
+      "item": "13. Six timestamp types",
+      "route": "news",
+      "status": "FOUND"
+    },
+    {
+      "found": true,
+      "count": 1,
+      "sample": "Truy xu\u1ea5t ngu\u1ed3n g\u1ed1c d\u1eef li\u1ec7u",
+      "prep": true,
+      "item": "14. Data lineage",
+      "route": "news",
+      "status": "FOUND"
+    },
+    {
+      "found": false,
+      "count": 0,
+      "sample": "label=0 rubric rows=0",
+      "item": "15. AI Evaluation rubric (10 groups)",
+      "route": "admin",
+      "status": "NOT-FOUND"
+    },
+    {
+      "found": true,
+      "count": 5,
+      "sample": "recommendation text=5",
+      "item": "16. Recommendation record",
+      "route": "analysis",
+      "status": "FOUND"
+    },
+    {
+      "found": true,
+      "count": 1,
+      "sample": "T\u00ecnh b\u00e1o \u0111\u1ecba ch\u00ednh tr\u1ecb",
+      "item": "17. Geopolitical Intelligence",
+      "route": "analysis",
+      "status": "FOUND"
+    },
+    {
+      "found": true,
+      "count": 7,
+      "sample": "impact items=7 label=1",
+      "item": "18. Market Impact Analysis (7 questions)",
+      "route": "analysis",
+      "status": "FOUND"
+    }
+  ],
+  "screenshots": [
+    "docs\\design\\_tmp_verify\\shots\\overview-light.png",
+    "docs\\design\\_tmp_verify\\shots\\market-data-light.png",
+    "docs\\design\\_tmp_verify\\shots\\news-light.png",
+    "docs\\design\\_tmp_verify\\shots\\assistant-light.png",
+    "docs\\design\\_tmp_verify\\shots\\reports-light.png",
+    "docs\\design\\_tmp_verify\\shots\\admin-light.png",
+    "docs\\design\\_tmp_verify\\shots\\news-drawer-light.png",
+    "docs\\design\\_tmp_verify\\shots\\overview-dark.png",
+    "docs\\design\\_tmp_verify\\shots\\market-data-dark.png",
+    "docs\\design\\_tmp_verify\\shots\\news-dark.png",
+    "docs\\design\\_tmp_verify\\shots\\assistant-dark.png",
+    "docs\\design\\_tmp_verify\\shots\\reports-dark.png",
+    "docs\\design\\_tmp_verify\\shots\\admin-dark.png",
+    "docs\\design\\_tmp_verify\\shots\\news-drawer-dark.png"
+  ],
+  "notes": [],
+  "overflow_matrix": {
+    "login|light|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "login|dark|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "overview|light|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "overview|dark|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "market-data|light|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "market-data|dark|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "news|light|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "news|dark|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "forecast|light|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "forecast|dark|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "analysis|light|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "analysis|dark|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "assistant|light|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "assistant|dark|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "reports|light|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "reports|dark|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "admin|light|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "admin|dark|1440x900": {
+      "viewport": "1440x900",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "overflowPx": 0
+    },
+    "login|light|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "login|dark|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "overview|light|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "overview|dark|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "market-data|light|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "market-data|dark|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "news|light|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "news|dark|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "forecast|light|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "forecast|dark|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "analysis|light|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "analysis|dark|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "assistant|light|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "assistant|dark|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "reports|light|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "reports|dark|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "admin|light|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "admin|dark|1024x900": {
+      "viewport": "1024x900",
+      "innerWidth": 1024,
+      "scrollWidth": 1024,
+      "overflowPx": 0
+    },
+    "login|light|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "login|dark|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "overview|light|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "overview|dark|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "market-data|light|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "market-data|dark|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "news|light|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "news|dark|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "forecast|light|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "forecast|dark|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "analysis|light|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "analysis|dark|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "assistant|light|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "assistant|dark|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "reports|light|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "reports|dark|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "admin|light|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "admin|dark|768x1024": {
+      "viewport": "768x1024",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "overflowPx": 0
+    },
+    "login|light|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "login|dark|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "overview|light|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "overview|dark|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "market-data|light|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "market-data|dark|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "news|light|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "news|dark|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "forecast|light|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "forecast|dark|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "analysis|light|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "analysis|dark|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "assistant|light|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "assistant|dark|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "reports|light|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "reports|dark|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "admin|light|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    },
+    "admin|dark|390x844": {
+      "viewport": "390x844",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "overflowPx": 0
+    }
+  },
+  "contrast_failures": []
+}
+===JSON-END===

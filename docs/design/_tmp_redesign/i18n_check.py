@@ -1,0 +1,35 @@
+import json, pathlib, re
+from playwright.sync_api import sync_playwright
+URL = "file:///D:/ReasonaryAI/BSR_Market_Intel%20-%20auker/docs/design/prototype/index.html"
+OUT = pathlib.Path("docs/design/_tmp_redesign/shots"); OUT.mkdir(parents=True, exist_ok=True)
+msgs = []; res = {}
+with sync_playwright() as p:
+    b = p.chromium.launch()
+    pg = b.new_page(viewport={"width": 1440, "height": 900})
+    pg.on("console", lambda m: msgs.append(m.type + ": " + m.text))
+    pg.on("pageerror", lambda e: msgs.append("pageerror: " + str(e)))
+    pg.goto(URL)
+    pg.get_by_role("button", name=re.compile("Ban lãnh đạo")).first.click()
+    pg.wait_for_selector(".market-tape-track", timeout=20000)
+    pg.wait_for_timeout(1000)
+    res["tape"] = pg.evaluate("() => { const t=document.querySelector('.market-tape-track'); return {scrollW:t.scrollWidth, clientW:t.clientWidth, items:document.querySelectorAll('.tape-item').length}; }")
+    pg.locator(".metric-card").first.click()
+    pg.wait_for_timeout(500)
+    res["vi_meta"] = pg.evaluate("() => document.querySelector('.inline-chart-meta').innerText")
+    res["vi_note"] = pg.evaluate("() => document.querySelector('.inline-note').innerText")
+    pg.locator('[data-action="set-lang"][data-lang="en"]').click()
+    pg.wait_for_timeout(600)
+    res["en_panel"] = pg.evaluate("() => !!document.getElementById('overview-inline-panel')")
+    res["en_meta"] = pg.evaluate("() => document.querySelector('.inline-chart-meta').innerText")
+    res["en_note"] = pg.evaluate("() => document.querySelector('.inline-note').innerText")
+    res["en_cta"] = pg.evaluate("() => document.querySelector('#overview-inline-panel a[href=\"#market-data\"]').innerText")
+    res["en_close"] = pg.evaluate("() => document.querySelector('[data-action=\"close-inline-metric\"]').getAttribute('aria-label')")
+    res["en_range_label"] = pg.evaluate("() => document.querySelector('#overview-inline-panel .range-tabs').getAttribute('aria-label')")
+    res["en_chart_label"] = pg.evaluate("() => { const el = document.querySelector('#overview-inline-panel .inline-chart-body [aria-label]'); return el ? el.getAttribute('aria-label') : null; }")
+    pg.screenshot(path=str(OUT / "inline-en-1440.png"))
+    pg.locator('[data-action="set-lang"][data-lang="vi"]').click()
+    pg.wait_for_timeout(500)
+    res["vi_again"] = pg.evaluate("() => document.querySelector('.inline-chart-meta').innerText")
+    res["console"] = msgs
+    b.close()
+print(json.dumps(res, ensure_ascii=False, indent=1))

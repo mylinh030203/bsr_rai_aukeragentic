@@ -1,0 +1,27 @@
+# Local demo overlay: synthetic workspace, HTTP, development cookie flags.
+#   docker compose -f docker-compose.yml -f compose.demo.yml up -d --build
+#
+# It runs as its own Compose project (`name:`), so the demo gets its own
+# containers and its own `bsr-demo-data` volume: `docker compose down -v` in
+# demo mode can never delete the production database in `bsr-data`.
+#
+# Never use this overlay on a shared or internet-facing host: it seeds demo
+# users and accepts role sign-in without a password.
+name: bsr-demo
+
+services:
+  bsr:
+    container_name: bsr-market-intelligence-demo
+    environment:
+      BSR_ENV: development
+      BSR_SECRET_KEY: local-demo-secret-not-for-a-real-host
+      # Pinned rather than inherited: a .env copied from .env.example sets 0,
+      # which would start an empty demo workspace with no accounts to sign in as.
+      BSR_SEED_ON_START: "1"
+      BSR_DATABASE: /data/bsr.db
+      BSR_PORT: "8000"
+    volumes:
+      - bsr-demo-data:/data
+
+volumes:
+  bsr-demo-data:

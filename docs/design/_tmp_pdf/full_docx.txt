@@ -1,0 +1,2942 @@
+=== DOCX PARAGRAPHS: 1468 ===
+=== DOC 1 ===
+ĐẶC TẢ YÊU CẦU NGHIỆP VỤ, SẢN PHẨM VÀ TRIỂN KHAI KỸ THUẬT
+=== DOC 2 ===
+BSR MARKET INTELLIGENCE PLATFORM
+=== DOC 3 ===
+Phiên bản: 2.0
+Trạng thái: Draft for Business Review, Product Design & Engineering Implementation
+Khách hàng: BSR – Đội Market Intelligence
+Sản phẩm: Reasonary AI – BSR Market Intelligence Platform
+Lớp trí tuệ nhân tạo: Auker
+Ngôn ngữ: Tiếng Việt cho toàn app
+=== DOC 4 ===
+PHẦN I. BỐI CẢNH NGHIỆP VỤ VÀ YÊU CẦU KINH DOANH
+=== DOC 5 ===
+1. Bối cảnh nghiệp vụ (Business Context)
+=== DOC 6 ===
+Đội Market Intelligence của BSR có nhiệm vụ theo dõi, thu thập, tổng hợp và phân tích thông tin thị trường dầu thô, sản phẩm lọc dầu và các yếu tố kinh tế, địa chính trị có ảnh hưởng đến hoạt động kinh doanh của BSR.
+=== DOC 7 ===
+Để thực hiện nhiệm vụ này, đội ngũ cần khai thác thông tin từ nhiều nguồn khác nhau:
+=== DOC 8 ===
+Nguồn dữ liệu thương mại: Reuters, S&P Global Platts, Bloomberg.
+=== DOC 9 ===
+Dữ liệu thị trường công khai: Giá dầu, giá futures, giá sản phẩm lọc dầu, tỷ giá và các chỉ số kinh tế vĩ mô.
+=== DOC 10 ===
+Tin tức trong nước và quốc tế: Các diễn biến về cung cầu, hoạt động khai thác, lọc dầu, vận tải, chính sách năng lượng và địa chính trị.
+=== DOC 11 ===
+Báo cáo nghiên cứu và dự báo: Báo cáo phân tích từ McKinsey, Platts và các tổ chức nghiên cứu, tư vấn khác.
+=== DOC 12 ===
+Dữ liệu nội bộ BSR: Giá physical, giá mua bán, dữ liệu nghiệp vụ và các tài liệu nội bộ được quản lý dưới dạng Excel, PDF, Word hoặc các định dạng khác.
+=== DOC 13 ===
+Các thông tin này đóng vai trò quan trọng trong việc đánh giá xu hướng thị trường, nhận diện cơ hội và rủi ro, hỗ trợ hoạt động mua dầu thô, kinh doanh sản phẩm và lập kế hoạch kinh doanh.
+=== DOC 14 ===
+Tuy nhiên, quá trình thu thập, đối chiếu, phân tích và biên soạn thông tin hiện vẫn phụ thuộc đáng kể vào thao tác thủ công của đội ngũ Market Intelligence.
+=== DOC 15 ===
+BSR cần một nền tảng Market Intelligence tập trung, có khả năng kết nối dữ liệu, tự động hóa xử lý thông tin và cung cấp năng lực phân tích chuyên sâu nhằm hỗ trợ đội ngũ chuyên môn cũng như lãnh đạo đưa ra quyết định kinh doanh kịp thời và có cơ sở dữ liệu.
+=== DOC 16 ===
+2. Các vấn đề nghiệp vụ hiện tại (Business Problems)
+=== DOC 17 ===
+BP-01. Dữ liệu và thông tin thị trường phân tán
+=== DOC 18 ===
+Thông tin thị trường nằm rải rác trên nhiều nguồn dữ liệu thương mại, website, báo cáo nghiên cứu, file Excel và tài liệu nội bộ.
+=== DOC 19 ===
+Hệ quả:
+=== DOC 20 ===
+Nhân sự phải truy cập nhiều hệ thống để thu thập thông tin.
+=== DOC 21 ===
+Khó có một góc nhìn tập trung về tình hình thị trường.
+=== DOC 22 ===
+Mất thời gian đối chiếu dữ liệu giữa các nguồn.
+=== DOC 23 ===
+Khó truy xuất lại thông tin và nguồn tham chiếu khi cần phân tích.
+=== DOC 24 ===
+BP-02. Theo dõi diễn biến thị trường và tin tức chưa được tự động hóa đầy đủ
+=== DOC 25 ===
+Việc cập nhật tin tức và diễn biến thị trường trong ngày vẫn cần nhiều thao tác thủ công.
+=== DOC 26 ===
+Hệ quả:
+=== DOC 27 ===
+Có thể chậm nắm bắt những sự kiện có ảnh hưởng lớn đến thị trường.
+=== DOC 28 ===
+Khó theo dõi liên tục các chủ đề quan trọng.
+=== DOC 29 ===
+Tốn nguồn lực để đọc, phân loại và tổng hợp lượng lớn thông tin.
+=== DOC 30 ===
+Khó đánh giá mức độ ảnh hưởng của một sự kiện đến các chỉ số thị trường liên quan.
+=== DOC 31 ===
+BP-03. Khó đánh giá giá trị bổ sung giữa các nguồn thông tin
+=== DOC 32 ===
+BSR sử dụng nhiều nguồn dữ liệu thương mại và có thể tham khảo thêm kết quả phân tích từ các hệ thống AI.
+=== DOC 33 ===
+Tuy nhiên, hiện chưa có quy trình tập trung để:
+=== DOC 34 ===
+So sánh mức độ trùng lặp giữa các nguồn.
+=== DOC 35 ===
+Xác định nguồn nào cung cấp thông tin mới hoặc có giá trị bổ sung.
+=== DOC 36 ===
+Đánh giá mức độ khác biệt giữa thông tin từ các nhà cung cấp và kết quả AI.
+=== DOC 37 ===
+Theo dõi chất lượng và độ tin cậy của thông tin theo nguồn.
+=== DOC 38 ===
+BP-04. Chưa có quy trình tập trung để theo dõi và đánh giá dự báo
+=== DOC 39 ===
+Dự báo thị trường được cung cấp bởi nhiều tổ chức và nguồn nghiên cứu khác nhau.
+=== DOC 40 ===
+BSR cần khả năng lưu trữ dự báo theo từng thời điểm, đối chiếu với dữ liệu thực tế và đánh giá chất lượng dự báo theo thời gian.
+=== DOC 41 ===
+Nếu không lưu lại các phiên bản dự báo, việc đánh giá độ chính xác trong quá khứ và so sánh hiệu quả giữa các nguồn sẽ gặp khó khăn.
+=== DOC 42 ===
+BP-05. Việc tạo báo cáo và phân tích đột xuất mất nhiều thời gian
+=== DOC 43 ===
+Lãnh đạo có thể cần báo cáo hoặc phân tích nhanh khi thị trường xuất hiện biến động bất thường hoặc khi phát sinh một vấn đề kinh doanh cụ thể.
+=== DOC 44 ===
+Quá trình chuẩn bị thường yêu cầu nhân sự:
+=== DOC 45 ===
+Thu thập dữ liệu từ nhiều nguồn.
+=== DOC 46 ===
+Tìm kiếm tin tức và báo cáo liên quan.
+=== DOC 47 ===
+Đối chiếu diễn biến lịch sử.
+=== DOC 48 ===
+Tổng hợp nhận định và biên soạn báo cáo.
+=== DOC 49 ===
+Điều này làm tăng thời gian phản hồi và phụ thuộc vào nguồn lực của đội ngũ chuyên môn.
+=== DOC 50 ===
+BP-06. Dữ liệu nội bộ chưa được khai thác thuận tiện qua AI
+=== DOC 51 ===
+Một phần dữ liệu nội bộ của BSR đang được lưu trữ trong file Excel và các tài liệu nghiệp vụ.
+=== DOC 52 ===
+Người dùng chưa có một giao diện hội thoại thống nhất để truy vấn các tài liệu này kết hợp với thông tin thị trường, trong phạm vi quyền truy cập được cấp.
+=== DOC 53 ===
+Hệ quả:
+=== DOC 54 ===
+Khó tìm kiếm và tổng hợp thông tin từ nhiều tài liệu.
+=== DOC 55 ===
+Khó kết hợp dữ liệu nội bộ với bối cảnh thị trường.
+=== DOC 56 ===
+Lãnh đạo và nhân sự phải phụ thuộc vào việc tìm kiếm, tổng hợp thủ công.
+=== DOC 57 ===
+3. Mục tiêu kinh doanh (Business Objectives)
+=== DOC 58 ===
+BO-01. Tập trung hóa thông tin thị trường
+=== DOC 59 ===
+Cung cấp một giao diện thống nhất để theo dõi dữ liệu giá, tin tức, báo cáo nghiên cứu, dự báo và các thông tin thị trường quan trọng.
+=== DOC 60 ===
+BO-02. Nâng cao tốc độ cập nhật và khả năng giám sát thị trường
+=== DOC 61 ===
+Tự động hóa các bước thu thập, cập nhật, phân loại, tổng hợp và theo dõi thông tin từ những nguồn dữ liệu được tích hợp.
+=== DOC 62 ===
+BO-03. Nâng cao chất lượng phân tích thị trường
+=== DOC 63 ===
+Kết hợp dữ liệu tài chính theo chuỗi thời gian, tin tức, các yếu tố nền tảng và bối cảnh liên thị trường để cung cấp nhận định có chiều sâu hơn.
+=== DOC 64 ===
+BO-04. Theo dõi và đánh giá chất lượng dự báo
+=== DOC 65 ===
+Lưu trữ các phiên bản dự báo, so sánh với kết quả thực tế và theo dõi hiệu quả của từng nguồn dự báo.
+=== DOC 66 ===
+BO-05. Rút ngắn thời gian tạo báo cáo và hỗ trợ quyết định
+=== DOC 67 ===
+Cho phép người dùng tạo báo cáo định kỳ hoặc báo cáo đột xuất dựa trên dữ liệu và thông tin đã được hệ thống tập trung hóa.
+=== DOC 68 ===
+BO-06. Khai thác dữ liệu nội bộ thông qua AI
+=== DOC 69 ===
+Cho phép người dùng truy vấn dữ liệu và tài liệu nội bộ bằng giao diện hội thoại, đồng thời kết hợp với dữ liệu thị trường khi phù hợp và được cấp quyền.
+=== DOC 70 ===
+4. Yêu cầu nghiệp vụ (Business Requirements)
+=== DOC 71 ===
+ID
+=== DOC 72 ===
+Business Requirement
+=== DOC 73 ===
+Kết quả hệ thống cần đáp ứng
+=== DOC 74 ===
+BR-01
+=== DOC 75 ===
+Tập trung hóa dữ liệu thị trường
+=== DOC 76 ===
+Hiển thị các chỉ số thị trường trên một nền tảng thống nhất, có nguồn và thời điểm cập nhật
+=== DOC 77 ===
+BR-02
+=== DOC 78 ===
+Theo dõi diễn biến thị trường
+=== DOC 79 ===
+Hỗ trợ theo dõi lịch sử, biến động giá và các chỉ số liên quan
+=== DOC 80 ===
+BR-03
+=== DOC 81 ===
+Thu thập và tổng hợp tin tức
+=== DOC 82 ===
+Cho phép nhập, tải lên, thu thập và xử lý thông tin từ nhiều nguồn
+=== DOC 83 ===
+BR-04
+=== DOC 84 ===
+Phân tích thông tin thị trường
+=== DOC 85 ===
+Tóm tắt, phân loại, liên kết sự kiện và giải thích bối cảnh thị trường
+=== DOC 86 ===
+BR-05
+=== DOC 87 ===
+So sánh nguồn thông tin
+=== DOC 88 ===
+Hỗ trợ nhận diện nội dung trùng lặp, thông tin mới và giá trị bổ sung giữa các nguồn
+=== DOC 89 ===
+BR-06
+=== DOC 90 ===
+Quản lý dự báo
+=== DOC 91 ===
+Lưu trữ dự báo theo nguồn và thời điểm, không ghi đè phiên bản cũ
+=== DOC 92 ===
+BR-07
+=== DOC 93 ===
+Đánh giá dự báo
+=== DOC 94 ===
+So sánh dự báo với dữ liệu thực tế và theo dõi sai số
+=== DOC 95 ===
+BR-08
+=== DOC 96 ===
+Hỗ trợ phân tích và khuyến nghị
+=== DOC 97 ===
+Cung cấp phân tích về xu hướng, tác động thị trường và các phương án kinh doanh có liên quan
+=== DOC 98 ===
+BR-09
+=== DOC 99 ===
+Tạo báo cáo
+=== DOC 100 ===
+Hỗ trợ báo cáo định kỳ và báo cáo đột xuất theo yêu cầu
+=== DOC 101 ===
+BR-10
+=== DOC 102 ===
+Truy vấn bằng AI
+=== DOC 103 ===
+Cho phép truy vấn dữ liệu thị trường và tài liệu nội bộ bằng ngôn ngữ tự nhiên
+=== DOC 104 ===
+BR-11
+=== DOC 105 ===
+Bảo vệ dữ liệu nội bộ
+=== DOC 106 ===
+Đảm bảo dữ liệu physical và thông tin mật chỉ được truy cập bởi người dùng được cấp quyền
+=== DOC 107 ===
+BR-12
+=== DOC 108 ===
+Truy xuất nguồn tham chiếu
+=== DOC 109 ===
+Các thông tin, nhận định và báo cáo do AI tạo cần có nguồn dữ liệu hoặc tài liệu tham chiếu phù hợp
+=== DOC 110 ===
+5. Kết quả nghiệp vụ kỳ vọng (Expected Business Outcomes)
+=== DOC 111 ===
+Nền tảng cần tạo ra giá trị thực tế cho BSR trên các phương diện:
+=== DOC 112 ===
+Research Efficiency: Giảm thời gian nhân sự dành cho việc thu thập, đối chiếu và tổng hợp thông tin.
+=== DOC 113 ===
+Market Visibility: Nâng cao khả năng theo dõi diễn biến thị trường từ nhiều nguồn trên một giao diện thống nhất.
+=== DOC 114 ===
+Timeliness: Rút ngắn thời gian từ khi xuất hiện sự kiện thị trường đến khi thông tin được xử lý và cung cấp cho người dùng.
+=== DOC 115 ===
+Analytical Depth: Cung cấp phân tích có bối cảnh, kết nối dữ liệu giá, tin tức và các yếu tố nền tảng thay vì chỉ tóm tắt thông tin riêng lẻ.
+=== DOC 116 ===
+Forecast Evaluation: Tạo cơ sở dữ liệu lịch sử để đánh giá chất lượng dự báo theo nguồn và theo thời gian.
+=== DOC 117 ===
+Decision Support: Hỗ trợ lãnh đạo và các bộ phận chuyên môn đưa ra quyết định kinh doanh dựa trên dữ liệu và phân tích có thể kiểm chứng.
+=== DOC 118 ===
+Các chỉ số định lượng cụ thể như tỷ lệ giảm thời gian chuẩn bị báo cáo, thời gian cập nhật thông tin, độ chính xác trích xuất và mức độ sử dụng hệ thống cần được BSR và Reasonary thống nhất trong giai đoạn xác định baseline và nghiệm thu pilot.
+=== DOC 119 ===
+6. Phạm vi và giới hạn nghiệp vụ (Business Scope & Boundaries)
+=== DOC 120 ===
+6.1. Phạm vi hiện tại
+=== DOC 121 ===
+Nền tảng tập trung vào Market Intelligence, bao gồm:
+=== DOC 122 ===
+Market Overview.
+=== DOC 123 ===
+Market Data.
+=== DOC 124 ===
+Market News & Intelligence.
+=== DOC 125 ===
+Market Forecast.
+=== DOC 126 ===
+Market Analysis & Recommendations.
+=== DOC 127 ===
+AI Assistant & Reporting.
+=== DOC 128 ===
+6.2. Ngoài phạm vi triển khai hiện tại
+=== DOC 129 ===
+Không xây dựng một Risk Management Platform hoàn chỉnh trong giai đoạn này.
+=== DOC 130 ===
+Không duy trì Risk Heatmap làm giao diện trung tâm.
+=== DOC 131 ===
+Không triển khai hệ thống đánh giá rủi ro doanh nghiệp toàn diện.
+=== DOC 132 ===
+Không tự động công bố hoặc chia sẻ dữ liệu physical và dữ liệu mật ra ngoài phạm vi được cấp quyền.
+=== DOC 133 ===
+Không yêu cầu tích hợp toàn bộ ERP, Finance, Procurement, Production và các hệ thống vận hành BSR ngay trong MVP.
+=== DOC 134 ===
+Các khuyến nghị AI có vai trò hỗ trợ phân tích và ra quyết định, không tự động thực hiện giao dịch hoặc quyết định kinh doanh thay người có thẩm quyền.
+=== DOC 135 ===
+Các yếu tố địa chính trị và rủi ro có ảnh hưởng đến thị trường vẫn được giữ lại như một phần của Market Intelligence.
+=== DOC 136 ===
+PHẦN II. TỔNG QUAN SẢN PHẨM VÀ NGUYÊN TẮC THIẾT KẾ
+=== DOC 137 ===
+7. Mục tiêu sản phẩm
+=== DOC 138 ===
+BSR Market Intelligence Platform là hệ thống trí tuệ thị trường doanh nghiệp, được xây dựng nhằm thu thập, chuẩn hóa, phân tích và phân phối thông tin thị trường dầu khí.
+=== DOC 139 ===
+Hệ thống cần hỗ trợ người dùng BSR:
+=== DOC 140 ===
+Theo dõi thị trường dầu thô và các sản phẩm lọc dầu trên toàn cầu.
+=== DOC 141 ===
+Tập trung dữ liệu thị trường từ nhiều nguồn thương mại, công khai và nội bộ.
+=== DOC 142 ===
+Tự động thu thập, phân loại và tổng hợp tin tức thị trường.
+=== DOC 143 ===
+So sánh dự báo từ các tổ chức nghiên cứu và phân tích khác nhau.
+=== DOC 144 ===
+Phân tích mối quan hệ giữa các yếu tố thị trường, giá cả và hiệu quả kinh tế lọc dầu.
+=== DOC 145 ===
+Tạo báo cáo Market Intelligence và các khuyến nghị hỗ trợ ra quyết định.
+=== DOC 146 ===
+Truy vấn dữ liệu thị trường và tài liệu nội bộ được cấp quyền thông qua AI Chat.
+=== DOC 147 ===
+Hệ thống phải đảm bảo khả năng truy xuất nguồn gốc giữa thông tin đầu vào, nguồn dữ liệu gốc, kết quả phân tích và các khuyến nghị được tạo ra.
+=== DOC 148 ===
+8. Các module chức năng
+=== DOC 149 ===
+Hệ thống bao gồm sáu module chức năng chính:
+=== DOC 150 ===
+Module
+=== DOC 151 ===
+Chức năng chính
+=== DOC 152 ===
+Market Overview
+=== DOC 153 ===
+Tổng quan diễn biến thị trường và các yếu tố dẫn dắt
+=== DOC 154 ===
+Market Data
+=== DOC 155 ===
+Quản lý, hiển thị và phân tích dữ liệu thị trường
+=== DOC 156 ===
+Market News & Intelligence
+=== DOC 157 ===
+Thu thập, phân loại, tổng hợp và phân tích tin tức
+=== DOC 158 ===
+Market Forecast
+=== DOC 159 ===
+Quản lý, theo dõi và đánh giá dự báo
+=== DOC 160 ===
+Market Analysis & Recommendations
+=== DOC 161 ===
+Phân tích tác động và tạo khuyến nghị
+=== DOC 162 ===
+AI Assistant & Reporting
+=== DOC 163 ===
+Truy vấn dữ liệu, phân tích và tạo báo cáo qua AI
+=== DOC 164 ===
+Các năng lực quản trị, bảo mật, quản lý dữ liệu và điều phối AI là những thành phần dùng chung cho toàn bộ hệ thống.
+=== DOC 165 ===
+9. Nguyên tắc triển khai
+=== DOC 166 ===
+Data-centric: Dữ liệu thị trường và tài liệu phải được lưu trữ, quản lý độc lập với các kết quả do AI tạo ra.
+=== DOC 167 ===
+Source-grounded: Các kết luận do AI tạo ra phải có tham chiếu đến dữ liệu và nguồn thông tin làm cơ sở.
+=== DOC 168 ===
+Time-aware: Dữ liệu thị trường, tin tức, dự báo và kết quả phân tích phải lưu giữ đầy đủ các mốc thời gian liên quan.
+=== DOC 169 ===
+Permission-aware: Quyền truy cập phải được kiểm tra trước khi dữ liệu được cung cấp cho mô hình AI.
+=== DOC 170 ===
+Model-independent: Logic nghiệp vụ không được phụ thuộc trực tiếp vào một nhà cung cấp LLM cụ thể.
+=== DOC 171 ===
+Auditable: Các bước xử lý quan trọng, thay đổi dữ liệu, yêu cầu AI và kết quả đầu ra phải có khả năng truy vết.
+=== DOC 172 ===
+Incremental: Kiến trúc phải cho phép bổ sung nguồn dữ liệu, phương pháp phân tích và năng lực AI mà không phải thiết kế lại các module hiện có.
+=== DOC 173 ===
+Deterministic where possible: Các phép tính tài chính, quy đổi đơn vị, thống kê và kiểm tra dữ liệu phải được thực hiện bằng dịch vụ tính toán có kết quả xác định, không giao cho LLM tự tính.
+=== DOC 174 ===
+Human-controlled: Các quyết định kinh doanh và hành động có ảnh hưởng thực tế vẫn thuộc quyền kiểm soát của người có thẩm quyền.
+=== DOC 175 ===
+PHẦN III. NGƯỜI DÙNG, VAI TRÒ VÀ PHÂN QUYỀN
+=== DOC 176 ===
+10. Nhóm người dùng
+=== DOC 177 ===
+Hệ thống dự kiến phục vụ khoảng 1.550 người dùng.
+=== DOC 178 ===
+Nhóm người dùng
+=== DOC 179 ===
+Số lượng dự kiến
+=== DOC 180 ===
+Trách nhiệm chính
+=== DOC 181 ===
+Lãnh đạo và quản lý
+=== DOC 182 ===
+40
+=== DOC 183 ===
+Theo dõi thông tin, truy vấn dữ liệu, tạo báo cáo
+=== DOC 184 ===
+Đội Market Intelligence
+=== DOC 185 ===
+10
+=== DOC 186 ===
+Quản lý dữ liệu, tin tức, tài liệu và dự báo
+=== DOC 187 ===
+Người dùng nội bộ
+=== DOC 188 ===
+1.500
+=== DOC 189 ===
+Truy cập thông tin thị trường và báo cáo được phê duyệt
+=== DOC 190 ===
+10.1. Lãnh đạo và quản lý
+=== DOC 191 ===
+Xem thông tin thị trường được cấp quyền.
+=== DOC 192 ===
+Truy cập dữ liệu physical mật nếu được cấp quyền cụ thể.
+=== DOC 193 ===
+Truy vấn dữ liệu qua AI Chat.
+=== DOC 194 ===
+Yêu cầu tạo báo cáo đột xuất.
+=== DOC 195 ===
+Xem báo cáo ngày, tuần, tháng.
+=== DOC 196 ===
+Xem các nhận định, dự báo và khuyến nghị.
+=== DOC 197 ===
+Xuất báo cáo theo quyền được cấp.
+=== DOC 198 ===
+Xem nội dung phân tích nội bộ.
+=== DOC 199 ===
+Quyền xem dữ liệu mật không đồng nghĩa với quyền công bố hoặc phát hành dữ liệu đó ra bên ngoài.
+=== DOC 200 ===
+10.2. Đội Market Intelligence
+=== DOC 201 ===
+Nhập tin tức và thông tin thị trường.
+=== DOC 202 ===
+Upload file Excel, PDF, Word và các định dạng được hỗ trợ.
+=== DOC 203 ===
+Nhập dữ liệu giá physical.
+=== DOC 204 ===
+Cập nhật thông tin từ Reuters, Platts và các nguồn khác.
+=== DOC 205 ===
+Kiểm tra, chỉnh sửa và xác nhận dữ liệu AI trích xuất.
+=== DOC 206 ===
+Theo dõi trạng thái xử lý.
+=== DOC 207 ===
+Quản lý nguồn thông tin và dữ liệu đầu vào.
+=== DOC 208 ===
+Tạo và quản lý dự báo nếu được phân quyền.
+=== DOC 209 ===
+10.3. Người dùng nội bộ
+=== DOC 210 ===
+Xem thông tin thị trường đã được phê duyệt và cho phép phổ biến nội bộ.
+=== DOC 211 ===
+Xem báo cáo được công bố cho nhóm người dùng.
+=== DOC 212 ===
+Truy vấn dữ liệu và tài liệu được cấp quyền.
+=== DOC 213 ===
+Không mặc định được xem giá physical mật.
+=== DOC 214 ===
+Không được truy cập dữ liệu nguồn hoặc nội dung bị hạn chế.
+=== DOC 215 ===
+11. Phân quyền truy cập
+=== DOC 216 ===
+Hệ thống phải hỗ trợ phân quyền theo:
+=== DOC 217 ===
+Vai trò người dùng (Role-based Access Control – RBAC).
+=== DOC 218 ===
+Phòng ban (Department).
+=== DOC 219 ===
+Phân loại dữ liệu (Data Classification).
+=== DOC 220 ===
+Quyền truy cập cấp tài liệu (Document-level Permissions).
+=== DOC 221 ===
+Quyền riêng cho từng người dùng (Individual Permissions).
+=== DOC 222 ===
+11.1. Phân loại dữ liệu
+=== DOC 223 ===
+Phân loại
+=== DOC 224 ===
+Mô tả
+=== DOC 225 ===
+Public
+=== DOC 226 ===
+Thông tin thị trường công khai
+=== DOC 227 ===
+Internal
+=== DOC 228 ===
+Thông tin được phép lưu hành nội bộ
+=== DOC 229 ===
+Confidential
+=== DOC 230 ===
+Thông tin nghiệp vụ nhạy cảm
+=== DOC 231 ===
+Restricted
+=== DOC 232 ===
+Giá physical và dữ liệu thương mại mật
+=== DOC 233 ===
+11.2. Các nguyên tắc bảo mật bắt buộc
+=== DOC 234 ===
+Backend phải kiểm tra quyền truy cập trước khi truy xuất dữ liệu.
+=== DOC 235 ===
+AI chỉ được nhận những thông tin mà người dùng gửi yêu cầu có quyền truy cập.
+=== DOC 236 ===
+Kết quả tìm kiếm, câu trả lời AI, báo cáo và file xuất phải tuân thủ cùng một chính sách phân quyền.
+=== DOC 237 ===
+Dữ liệu Restricted không được xuất hiện trong kết quả trả về cho người dùng không có quyền.
+=== DOC 238 ===
+Các hoạt động xem, chỉnh sửa, upload, xóa và xuất dữ liệu nhạy cảm phải được ghi nhận trong Audit Log.
+=== DOC 239 ===
+Quyền xem và quyền xuất bản/chia sẻ dữ liệu phải được cấu hình độc lập.
+=== DOC 240 ===
+Nhà cung cấp AI không được sử dụng dữ liệu mật của BSR để huấn luyện mô hình hoặc chia sẻ ra bên ngoài nếu chưa có sự cho phép rõ ràng của BSR.
+=== DOC 241 ===
+Yêu cầu triển khai: Cơ chế phân quyền phải được thực thi tại tầng ứng dụng và dữ liệu, không được phụ thuộc vào việc yêu cầu LLM tự tuân thủ thông qua prompt.
+=== DOC 242 ===
+PHẦN IV. YÊU CẦU CHỨC NĂNG
+=== DOC 243 ===
+12. Module 1 – Market Overview
+=== DOC 244 ===
+12.1. Market Snapshot – Tổng quan dữ liệu thị trường
+=== DOC 245 ===
+Hiển thị giá trị mới nhất của các chỉ số:
+=== DOC 246 ===
+Brent.
+=== DOC 247 ===
+WTI.
+=== DOC 248 ===
+Các chỉ số giá dầu thô liên quan.
+=== DOC 249 ===
+Gasoline và các sản phẩm lọc dầu khác.
+=== DOC 250 ===
+Giá futures.
+=== DOC 251 ===
+Giá physical (theo quyền truy cập).
+=== DOC 252 ===
+Product crack spread.
+=== DOC 253 ===
+USD/VND.
+=== DOC 254 ===
+Các chỉ số kinh tế vĩ mô liên quan.
+=== DOC 255 ===
+Mỗi chỉ số phải hỗ trợ:
+=== DOC 256 ===
+Trường
+=== DOC 257 ===
+Mô tả
+=== DOC 258 ===
+Instrument
+=== DOC 259 ===
+Mã định danh chỉ số thị trường
+=== DOC 260 ===
+Value
+=== DOC 261 ===
+Giá trị mới nhất
+=== DOC 262 ===
+Unit
+=== DOC 263 ===
+Đơn vị đo
+=== DOC 264 ===
+Previous Value
+=== DOC 265 ===
+Giá trị kỳ trước
+=== DOC 266 ===
+Absolute Change
+=== DOC 267 ===
+Mức thay đổi tuyệt đối
+=== DOC 268 ===
+Percentage Change
+=== DOC 269 ===
+Mức thay đổi phần trăm
+=== DOC 270 ===
+Market Timestamp
+=== DOC 271 ===
+Thời điểm giá trị thị trường được ghi nhận
+=== DOC 272 ===
+Ingestion Timestamp
+=== DOC 273 ===
+Thời điểm hệ thống tiếp nhận dữ liệu
+=== DOC 274 ===
+Source
+=== DOC 275 ===
+Nguồn dữ liệu
+=== DOC 276 ===
+Data Status
+=== DOC 277 ===
+Real-time, Delayed, End-of-day hoặc Manual
+=== DOC 278 ===
+Data Quality
+=== DOC 279 ===
+Trạng thái kiểm tra chất lượng dữ liệu
+=== DOC 280 ===
+Market Timestamp và Ingestion Timestamp phải được lưu riêng biệt.
+=== DOC 281 ===
+Dashboard không được hiển thị dữ liệu đã bị trễ hoặc quá cũ như dữ liệu thời gian thực.
+=== DOC 282 ===
+12.2. Market Highlights – Các diễn biến nổi bật
+=== DOC 283 ===
+AI tổng hợp các diễn biến quan trọng:
+=== DOC 284 ===
+Biến động đáng chú ý của thị trường.
+=== DOC 285 ===
+Diễn biến cung và cầu.
+=== DOC 286 ===
+Các sự kiện địa chính trị.
+=== DOC 287 ===
+Thay đổi trong hoạt động của nhà máy lọc dầu.
+=== DOC 288 ===
+Diễn biến vận tải và logistics.
+=== DOC 289 ===
+Các sự kiện có khả năng ảnh hưởng đến hoạt động kinh doanh của BSR.
+=== DOC 290 ===
+Mỗi nội dung phải có tham chiếu nguồn, thời điểm công bố và phân biệt rõ giữa sự kiện được nguồn thông tin ghi nhận với nhận định do AI tạo ra.
+=== DOC 291 ===
+12.3. Key Market Drivers – Các yếu tố dẫn dắt thị trường
+=== DOC 292 ===
+Hiển thị các yếu tố quan trọng theo nhóm:
+=== DOC 293 ===
+Nguồn cung dầu thô.
+=== DOC 294 ===
+Nhu cầu dầu thô.
+=== DOC 295 ===
+Chính sách OPEC+.
+=== DOC 296 ===
+Nguồn cung Trung Đông.
+=== DOC 297 ===
+Vận tải và logistics.
+=== DOC 298 ===
+Nhu cầu châu Á.
+=== DOC 299 ===
+Tồn kho dầu.
+=== DOC 300 ===
+Hoạt động nhà máy lọc dầu.
+=== DOC 301 ===
+Các chỉ số kinh tế vĩ mô.
+=== DOC 302 ===
+Tỷ giá ngoại tệ.
+=== DOC 303 ===
+12.4. AI Market Briefing – Bản tin thị trường AI
+=== DOC 304 ===
+Hệ thống tạo bản tổng hợp thị trường bao gồm:
+=== DOC 305 ===
+Diễn biến thị trường trong 24 giờ gần nhất.
+=== DOC 306 ===
+Những biến động giá quan trọng.
+=== DOC 307 ===
+Các yếu tố chính dẫn dắt thị trường.
+=== DOC 308 ===
+Những thông tin mới đáng chú ý.
+=== DOC 309 ===
+Những thay đổi so với bản tin trước đó.
+=== DOC 310 ===
+Các sự kiện cần tiếp tục theo dõi.
+=== DOC 311 ===
+Tác động tiềm năng đến hoạt động của BSR.
+=== DOC 312 ===
+Hệ thống phải lưu giữ các phiên bản Market Briefing đã tạo để người dùng có thể so sánh sự thay đổi trong nhận định thị trường theo thời gian.
+=== DOC 313 ===
+13. Module 2 – Market Data
+=== DOC 314 ===
+13.1. Các nhóm dữ liệu được hỗ trợ
+=== DOC 315 ===
+A. Crude Oil – Dầu thô
+=== DOC 316 ===
+Brent Futures.
+=== DOC 317 ===
+WTI Futures.
+=== DOC 318 ===
+Brent Physical.
+=== DOC 319 ===
+WTI Physical, nếu có dữ liệu.
+=== DOC 320 ===
+Các loại dầu thô khác liên quan đến hoạt động của BSR.
+=== DOC 321 ===
+B. Refined Products – Sản phẩm lọc dầu
+=== DOC 322 ===
+Sản phẩm ưu tiên:
+=== DOC 323 ===
+Gasoline.
+=== DOC 324 ===
+Các nhóm có thể mở rộng:
+=== DOC 325 ===
+Diesel.
+=== DOC 326 ===
+Jet Fuel.
+=== DOC 327 ===
+Fuel Oil.
+=== DOC 328 ===
+Các sản phẩm dầu mỏ khác.
+=== DOC 329 ===
+C. Crack Spread
+=== DOC 330 ===
+Hệ thống phải hỗ trợ:
+=== DOC 331 ===
+Product crack spread.
+=== DOC 332 ===
+Gasoline crack spread.
+=== DOC 333 ===
+Crack spread tính theo futures.
+=== DOC 334 ===
+Crack spread tính theo physical.
+=== DOC 335 ===
+Crack spread theo công thức riêng của BSR.
+=== DOC 336 ===
+Mỗi công thức crack spread phải có khả năng cấu hình.
+=== DOC 337 ===
+Một phép tính crack spread phải lưu giữ:
+=== DOC 338 ===
+Formula ID.
+=== DOC 339 ===
+Danh sách các chỉ số đầu vào.
+=== DOC 340 ===
+Giá trị đầu vào.
+=== DOC 341 ===
+Quy tắc quy đổi đơn vị.
+=== DOC 342 ===
+Thời điểm tính toán.
+=== DOC 343 ===
+Phiên bản công thức.
+=== DOC 344 ===
+Hệ thống không được trộn lẫn giá futures và physical trong cùng một phép tính, trừ khi công thức được cấu hình rõ ràng yêu cầu điều đó.
+=== DOC 345 ===
+D. FX & Macroeconomic Indicators
+=== DOC 346 ===
+USD/VND.
+=== DOC 347 ===
+DXY.
+=== DOC 348 ===
+Các chỉ số kinh tế vĩ mô khác có liên quan.
+=== DOC 349 ===
+13.2. Cấu trúc dữ liệu thị trường
+=== DOC 350 ===
+Mỗi bản ghi quan sát thị trường (Market Observation) phải bao gồm:
+=== DOC 351 ===
+Trường
+=== DOC 352 ===
+Mô tả
+=== DOC 353 ===
+Instrument ID
+=== DOC 354 ===
+Mã định danh duy nhất
+=== DOC 355 ===
+Instrument Name
+=== DOC 356 ===
+Tên chỉ số
+=== DOC 357 ===
+Asset Category
+=== DOC 358 ===
+Crude, Product, FX, Macro, Spread
+=== DOC 359 ===
+Price Type
+=== DOC 360 ===
+Futures, Physical, Index hoặc Calculated
+=== DOC 361 ===
+Value
+=== DOC 362 ===
+Giá trị số
+=== DOC 363 ===
+Unit
+=== DOC 364 ===
+Đơn vị đo
+=== DOC 365 ===
+Currency
+=== DOC 366 ===
+Đồng tiền định giá
+=== DOC 367 ===
+Market Timestamp
+=== DOC 368 ===
+Thời điểm ghi nhận giá trên thị trường
+=== DOC 369 ===
+Ingestion Timestamp
+=== DOC 370 ===
+Thời điểm hệ thống tiếp nhận
+=== DOC 371 ===
+Source ID
+=== DOC 372 ===
+Mã nguồn dữ liệu
+=== DOC 373 ===
+Data Status
+=== DOC 374 ===
+Real-time, Delayed, EOD hoặc Manual
+=== DOC 375 ===
+Quality Status
+=== DOC 376 ===
+Valid, Pending, Rejected hoặc Corrected
+=== DOC 377 ===
+Classification
+=== DOC 378 ===
+Phân loại bảo mật
+=== DOC 379 ===
+Hệ thống phải bảo toàn dữ liệu lịch sử và các lần điều chỉnh dữ liệu. Bản ghi mới không được âm thầm ghi đè lên các bản ghi đã lưu trước đó.
+=== DOC 380 ===
+13.3. Hiển thị và trực quan hóa dữ liệu
+=== DOC 381 ===
+Người dùng cần có khả năng:
+=== DOC 382 ===
+Xem dữ liệu lịch sử dưới dạng chuỗi thời gian.
+=== DOC 383 ===
+So sánh nhiều chỉ số.
+=== DOC 384 ===
+Lựa chọn khoảng thời gian.
+=== DOC 385 ===
+Chuyển đổi giữa các chế độ intraday, daily, weekly và monthly nếu dữ liệu nguồn hỗ trợ.
+=== DOC 386 ===
+Xem giá trị tuyệt đối và tỷ lệ thay đổi.
+=== DOC 387 ===
+Xem nguồn dữ liệu và thời điểm cập nhật.
+=== DOC 388 ===
+Phân biệt futures, physical và dữ liệu tính toán.
+=== DOC 389 ===
+Xuất dữ liệu theo quyền được cấp.
+=== DOC 390 ===
+13.4. Quản lý nguồn dữ liệu
+=== DOC 391 ===
+Hệ thống cần có cấu hình nguồn dữ liệu, bao gồm:
+=== DOC 392 ===
+Source ID và tên nguồn.
+=== DOC 393 ===
+Loại nguồn: API, file upload, manual input hoặc external provider.
+=== DOC 394 ===
+Loại dữ liệu được cung cấp.
+=== DOC 395 ===
+Tần suất cập nhật.
+=== DOC 396 ===
+Trạng thái kết nối.
+=== DOC 397 ===
+Quy tắc kiểm tra dữ liệu.
+=== DOC 398 ===
+Quyền sử dụng và phân loại bảo mật.
+=== DOC 399 ===
+Thông tin lỗi ingestion.
+=== DOC 400 ===
+Không mặc định rằng tất cả nguồn thương mại đều có API hoặc quyền truy cập tự động. Việc tích hợp phụ thuộc vào giấy phép và khả năng kỹ thuật của từng nhà cung cấp.
+=== DOC 401 ===
+14. Module 3 – Market News & Intelligence
+=== DOC 402 ===
+14.1. News Input và File Upload
+=== DOC 403 ===
+Cho phép người dùng:
+=== DOC 404 ===
+Nhập nội dung tin tức trực tiếp.
+=== DOC 405 ===
+Nhập URL nếu hệ thống được phép truy cập.
+=== DOC 406 ===
+Upload PDF, Word, Excel và các định dạng được hỗ trợ.
+=== DOC 407 ===
+Nhập báo cáo nghiên cứu.
+=== DOC 408 ===
+Nhập thông tin từ nguồn thương mại.
+=== DOC 409 ===
+Gắn nguồn, ngày công bố và phân loại bảo mật.
+=== DOC 410 ===
+Mỗi tài liệu hoặc tin tức phải được lưu cùng metadata và quyền truy cập.
+=== DOC 411 ===
+14.2. News Processing Pipeline
+=== DOC 412 ===
+Quy trình xử lý tin tức:
+=== DOC 413 ===
+Tiếp nhận dữ liệu.
+=== DOC 414 ===
+Kiểm tra định dạng và tính hợp lệ.
+=== DOC 415 ===
+Trích xuất nội dung.
+=== DOC 416 ===
+Chuẩn hóa metadata.
+=== DOC 417 ===
+Phát hiện trùng lặp.
+=== DOC 418 ===
+Phân loại chủ đề.
+=== DOC 419 ===
+Trích xuất thực thể và sự kiện.
+=== DOC 420 ===
+Tóm tắt nội dung.
+=== DOC 421 ===
+Xác định các chỉ số hoặc thị trường liên quan.
+=== DOC 422 ===
+Lưu trữ và lập chỉ mục.
+=== DOC 423 ===
+Đưa vào Market News Feed và các workflow phân tích.
+=== DOC 424 ===
+Mỗi bước cần có trạng thái xử lý và thông tin lỗi để có thể retry hoặc kiểm tra thủ công.
+=== DOC 425 ===
+14.3. News Classification
+=== DOC 426 ===
+Hệ thống cần hỗ trợ phân loại tin tức theo các nhóm:
+=== DOC 427 ===
+Crude Supply.
+=== DOC 428 ===
+Crude Demand.
+=== DOC 429 ===
+Refining Operations.
+=== DOC 430 ===
+Refined Products.
+=== DOC 431 ===
+OPEC+.
+=== DOC 432 ===
+Geopolitics.
+=== DOC 433 ===
+Shipping & Freight.
+=== DOC 434 ===
+Inventory.
+=== DOC 435 ===
+Macroeconomics.
+=== DOC 436 ===
+FX.
+=== DOC 437 ===
+Energy Policy.
+=== DOC 438 ===
+Other.
+=== DOC 439 ===
+Danh mục có thể được cấu hình và mở rộng.
+=== DOC 440 ===
+14.4. News Deduplication
+=== DOC 441 ===
+Hệ thống cần nhận diện các tin tức có nội dung tương tự hoặc cùng mô tả một sự kiện.
+=== DOC 442 ===
+Kết quả xử lý cần phân biệt:
+=== DOC 443 ===
+Tin trùng lặp gần như hoàn toàn.
+=== DOC 444 ===
+Các phiên bản cập nhật của cùng một sự kiện.
+=== DOC 445 ===
+Các bài viết độc lập về cùng một sự kiện.
+=== DOC 446 ===
+Thông tin mới có giá trị bổ sung.
+=== DOC 447 ===
+Không được tự động xóa nội dung nguồn. Các bản tin liên quan phải được liên kết để người dùng có thể truy xuất nguồn gốc.
+=== DOC 448 ===
+14.5. News Coverage Comparison
+=== DOC 449 ===
+Cho phép so sánh nội dung giữa các nguồn thông tin.
+=== DOC 450 ===
+Hệ thống cần hỗ trợ:
+=== DOC 451 ===
+Xác định chủ đề được nhiều nguồn đề cập.
+=== DOC 452 ===
+Xác định nguồn cung cấp thông tin mới.
+=== DOC 453 ===
+So sánh các chi tiết khác biệt giữa các nguồn.
+=== DOC 454 ===
+Phát hiện thông tin chưa được các nguồn khác đề cập.
+=== DOC 455 ===
+Hiển thị nguồn và thời điểm công bố.
+=== DOC 456 ===
+Phân biệt dữ kiện từ nguồn với nhận định do AI tổng hợp.
+=== DOC 457 ===
+Mục tiêu là đánh giá độ bao phủ và giá trị bổ sung của nguồn, không tự động kết luận nguồn nào đáng tin cậy hơn chỉ dựa trên số lượng bài viết.
+=== DOC 458 ===
+14.6. Market News Feed
+=== DOC 459 ===
+Cung cấp danh sách tin tức với khả năng:
+=== DOC 460 ===
+Lọc theo thời gian.
+=== DOC 461 ===
+Lọc theo nguồn.
+=== DOC 462 ===
+Lọc theo chủ đề.
+=== DOC 463 ===
+Lọc theo thị trường hoặc thực thể liên quan.
+=== DOC 464 ===
+Tìm kiếm nội dung.
+=== DOC 465 ===
+Xem bản tóm tắt.
+=== DOC 466 ===
+Xem nguồn gốc và thời điểm.
+=== DOC 467 ===
+Xem các tin liên quan.
+=== DOC 468 ===
+Xem trạng thái xử lý.
+=== DOC 469 ===
+14.7. Continuous News Monitoring
+=== DOC 470 ===
+Trong giai đoạn có tích hợp nguồn tự động, hệ thống cần hỗ trợ:
+=== DOC 471 ===
+Theo dõi các nguồn tin được cấu hình.
+=== DOC 472 ===
+Tự động tiếp nhận nội dung mới.
+=== DOC 473 ===
+Phát hiện sự kiện quan trọng.
+=== DOC 474 ===
+Cập nhật chủ đề đang theo dõi.
+=== DOC 475 ===
+Tạo thông báo theo điều kiện cấu hình.
+=== DOC 476 ===
+Cơ chế cảnh báo và tần suất cập nhật phụ thuộc khả năng cung cấp dữ liệu và giấy phép của từng nguồn.
+=== DOC 477 ===
+15. Module 4 – Market Forecast
+=== DOC 478 ===
+15.1. Forecast Input
+=== DOC 479 ===
+Cho phép nhập dự báo từ:
+=== DOC 480 ===
+Các tổ chức nghiên cứu.
+=== DOC 481 ===
+Các nhà cung cấp dữ liệu thương mại.
+=== DOC 482 ===
+Báo cáo phân tích.
+=== DOC 483 ===
+Dự báo nội bộ do người dùng có quyền nhập.
+=== DOC 484 ===
+Thông tin dự báo cần lưu:
+=== DOC 485 ===
+Trường
+=== DOC 486 ===
+Mô tả
+=== DOC 487 ===
+Forecast ID
+=== DOC 488 ===
+Mã dự báo
+=== DOC 489 ===
+Source
+=== DOC 490 ===
+Nguồn dự báo
+=== DOC 491 ===
+Instrument
+=== DOC 492 ===
+Chỉ số được dự báo
+=== DOC 493 ===
+Forecast Value
+=== DOC 494 ===
+Giá trị dự báo
+=== DOC 495 ===
+Forecast Period
+=== DOC 496 ===
+Khoảng thời gian dự báo
+=== DOC 497 ===
+Forecast Horizon
+=== DOC 498 ===
+Thời hạn dự báo
+=== DOC 499 ===
+Publication Date
+=== DOC 500 ===
+Ngày công bố
+=== DOC 501 ===
+Ingestion Date
+=== DOC 502 ===
+Ngày hệ thống tiếp nhận
+=== DOC 503 ===
+Version
+=== DOC 504 ===
+Phiên bản dự báo
+=== DOC 505 ===
+Methodology
+=== DOC 506 ===
+Phương pháp dự báo nếu có
+=== DOC 507 ===
+Source Document
+=== DOC 508 ===
+Tài liệu nguồn
+=== DOC 509 ===
+Classification
+=== DOC 510 ===
+Phân loại bảo mật
+=== DOC 511 ===
+15.2. Forecast Versioning
+=== DOC 512 ===
+Mỗi lần cập nhật dự báo phải tạo một phiên bản mới.
+=== DOC 513 ===
+Không ghi đè dự báo cũ.
+=== DOC 514 ===
+Hệ thống phải hỗ trợ:
+=== DOC 515 ===
+Xem các phiên bản theo thời gian.
+=== DOC 516 ===
+So sánh thay đổi giữa các phiên bản.
+=== DOC 517 ===
+Xác định thời điểm công bố.
+=== DOC 518 ===
+Xác định nguồn dự báo.
+=== DOC 519 ===
+Truy xuất tài liệu gốc.
+=== DOC 520 ===
+15.3. Forecast vs Actual
+=== DOC 521 ===
+Hệ thống so sánh dự báo với kết quả thực tế sau khi dữ liệu thực tế được cập nhật.
+=== DOC 522 ===
+Các chỉ số đánh giá có thể bao gồm:
+=== DOC 523 ===
+Absolute Error.
+=== DOC 524 ===
+Percentage Error.
+=== DOC 525 ===
+Mean Absolute Error (MAE).
+=== DOC 526 ===
+Mean Absolute Percentage Error (MAPE), khi phù hợp.
+=== DOC 527 ===
+Forecast Bias.
+=== DOC 528 ===
+Accuracy theo nguồn.
+=== DOC 529 ===
+Accuracy theo instrument.
+=== DOC 530 ===
+Accuracy theo forecast horizon.
+=== DOC 531 ===
+Cần xử lý rõ trường hợp dữ liệu thực tế thiếu, thay đổi hoặc được điều chỉnh sau khi công bố.
+=== DOC 532 ===
+15.4. Forecast Accuracy Dashboard
+=== DOC 533 ===
+Hiển thị:
+=== DOC 534 ===
+So sánh dự báo và thực tế.
+=== DOC 535 ===
+Sai số theo nguồn.
+=== DOC 536 ===
+Sai số theo thời hạn dự báo.
+=== DOC 537 ===
+Xu hướng chất lượng dự báo qua thời gian.
+=== DOC 538 ===
+So sánh các phiên bản dự báo.
+=== DOC 539 ===
+Các chỉ số đánh giá phải được tính toán bằng dịch vụ thống kê xác định, không để LLM tự tính.
+=== DOC 540 ===
+16. Module 5 – Market Analysis & Recommendations
+=== DOC 541 ===
+16.1. Market Trend Analysis
+=== DOC 542 ===
+Hệ thống hỗ trợ phân tích:
+=== DOC 543 ===
+Xu hướng giá dầu thô.
+=== DOC 544 ===
+Xu hướng giá sản phẩm.
+=== DOC 545 ===
+Biến động crack spread.
+=== DOC 546 ===
+Quan hệ giữa Brent và WTI.
+=== DOC 547 ===
+Quan hệ giữa crude, product và freight.
+=== DOC 548 ===
+Biến động tỷ giá.
+=== DOC 549 ===
+Biến động cung cầu.
+=== DOC 550 ===
+Các trạng thái thị trường khác nhau theo thời gian.
+=== DOC 551 ===
+Các phân tích cần sử dụng dữ liệu lịch sử và hiển thị khoảng thời gian, dữ liệu đầu vào, phương pháp và nguồn liên quan.
+=== DOC 552 ===
+16.2. Financial Time-Series Analysis
+=== DOC 553 ===
+Hệ thống cần hỗ trợ các phép phân tích chuỗi thời gian như:
+=== DOC 554 ===
+Return và price change.
+=== DOC 555 ===
+Rolling volatility.
+=== DOC 556 ===
+Moving average.
+=== DOC 557 ===
+Trend detection.
+=== DOC 558 ===
+Correlation.
+=== DOC 559 ===
+Rolling correlation.
+=== DOC 560 ===
+Spread analysis.
+=== DOC 561 ===
+Historical regime comparison.
+=== DOC 562 ===
+Forecast error analysis.
+=== DOC 563 ===
+Các phương pháp và tham số phân tích cần được lưu lại để có thể tái lập kết quả.
+=== DOC 564 ===
+16.3. Cross-Market Analysis
+=== DOC 565 ===
+Hệ thống phân tích mối quan hệ giữa:
+=== DOC 566 ===
+Crude prices.
+=== DOC 567 ===
+Refined product prices.
+=== DOC 568 ===
+Crack spreads.
+=== DOC 569 ===
+Freight và shipping.
+=== DOC 570 ===
+Supply and demand.
+=== DOC 571 ===
+Refinery operations.
+=== DOC 572 ===
+Inventory.
+=== DOC 573 ===
+FX.
+=== DOC 574 ===
+Macroeconomic indicators.
+=== DOC 575 ===
+Geopolitical developments.
+=== DOC 576 ===
+Không mặc định rằng tương quan đồng nghĩa với quan hệ nhân quả.
+=== DOC 577 ===
+Các nhận định về nguyên nhân và tác động phải phân biệt rõ:
+=== DOC 578 ===
+Dữ liệu quan sát được.
+=== DOC 579 ===
+Mối tương quan thống kê.
+=== DOC 580 ===
+Giả thuyết giải thích.
+=== DOC 581 ===
+Kết luận có bằng chứng hỗ trợ.
+=== DOC 582 ===
+16.4. Market Impact Analysis
+=== DOC 583 ===
+Khi xuất hiện sự kiện quan trọng, hệ thống cần hỗ trợ phân tích:
+=== DOC 584 ===
+Sự kiện là gì?
+=== DOC 585 ===
+Các thị trường hoặc chỉ số nào có liên quan?
+=== DOC 586 ===
+Cơ chế tác động tiềm năng là gì?
+=== DOC 587 ===
+Những dữ liệu nào đang hỗ trợ nhận định?
+=== DOC 588 ===
+Những yếu tố nào có thể làm thay đổi kết quả?
+=== DOC 589 ===
+Những chỉ số nào cần tiếp tục theo dõi?
+=== DOC 590 ===
+Mức độ không chắc chắn của phân tích là gì?
+=== DOC 591 ===
+16.5. Geopolitical Intelligence
+=== DOC 592 ===
+Theo dõi và phân tích các yếu tố địa chính trị có ảnh hưởng đến thị trường năng lượng:
+=== DOC 593 ===
+Xung đột và bất ổn khu vực.
+=== DOC 594 ===
+Gián đoạn nguồn cung.
+=== DOC 595 ===
+Chính sách năng lượng.
+=== DOC 596 ===
+Lệnh trừng phạt.
+=== DOC 597 ===
+Các tuyến vận tải chiến lược.
+=== DOC 598 ===
+Rủi ro vận tải và logistics.
+=== DOC 599 ===
+Hệ thống cần liên kết sự kiện với thị trường, nguồn cung, vận tải và các chỉ số liên quan.
+=== DOC 600 ===
+16.6. AI Market Recommendations
+=== DOC 601 ===
+AI có thể tạo các khuyến nghị hỗ trợ phân tích và quyết định, bao gồm:
+=== DOC 602 ===
+Các diễn biến cần theo dõi.
+=== DOC 603 ===
+Các kịch bản thị trường.
+=== DOC 604 ===
+Các yếu tố có thể ảnh hưởng đến hoạt động mua dầu thô.
+=== DOC 605 ===
+Các yếu tố có thể ảnh hưởng đến hiệu quả kinh tế lọc dầu.
+=== DOC 606 ===
+Các phương án cần xem xét.
+=== DOC 607 ===
+Các rủi ro và giả định liên quan.
+=== DOC 608 ===
+Mỗi khuyến nghị phải thể hiện:
+=== DOC 609 ===
+Bối cảnh.
+=== DOC 610 ===
+Dữ liệu và nguồn tham chiếu.
+=== DOC 611 ===
+Lập luận.
+=== DOC 612 ===
+Giả định.
+=== DOC 613 ===
+Các yếu tố không chắc chắn.
+=== DOC 614 ===
+Mức độ tin cậy hoặc giới hạn của phân tích.
+=== DOC 615 ===
+Thời điểm tạo và phiên bản.
+=== DOC 616 ===
+Khuyến nghị chỉ có vai trò hỗ trợ ra quyết định. Không tự động thực hiện giao dịch hoặc quyết định kinh doanh thay người có thẩm quyền.
+=== DOC 617 ===
+17. Module 6 – AI Assistant & Reporting
+=== DOC 618 ===
+17.1. AI Chat
+=== DOC 619 ===
+Người dùng có thể truy vấn bằng ngôn ngữ tự nhiên, ví dụ:
+=== DOC 620 ===
+Brent đã biến động như thế nào trong 30 ngày qua?
+=== DOC 621 ===
+Những yếu tố nào đang dẫn dắt thị trường dầu?
+=== DOC 622 ===
+So sánh diễn biến Brent và WTI.
+=== DOC 623 ===
+Crack spread gasoline đang thay đổi như thế nào?
+=== DOC 624 ===
+Những tin tức nào có thể ảnh hưởng đến nguồn cung dầu?
+=== DOC 625 ===
+So sánh dự báo của các tổ chức khác nhau.
+=== DOC 626 ===
+Tóm tắt những thay đổi đáng chú ý kể từ bản tin gần nhất.
+=== DOC 627 ===
+Tạo báo cáo về một chủ đề thị trường cụ thể.
+=== DOC 628 ===
+AI Chat cần hỗ trợ:
+=== DOC 629 ===
+Truy vấn dữ liệu thị trường.
+=== DOC 630 ===
+Truy vấn tin tức.
+=== DOC 631 ===
+Truy vấn báo cáo và tài liệu.
+=== DOC 632 ===
+Kết hợp dữ liệu từ nhiều module.
+=== DOC 633 ===
+Thực hiện phân tích thông qua các analytical services.
+=== DOC 634 ===
+Tạo nội dung có dẫn nguồn.
+=== DOC 635 ===
+Tạo báo cáo theo yêu cầu.
+=== DOC 636 ===
+17.2. Chat Processing Workflow
+=== DOC 637 ===
+Một yêu cầu AI Chat được xử lý theo quy trình:
+=== DOC 638 ===
+Nhận câu hỏi từ người dùng.
+=== DOC 639 ===
+Xác thực người dùng và quyền truy cập.
+=== DOC 640 ===
+Phân tích ý định và loại nhiệm vụ.
+=== DOC 641 ===
+Xác định nguồn dữ liệu cần thiết.
+=== DOC 642 ===
+Truy xuất dữ liệu theo quyền.
+=== DOC 643 ===
+Xác định các phép phân tích cần thực hiện.
+=== DOC 644 ===
+Gửi nhiệm vụ AI qua Auker.
+=== DOC 645 ===
+Auker lựa chọn mô hình, mức độ suy luận, công cụ và chiến lược thực thi phù hợp.
+=== DOC 646 ===
+Thực hiện các analytical tools hoặc truy vấn cần thiết.
+=== DOC 647 ===
+Tổng hợp kết quả.
+=== DOC 648 ===
+Kiểm tra cấu trúc, nguồn tham chiếu và các điều kiện đầu ra.
+=== DOC 649 ===
+Trả kết quả cho người dùng.
+=== DOC 650 ===
+Lưu lịch sử và thông tin kiểm toán theo chính sách.
+=== DOC 651 ===
+17.3. Document Upload & Question Answering
+=== DOC 652 ===
+Người dùng được phép upload tài liệu theo quyền được cấp.
+=== DOC 653 ===
+Hệ thống cần hỗ trợ:
+=== DOC 654 ===
+Kiểm tra định dạng.
+=== DOC 655 ===
+Trích xuất nội dung.
+=== DOC 656 ===
+Lưu metadata.
+=== DOC 657 ===
+Phân loại tài liệu.
+=== DOC 658 ===
+Lập chỉ mục tìm kiếm.
+=== DOC 659 ===
+Truy vấn nội dung bằng AI.
+=== DOC 660 ===
+Trích dẫn nguồn và vị trí nội dung trong tài liệu.
+=== DOC 661 ===
+Tài liệu cần giữ nguyên classification và quyền truy cập trong toàn bộ quá trình xử lý.
+=== DOC 662 ===
+17.4. Reporting
+=== DOC 663 ===
+Hệ thống cần hỗ trợ các loại báo cáo:
+=== DOC 664 ===
+Morning Briefing.
+=== DOC 665 ===
+End-of-day Report.
+=== DOC 666 ===
+Daily Market Report.
+=== DOC 667 ===
+Weekly Market Report.
+=== DOC 668 ===
+Monthly Market Report.
+=== DOC 669 ===
+On-demand Market Analysis.
+=== DOC 670 ===
+Event-driven Market Report.
+=== DOC 671 ===
+Báo cáo phải hỗ trợ:
+=== DOC 672 ===
+Tạo nội dung tự động.
+=== DOC 673 ===
+Lưu phiên bản.
+=== DOC 674 ===
+Hiển thị nguồn tham chiếu.
+=== DOC 675 ===
+Xuất PDF.
+=== DOC 676 ===
+Kiểm tra quyền truy cập trước khi xuất.
+=== DOC 677 ===
+Phân biệt dữ kiện, tính toán và nhận định AI.
+=== DOC 678 ===
+17.5. Report Versioning
+=== DOC 679 ===
+Mỗi báo cáo được tạo phải lưu:
+=== DOC 680 ===
+Report ID.
+=== DOC 681 ===
+Report Type.
+=== DOC 682 ===
+Creation Timestamp.
+=== DOC 683 ===
+Data Cut-off Timestamp.
+=== DOC 684 ===
+Source References.
+=== DOC 685 ===
+AI Model/Allocation Metadata phù hợp với chính sách lưu trữ.
+=== DOC 686 ===
+Nội dung báo cáo.
+=== DOC 687 ===
+Version.
+=== DOC 688 ===
+Người yêu cầu.
+=== DOC 689 ===
+Trạng thái phê duyệt nếu có.
+=== DOC 690 ===
+Báo cáo đã tạo không được âm thầm thay đổi khi dữ liệu nguồn được cập nhật sau đó.
+=== DOC 691 ===
+PHẦN V. MÔ HÌNH DỮ LIỆU VÀ QUẢN LÝ NGUỒN
+=== DOC 692 ===
+18. Các thực thể dữ liệu chính
+=== DOC 693 ===
+Hệ thống cần quản lý tối thiểu các nhóm thực thể sau:
+=== DOC 694 ===
+Entity
+=== DOC 695 ===
+Mô tả
+=== DOC 696 ===
+User
+=== DOC 697 ===
+Người dùng
+=== DOC 698 ===
+Role
+=== DOC 699 ===
+Vai trò
+=== DOC 700 ===
+Department
+=== DOC 701 ===
+Phòng ban
+=== DOC 702 ===
+Permission
+=== DOC 703 ===
+Quyền truy cập
+=== DOC 704 ===
+DataSource
+=== DOC 705 ===
+Nguồn dữ liệu
+=== DOC 706 ===
+Instrument
+=== DOC 707 ===
+Chỉ số thị trường
+=== DOC 708 ===
+MarketObservation
+=== DOC 709 ===
+Bản ghi dữ liệu thị trường
+=== DOC 710 ===
+Formula
+=== DOC 711 ===
+Công thức tính toán
+=== DOC 712 ===
+NewsItem
+=== DOC 713 ===
+Tin tức
+=== DOC 714 ===
+Event
+=== DOC 715 ===
+Sự kiện thị trường
+=== DOC 716 ===
+Document
+=== DOC 717 ===
+Tài liệu
+=== DOC 718 ===
+Forecast
+=== DOC 719 ===
+Dự báo
+=== DOC 720 ===
+ForecastVersion
+=== DOC 721 ===
+Phiên bản dự báo
+=== DOC 722 ===
+Analysis
+=== DOC 723 ===
+Kết quả phân tích
+=== DOC 724 ===
+Recommendation
+=== DOC 725 ===
+Khuyến nghị
+=== DOC 726 ===
+Report
+=== DOC 727 ===
+Báo cáo
+=== DOC 728 ===
+ReportVersion
+=== DOC 729 ===
+Phiên bản báo cáo
+=== DOC 730 ===
+ChatSession
+=== DOC 731 ===
+Phiên hội thoại
+=== DOC 732 ===
+ChatMessage
+=== DOC 733 ===
+Tin nhắn
+=== DOC 734 ===
+AIExecution
+=== DOC 735 ===
+Lần thực thi AI
+=== DOC 736 ===
+AuditLog
+=== DOC 737 ===
+Nhật ký kiểm toán
+=== DOC 738 ===
+19. Quản lý thời gian và nguồn gốc dữ liệu
+=== DOC 739 ===
+Đối với các đối tượng có yếu tố thời gian, hệ thống cần phân biệt:
+=== DOC 740 ===
+Event Time: Thời điểm sự kiện thực tế xảy ra.
+=== DOC 741 ===
+Publication Time: Thời điểm nguồn công bố thông tin.
+=== DOC 742 ===
+Market Time: Thời điểm giá hoặc dữ liệu thị trường được ghi nhận.
+=== DOC 743 ===
+Ingestion Time: Thời điểm hệ thống tiếp nhận dữ liệu.
+=== DOC 744 ===
+Processing Time: Thời điểm hệ thống xử lý dữ liệu.
+=== DOC 745 ===
+Creation Time: Thời điểm tạo kết quả phân tích hoặc báo cáo.
+=== DOC 746 ===
+Không được sử dụng một trường timestamp duy nhất để đại diện cho tất cả các loại thời gian.
+=== DOC 747 ===
+20. Data Lineage và Provenance
+=== DOC 748 ===
+Mỗi kết quả phân tích cần có khả năng truy ngược đến:
+=== DOC 749 ===
+Dữ liệu thị trường đầu vào.
+=== DOC 750 ===
+Tin tức hoặc tài liệu tham chiếu.
+=== DOC 751 ===
+Nguồn cung cấp.
+=== DOC 752 ===
+Thời điểm dữ liệu được ghi nhận.
+=== DOC 753 ===
+Phiên bản công thức hoặc phương pháp tính toán.
+=== DOC 754 ===
+Phiên bản phân tích.
+=== DOC 755 ===
+Kết quả AI liên quan.
+=== DOC 756 ===
+Đối với dữ liệu được AI trích xuất, cần lưu liên kết đến tài liệu gốc và trạng thái xác nhận nếu có.
+=== DOC 757 ===
+PHẦN VI. KIẾN TRÚC HỆ THỐNG
+=== DOC 758 ===
+21. Tổng quan kiến trúc logic
+=== DOC 759 ===
+Kiến trúc hệ thống được chia thành các lớp:
+=== DOC 760 ===
+Layer 1. Presentation Layer
+=== DOC 761 ===
+Bao gồm:
+=== DOC 762 ===
+Web Application.
+=== DOC 763 ===
+Dashboard.
+=== DOC 764 ===
+Market Data Views.
+=== DOC 765 ===
+News Feed.
+=== DOC 766 ===
+Forecast Views.
+=== DOC 767 ===
+AI Chat.
+=== DOC 768 ===
+Reporting Interface.
+=== DOC 769 ===
+Administration Interface.
+=== DOC 770 ===
+Layer 2. Application & Business Logic Layer
+=== DOC 771 ===
+Chịu trách nhiệm:
+=== DOC 772 ===
+User management.
+=== DOC 773 ===
+Authentication.
+=== DOC 774 ===
+Authorization.
+=== DOC 775 ===
+Business workflows.
+=== DOC 776 ===
+Market data services.
+=== DOC 777 ===
+News services.
+=== DOC 778 ===
+Forecast services.
+=== DOC 779 ===
+Analysis services.
+=== DOC 780 ===
+Reporting services.
+=== DOC 781 ===
+API orchestration nội bộ.
+=== DOC 782 ===
+Layer 3. Data Ingestion & Processing Layer
+=== DOC 783 ===
+Chịu trách nhiệm:
+=== DOC 784 ===
+External API ingestion.
+=== DOC 785 ===
+File upload processing.
+=== DOC 786 ===
+Data validation.
+=== DOC 787 ===
+Data normalization.
+=== DOC 788 ===
+News extraction.
+=== DOC 789 ===
+Document processing.
+=== DOC 790 ===
+Deduplication.
+=== DOC 791 ===
+Indexing.
+=== DOC 792 ===
+Scheduled jobs.
+=== DOC 793 ===
+Layer 4. Data & Storage Layer
+=== DOC 794 ===
+Bao gồm:
+=== DOC 795 ===
+Relational Database.
+=== DOC 796 ===
+Time-Series Storage.
+=== DOC 797 ===
+Object Storage.
+=== DOC 798 ===
+Search Index.
+=== DOC 799 ===
+Vector Index nếu cần.
+=== DOC 800 ===
+Audit Storage.
+=== DOC 801 ===
+Layer 5. Analytical Services Layer
+=== DOC 802 ===
+Chịu trách nhiệm thực hiện các phép tính và phân tích có tính xác định:
+=== DOC 803 ===
+Price calculations.
+=== DOC 804 ===
+Unit conversion.
+=== DOC 805 ===
+Crack spread calculation.
+=== DOC 806 ===
+Statistical analysis.
+=== DOC 807 ===
+Time-series analysis.
+=== DOC 808 ===
+Forecast evaluation.
+=== DOC 809 ===
+Correlation analysis.
+=== DOC 810 ===
+Scenario calculations.
+=== DOC 811 ===
+Layer 6. AI Intelligence & Orchestration Layer – Auker
+=== DOC 812 ===
+Chịu trách nhiệm:
+=== DOC 813 ===
+Phân loại nhiệm vụ AI.
+=== DOC 814 ===
+Lựa chọn mô hình.
+=== DOC 815 ===
+Phân bổ mức độ suy luận.
+=== DOC 816 ===
+Phân bổ công cụ và agent.
+=== DOC 817 ===
+Phân rã nhiệm vụ phức tạp.
+=== DOC 818 ===
+Điều phối thực thi.
+=== DOC 819 ===
+Kiểm tra đầu ra.
+=== DOC 820 ===
+Fallback.
+=== DOC 821 ===
+Theo dõi chất lượng, latency và cost.
+=== DOC 822 ===
+Tối ưu chiến lược phân bổ theo kết quả thực tế.
+=== DOC 823 ===
+22. Nguyên tắc phân định trách nhiệm
+=== DOC 824 ===
+Thành phần
+=== DOC 825 ===
+Trách nhiệm
+=== DOC 826 ===
+BSR Frontend
+=== DOC 827 ===
+Giao diện người dùng và tương tác
+=== DOC 828 ===
+BSR Backend
+=== DOC 829 ===
+Authentication, authorization, business logic, data access, persistence và workflow
+=== DOC 830 ===
+Data Pipeline
+=== DOC 831 ===
+Thu thập, chuẩn hóa, kiểm tra và lập chỉ mục dữ liệu
+=== DOC 832 ===
+Analytical Services
+=== DOC 833 ===
+Thực hiện phép tính và phân tích định lượng có tính xác định
+=== DOC 834 ===
+Auker
+=== DOC 835 ===
+Điều phối trí tuệ nhân tạo, lựa chọn mô hình, reasoning, tools và chiến lược thực thi
+=== DOC 836 ===
+LLM Providers
+=== DOC 837 ===
+Cung cấp năng lực mô hình nền tảng
+=== DOC 838 ===
+Nguyên tắc bắt buộc: Các module nghiệp vụ không gọi trực tiếp API của từng LLM Provider. Tất cả yêu cầu AI phải đi qua một AI Adapter/AI Service nội bộ, sau đó được Auker điều phối.
+=== DOC 839 ===
+BSR Backend vẫn giữ quyền kiểm soát dữ liệu, quyền truy cập và các hành động nghiệp vụ. Auker không được tự ý truy cập database hoặc bỏ qua cơ chế phân quyền của Backend.
+=== DOC 840 ===
+PHẦN VII. TÍCH HỢP AUKER
+=== DOC 841 ===
+23. Vai trò của Auker
+=== DOC 842 ===
+Auker là lớp AI Allocation & Orchestration Layer của nền tảng BSR Market Intelligence.
+=== DOC 843 ===
+Auker không chỉ đóng vai trò chuyển tiếp yêu cầu đến một LLM. Auker chịu trách nhiệm quyết định cách thực hiện từng nhiệm vụ AI dựa trên:
+=== DOC 844 ===
+Loại nhiệm vụ.
+=== DOC 845 ===
+Độ phức tạp.
+=== DOC 846 ===
+Yêu cầu chất lượng.
+=== DOC 847 ===
+Mức độ suy luận cần thiết.
+=== DOC 848 ===
+Công cụ cần sử dụng.
+=== DOC 849 ===
+Thời gian phản hồi yêu cầu.
+=== DOC 850 ===
+Chi phí thực thi.
+=== DOC 851 ===
+Khả năng và trạng thái của các mô hình sẵn có.
+=== DOC 852 ===
+Mục tiêu là đạt được chất lượng phân tích phù hợp với từng nhiệm vụ, đồng thời tối ưu chi phí và độ trễ.
+=== DOC 853 ===
+24. Các năng lực chính của Auker
+=== DOC 854 ===
+24.1. Task Classification
+=== DOC 855 ===
+Auker cần nhận diện loại nhiệm vụ, ví dụ:
+=== DOC 856 ===
+Simple factual query.
+=== DOC 857 ===
+Market data interpretation.
+=== DOC 858 ===
+News summarization.
+=== DOC 859 ===
+Multi-source comparison.
+=== DOC 860 ===
+Financial time-series analysis.
+=== DOC 861 ===
+Cross-market reasoning.
+=== DOC 862 ===
+Forecast evaluation.
+=== DOC 863 ===
+Scenario analysis.
+=== DOC 864 ===
+Complex market research.
+=== DOC 865 ===
+Report generation.
+=== DOC 866 ===
+Loại nhiệm vụ là một trong những đầu vào để quyết định chiến lược thực thi.
+=== DOC 867 ===
+24.2. Model Allocation
+=== DOC 868 ===
+Auker có khả năng lựa chọn mô hình phù hợp cho từng nhiệm vụ dựa trên:
+=== DOC 869 ===
+Năng lực của mô hình.
+=== DOC 870 ===
+Chất lượng đầu ra đã đo lường.
+=== DOC 871 ===
+Chi phí input/output.
+=== DOC 872 ===
+Độ trễ.
+=== DOC 873 ===
+Khả năng hỗ trợ structured output.
+=== DOC 874 ===
+Khả năng sử dụng tools.
+=== DOC 875 ===
+Context window.
+=== DOC 876 ===
+Tình trạng sẵn sàng của provider.
+=== DOC 877 ===
+Không bắt buộc mọi yêu cầu đều sử dụng cùng một mô hình.
+=== DOC 878 ===
+24.3. Reasoning-depth Allocation
+=== DOC 879 ===
+Auker có thể phân bổ mức độ suy luận theo độ phức tạp của nhiệm vụ.
+=== DOC 880 ===
+Ví dụ:
+=== DOC 881 ===
+Simple: truy vấn hoặc tóm tắt đơn giản.
+=== DOC 882 ===
+Standard: phân tích dữ liệu và nhiều nguồn.
+=== DOC 883 ===
+Deep: phân tích liên thị trường, nhiều giả thuyết và nhiều bước suy luận.
+=== DOC 884 ===
+Mức độ suy luận phải được kiểm soát theo yêu cầu chất lượng, thời gian phản hồi và chi phí.
+=== DOC 885 ===
+24.4. Task Decomposition
+=== DOC 886 ===
+Đối với nhiệm vụ phức tạp, Auker có thể phân rã thành nhiều bước hoặc nhiệm vụ con.
+=== DOC 887 ===
+Ví dụ câu hỏi:
+=== DOC 888 ===
+"Đánh giá tác động của việc gián đoạn nguồn cung dầu tại Trung Đông đến Brent, gasoline crack và hoạt động kinh doanh của BSR."
+=== DOC 889 ===
+Có thể được phân rã thành:
+=== DOC 890 ===
+Xác định sự kiện và phạm vi ảnh hưởng.
+=== DOC 891 ===
+Truy xuất dữ liệu thị trường liên quan.
+=== DOC 892 ===
+Phân tích lịch sử biến động Brent.
+=== DOC 893 ===
+Phân tích gasoline crack.
+=== DOC 894 ===
+Kiểm tra yếu tố vận tải và logistics.
+=== DOC 895 ===
+Đối chiếu các sự kiện tương tự trong lịch sử.
+=== DOC 896 ===
+Tổng hợp các kịch bản tác động.
+=== DOC 897 ===
+Tạo kết luận và báo cáo có dẫn nguồn.
+=== DOC 898 ===
+Auker quyết định chiến lược thực thi, nhưng các phép tính định lượng phải được thực hiện bởi Analytical Services.
+=== DOC 899 ===
+24.5. Tool Allocation
+=== DOC 900 ===
+Auker có thể lựa chọn và gọi các công cụ được Backend cho phép, bao gồm:
+=== DOC 901 ===
+Market Data Query.
+=== DOC 902 ===
+News Search.
+=== DOC 903 ===
+Document Retrieval.
+=== DOC 904 ===
+Time-Series Analysis.
+=== DOC 905 ===
+Crack Spread Calculation.
+=== DOC 906 ===
+Forecast Comparison.
+=== DOC 907 ===
+Statistical Analysis.
+=== DOC 908 ===
+Report Generation.
+=== DOC 909 ===
+Auker chỉ được gọi các tool đã được đăng ký và cấp quyền. Backend phải kiểm tra quyền truy cập ở từng lần gọi tool.
+=== DOC 910 ===
+24.6. Output Validation
+=== DOC 911 ===
+Kết quả từ mô hình cần được kiểm tra trước khi trả về:
+=== DOC 912 ===
+Đúng schema.
+=== DOC 913 ===
+Có nguồn tham chiếu khi cần.
+=== DOC 914 ===
+Không chứa dữ liệu ngoài phạm vi quyền.
+=== DOC 915 ===
+Không có các trường bắt buộc bị thiếu.
+=== DOC 916 ===
+Phân biệt dữ kiện và nhận định.
+=== DOC 917 ===
+Có thông tin về giới hạn hoặc độ không chắc chắn khi phù hợp.
+=== DOC 918 ===
+Nếu kết quả không đạt yêu cầu, hệ thống có thể retry, sử dụng mô hình khác hoặc trả về lỗi có kiểm soát.
+=== DOC 919 ===
+24.7. Fallback và Reliability
+=== DOC 920 ===
+Auker cần hỗ trợ:
+=== DOC 921 ===
+Provider failure handling.
+=== DOC 922 ===
+Model fallback.
+=== DOC 923 ===
+Timeout handling.
+=== DOC 924 ===
+Retry policy.
+=== DOC 925 ===
+Rate-limit handling.
+=== DOC 926 ===
+Structured error response.
+=== DOC 927 ===
+Fallback không được làm thay đổi âm thầm yêu cầu bảo mật hoặc mức chất lượng tối thiểu của nhiệm vụ.
+=== DOC 928 ===
+24.8. Observability và Cost Tracking
+=== DOC 929 ===
+Mỗi lần thực thi cần có khả năng theo dõi:
+=== DOC 930 ===
+Task ID.
+=== DOC 931 ===
+Model/provider được sử dụng.
+=== DOC 932 ===
+Task category.
+=== DOC 933 ===
+Reasoning configuration.
+=== DOC 934 ===
+Tool calls.
+=== DOC 935 ===
+Input/output tokens nếu provider cung cấp.
+=== DOC 936 ===
+Cost estimate hoặc cost thực tế.
+=== DOC 937 ===
+Latency.
+=== DOC 938 ===
+Retry count.
+=== DOC 939 ===
+Execution status.
+=== DOC 940 ===
+Output quality metadata nếu có.
+=== DOC 941 ===
+Dữ liệu này phục vụ đánh giá hiệu quả vận hành và tối ưu phân bổ.
+=== DOC 942 ===
+24.9. Continuous Optimization
+=== DOC 943 ===
+Auker có thể sử dụng kết quả thực thi và đánh giá chất lượng để cải thiện chiến lược phân bổ theo thời gian.
+=== DOC 944 ===
+Việc tối ưu cần dựa trên các tín hiệu:
+=== DOC 945 ===
+Task success.
+=== DOC 946 ===
+Output quality.
+=== DOC 947 ===
+Latency.
+=== DOC 948 ===
+Cost.
+=== DOC 949 ===
+User feedback.
+=== DOC 950 ===
+Evaluation results.
+=== DOC 951 ===
+Không được tự động thay đổi business rules, quyền truy cập hoặc các chính sách bảo mật của BSR.
+=== DOC 952 ===
+25. Chuẩn tích hợp Auker
+=== DOC 953 ===
+25.1. Integration Architecture
+=== DOC 954 ===
+Các module nghiệp vụ gọi AI thông qua một interface nội bộ thống nhất.
+=== DOC 955 ===
+Luồng tổng quát:
+=== DOC 956 ===
+Module nghiệp vụ tạo AI Task.
+=== DOC 957 ===
+Backend xác thực và kiểm tra quyền.
+=== DOC 958 ===
+AI Adapter chuẩn hóa yêu cầu.
+=== DOC 959 ===
+Auker nhận nhiệm vụ và lựa chọn chiến lược thực thi.
+=== DOC 960 ===
+Auker gọi mô hình và tools được phép.
+=== DOC 961 ===
+Kết quả được kiểm tra và chuẩn hóa.
+=== DOC 962 ===
+Backend tiếp nhận kết quả.
+=== DOC 963 ===
+Backend lưu trữ và trả kết quả cho module nghiệp vụ.
+=== DOC 964 ===
+25.2. Chuẩn AI Task Contract
+=== DOC 965 ===
+Mỗi yêu cầu gửi đến Auker cần có các thông tin logic sau:
+=== DOC 966 ===
+Field
+=== DOC 967 ===
+Mô tả
+=== DOC 968 ===
+task_id
+=== DOC 969 ===
+Mã nhiệm vụ duy nhất
+=== DOC 970 ===
+task_type
+=== DOC 971 ===
+Loại nhiệm vụ
+=== DOC 972 ===
+task_payload
+=== DOC 973 ===
+Nội dung và dữ liệu đầu vào
+=== DOC 974 ===
+context
+=== DOC 975 ===
+Ngữ cảnh nghiệp vụ cần thiết
+=== DOC 976 ===
+allowed_tools
+=== DOC 977 ===
+Danh sách tools được phép
+=== DOC 978 ===
+output_schema
+=== DOC 979 ===
+Cấu trúc đầu ra yêu cầu
+=== DOC 980 ===
+quality_requirement
+=== DOC 981 ===
+Yêu cầu chất lượng
+=== DOC 982 ===
+latency_requirement
+=== DOC 983 ===
+Yêu cầu thời gian phản hồi
+=== DOC 984 ===
+cost_constraint
+=== DOC 985 ===
+Giới hạn chi phí nếu có
+=== DOC 986 ===
+user_context
+=== DOC 987 ===
+Thông tin người dùng đã được Backend xác thực
+=== DOC 988 ===
+permission_scope
+=== DOC 989 ===
+Phạm vi dữ liệu được phép sử dụng
+=== DOC 990 ===
+trace_id
+=== DOC 991 ===
+Mã truy vết xuyên suốt
+=== DOC 992 ===
+Các trường trên là hợp đồng logic. Chi tiết JSON schema, authentication, transport protocol và API endpoint cần được định nghĩa trong tài liệu API Contract riêng.
+=== DOC 993 ===
+25.3. Output Contract
+=== DOC 994 ===
+Kết quả AI cần hỗ trợ:
+=== DOC 995 ===
+task_id.
+=== DOC 996 ===
+status.
+=== DOC 997 ===
+result.
+=== DOC 998 ===
+structured_output.
+=== DOC 999 ===
+source_references.
+=== DOC 1000 ===
+tool_execution_summary.
+=== DOC 1001 ===
+model_execution_metadata.
+=== DOC 1002 ===
+validation_status.
+=== DOC 1003 ===
+error_details nếu có.
+=== DOC 1004 ===
+Không bắt buộc hiển thị toàn bộ metadata kỹ thuật cho người dùng cuối.
+=== DOC 1005 ===
+25.4. AI Provider Adapter
+=== DOC 1006 ===
+Hệ thống cần có lớp adapter để chuẩn hóa giao tiếp với các provider.
+=== DOC 1007 ===
+Mục tiêu:
+=== DOC 1008 ===
+Không phụ thuộc một provider cụ thể.
+=== DOC 1009 ===
+Chuẩn hóa request và response.
+=== DOC 1010 ===
+Chuẩn hóa error handling.
+=== DOC 1011 ===
+Quản lý timeout và retry.
+=== DOC 1012 ===
+Hỗ trợ thay đổi hoặc bổ sung provider.
+=== DOC 1013 ===
+Theo dõi usage và cost.
+=== DOC 1014 ===
+Auker quyết định chiến lược phân bổ. Adapter chịu trách nhiệm giao tiếp kỹ thuật với provider.
+=== DOC 1015 ===
+26. Auker Specialized Financial Intelligence
+=== DOC 1016 ===
+Auker cần được khai thác như một lớp trí tuệ chuyên biệt cho phân tích tài chính và thị trường hàng hóa, thay vì chỉ sử dụng năng lực hội thoại tổng quát.
+=== DOC 1017 ===
+26.1. Financial Time-Series Intelligence
+=== DOC 1018 ===
+Thiết kế để phân tích dữ liệu tài chính và thị trường hàng hóa theo thời gian.
+=== DOC 1019 ===
+Năng lực bao gồm:
+=== DOC 1020 ===
+Nhận diện xu hướng thị trường.
+=== DOC 1021 ===
+Phát hiện thay đổi trạng thái thị trường.
+=== DOC 1022 ===
+Phân tích mô hình biến động lịch sử.
+=== DOC 1023 ===
+Đánh giá quan hệ giữa các chỉ số.
+=== DOC 1024 ===
+Phân tích giá dầu thô, crack spread, giá sản phẩm lọc dầu và tỷ giá.
+=== DOC 1025 ===
+26.2. Cross-Market Financial Reasoning
+=== DOC 1026 ===
+Kết nối biến động thị trường với các yếu tố nền tảng:
+=== DOC 1027 ===
+Cung và cầu.
+=== DOC 1028 ===
+Hoạt động lọc dầu.
+=== DOC 1029 ===
+Địa chính trị.
+=== DOC 1030 ===
+Điều kiện kinh tế vĩ mô.
+=== DOC 1031 ===
+Vận tải và logistics.
+=== DOC 1032 ===
+Biến động tỷ giá.
+=== DOC 1033 ===
+Mục tiêu là giúp BSR không chỉ theo dõi từng chỉ số riêng lẻ mà còn hiểu được bối cảnh và các cơ chế có thể ảnh hưởng đến hoạt động kinh doanh lọc dầu.
+=== DOC 1034 ===
+26.3. Evidence-based Analysis
+=== DOC 1035 ===
+Các phân tích phải kết hợp:
+=== DOC 1036 ===
+Market data.
+=== DOC 1037 ===
+News and events.
+=== DOC 1038 ===
+Historical observations.
+=== DOC 1039 ===
+Forecasts.
+=== DOC 1040 ===
+Analytical calculations.
+=== DOC 1041 ===
+Source documents.
+=== DOC 1042 ===
+Kết quả cần thể hiện rõ dữ kiện, bằng chứng, giả định và nhận định.
+=== DOC 1043 ===
+26.4. Analytical Services
+=== DOC 1044 ===
+Các phép tính tài chính và thống kê phải được cung cấp thông qua các dịch vụ chuyên biệt.
+=== DOC 1045 ===
+Ví dụ:
+=== DOC 1046 ===
+Analytical Service
+=== DOC 1047 ===
+Chức năng
+=== DOC 1048 ===
+Market Data Service
+=== DOC 1049 ===
+Truy xuất dữ liệu thị trường
+=== DOC 1050 ===
+Spread Calculator
+=== DOC 1051 ===
+Tính crack spread và các spread khác
+=== DOC 1052 ===
+Time-Series Analyzer
+=== DOC 1053 ===
+Phân tích chuỗi thời gian
+=== DOC 1054 ===
+Volatility Analyzer
+=== DOC 1055 ===
+Tính toán và phân tích biến động
+=== DOC 1056 ===
+Correlation Analyzer
+=== DOC 1057 ===
+Phân tích tương quan
+=== DOC 1058 ===
+Forecast Evaluator
+=== DOC 1059 ===
+Đánh giá dự báo
+=== DOC 1060 ===
+Historical Analogue Search
+=== DOC 1061 ===
+Tìm các giai đoạn lịch sử tương tự
+=== DOC 1062 ===
+Scenario Analyzer
+=== DOC 1063 ===
+Tính toán và so sánh kịch bản
+=== DOC 1064 ===
+LLM chịu trách nhiệm diễn giải và tổng hợp kết quả từ các dịch vụ này, không thay thế các phép tính định lượng.
+=== DOC 1065 ===
+PHẦN VIII. DỮ LIỆU, LƯU TRỮ VÀ CHẤT LƯỢNG
+=== DOC 1066 ===
+27. Nguyên tắc lưu trữ
+=== DOC 1067 ===
+Dữ liệu nguồn phải được lưu độc lập với kết quả AI.
+=== DOC 1068 ===
+Không ghi đè dữ liệu lịch sử.
+=== DOC 1069 ===
+Lưu phiên bản khi có thay đổi quan trọng.
+=== DOC 1070 ===
+Lưu nguồn gốc và thời điểm tiếp nhận.
+=== DOC 1071 ===
+Lưu trạng thái kiểm tra dữ liệu.
+=== DOC 1072 ===
+Áp dụng phân loại bảo mật.
+=== DOC 1073 ===
+Có chính sách retention và archival.
+=== DOC 1074 ===
+28. Data Quality
+=== DOC 1075 ===
+Hệ thống cần hỗ trợ các kiểm tra:
+=== DOC 1076 ===
+Missing values.
+=== DOC 1077 ===
+Invalid format.
+=== DOC 1078 ===
+Out-of-range values.
+=== DOC 1079 ===
+Duplicate records.
+=== DOC 1080 ===
+Unit inconsistency.
+=== DOC 1081 ===
+Currency inconsistency.
+=== DOC 1082 ===
+Timestamp inconsistency.
+=== DOC 1083 ===
+Stale data.
+=== DOC 1084 ===
+Unexpected changes.
+=== DOC 1085 ===
+Dữ liệu không đạt kiểm tra cần được đánh dấu và xử lý theo workflow, không tự động sử dụng như dữ liệu hợp lệ.
+=== DOC 1086 ===
+29. Document Processing
+=== DOC 1087 ===
+Đối với file upload:
+=== DOC 1088 ===
+Kiểm tra định dạng.
+=== DOC 1089 ===
+Kiểm tra kích thước và giới hạn upload.
+=== DOC 1090 ===
+Quét bảo mật theo chính sách hệ thống.
+=== DOC 1091 ===
+Trích xuất nội dung.
+=== DOC 1092 ===
+Lưu file gốc.
+=== DOC 1093 ===
+Lưu metadata.
+=== DOC 1094 ===
+Gắn classification và permissions.
+=== DOC 1095 ===
+Lập chỉ mục tìm kiếm.
+=== DOC 1096 ===
+Cho phép truy vấn theo quyền.
+=== DOC 1097 ===
+Tài liệu gốc cần được bảo toàn để truy xuất và kiểm chứng.
+=== DOC 1098 ===
+PHẦN IX. GIAO DIỆN VÀ TRẢI NGHIỆM NGƯỜI DÙNG
+=== DOC 1099 ===
+30. Navigation
+=== DOC 1100 ===
+Giao diện chính nên được tổ chức theo sáu module:
+=== DOC 1101 ===
+Overview.
+=== DOC 1102 ===
+Market Data.
+=== DOC 1103 ===
+Market News.
+=== DOC 1104 ===
+Forecast.
+=== DOC 1105 ===
+Analysis.
+=== DOC 1106 ===
+AI Assistant & Reports.
+=== DOC 1107 ===
+Các chức năng quản trị được bố trí riêng theo quyền.
+=== DOC 1108 ===
+Giao diện trung tâm cần chuyển từ cách tiếp cận Risk-centric sang Market-centric. Risk và Geopolitical Intelligence được thể hiện như các chủ đề phân tích thị trường, không phải module trung tâm độc lập trong giai đoạn này.
+=== DOC 1109 ===
+31. AI Assistant Interface
+=== DOC 1110 ===
+AI Chat cần hỗ trợ:
+=== DOC 1111 ===
+Nhập câu hỏi.
+=== DOC 1112 ===
+Chọn hoặc đính kèm tài liệu.
+=== DOC 1113 ===
+Hiển thị trạng thái xử lý.
+=== DOC 1114 ===
+Hiển thị câu trả lời có cấu trúc.
+=== DOC 1115 ===
+Hiển thị nguồn tham chiếu.
+=== DOC 1116 ===
+Hiển thị bảng và biểu đồ khi phù hợp.
+=== DOC 1117 ===
+Yêu cầu tạo báo cáo.
+=== DOC 1118 ===
+Tiếp tục hội thoại dựa trên ngữ cảnh được phép.
+=== DOC 1119 ===
+Người dùng cần phân biệt được nội dung nào là dữ liệu nguồn, kết quả tính toán và nhận định AI.
+=== DOC 1120 ===
+32. Report Interface
+=== DOC 1121 ===
+Người dùng cần có khả năng:
+=== DOC 1122 ===
+Chọn loại báo cáo.
+=== DOC 1123 ===
+Chọn khoảng thời gian.
+=== DOC 1124 ===
+Chọn phạm vi chủ đề.
+=== DOC 1125 ===
+Xem trước nội dung.
+=== DOC 1126 ===
+Yêu cầu tạo lại hoặc điều chỉnh báo cáo.
+=== DOC 1127 ===
+Xuất PDF theo quyền.
+=== DOC 1128 ===
+Xem các phiên bản đã tạo.
+=== DOC 1129 ===
+PHẦN X. BẢO MẬT, HIỆU NĂNG VÀ VẬN HÀNH
+=== DOC 1130 ===
+33. Security
+=== DOC 1131 ===
+Hệ thống cần hỗ trợ:
+=== DOC 1132 ===
+Authentication.
+=== DOC 1133 ===
+RBAC.
+=== DOC 1134 ===
+Department-level access.
+=== DOC 1135 ===
+Document-level permissions.
+=== DOC 1136 ===
+Data classification.
+=== DOC 1137 ===
+Secure file storage.
+=== DOC 1138 ===
+Encryption in transit.
+=== DOC 1139 ===
+Encryption at rest theo chính sách triển khai.
+=== DOC 1140 ===
+Audit logging.
+=== DOC 1141 ===
+Session management.
+=== DOC 1142 ===
+API access control.
+=== DOC 1143 ===
+Mọi truy vấn AI và việc xuất báo cáo phải tuân thủ quyền truy cập giống như truy vấn trực tiếp trên hệ thống.
+=== DOC 1144 ===
+34. Audit Log
+=== DOC 1145 ===
+Các hoạt động cần ghi nhận:
+=== DOC 1146 ===
+Đăng nhập và đăng xuất.
+=== DOC 1147 ===
+Truy cập dữ liệu nhạy cảm.
+=== DOC 1148 ===
+Tạo, chỉnh sửa và xóa dữ liệu.
+=== DOC 1149 ===
+Upload và download tài liệu.
+=== DOC 1150 ===
+Tạo báo cáo.
+=== DOC 1151 ===
+Xuất dữ liệu.
+=== DOC 1152 ===
+Thay đổi quyền.
+=== DOC 1153 ===
+AI request có liên quan đến dữ liệu nhạy cảm.
+=== DOC 1154 ===
+Các thao tác quản trị.
+=== DOC 1155 ===
+Audit Log cần có thời gian, người thực hiện, hành động, đối tượng và kết quả.
+=== DOC 1156 ===
+35. Performance và Reliability
+=== DOC 1157 ===
+Các yêu cầu định lượng cụ thể cần được thống nhất trong giai đoạn technical design và pilot.
+=== DOC 1158 ===
+Các chỉ số cần đo:
+=== DOC 1159 ===
+API response time.
+=== DOC 1160 ===
+Dashboard loading time.
+=== DOC 1161 ===
+Data ingestion latency.
+=== DOC 1162 ===
+News processing latency.
+=== DOC 1163 ===
+AI response latency.
+=== DOC 1164 ===
+Report generation time.
+=== DOC 1165 ===
+System availability.
+=== DOC 1166 ===
+Error rate.
+=== DOC 1167 ===
+Failed job rate.
+=== DOC 1168 ===
+Concurrent users.
+=== DOC 1169 ===
+Hệ thống cần có:
+=== DOC 1170 ===
+Logging.
+=== DOC 1171 ===
+Monitoring.
+=== DOC 1172 ===
+Alerting.
+=== DOC 1173 ===
+Retry mechanism.
+=== DOC 1174 ===
+Job status tracking.
+=== DOC 1175 ===
+Backup và recovery.
+=== DOC 1176 ===
+Error handling.
+=== DOC 1177 ===
+Không đặt một cam kết latency hoặc availability cụ thể khi chưa có workload profile và hạ tầng triển khai được thống nhất.
+=== DOC 1178 ===
+PHẦN XII. TIÊU CHÍ NGHIỆM THU
+=== DOC 1179 ===
+39. Business Requirements Traceability
+=== DOC 1180 ===
+Mỗi Business Requirement cần được liên kết với module và tiêu chí nghiệm thu tương ứng.
+=== DOC 1181 ===
+Business Problem
+=== DOC 1182 ===
+Business Requirement
+=== DOC 1183 ===
+Module
+=== DOC 1184 ===
+Thành phần kỹ thuật
+=== DOC 1185 ===
+BP-01: Dữ liệu phân tán
+=== DOC 1186 ===
+BR-01, BR-02
+=== DOC 1187 ===
+Market Data
+=== DOC 1188 ===
+Data ingestion, normalization, time-series storage
+=== DOC 1189 ===
+BP-02: Theo dõi tin tức thủ công
+=== DOC 1190 ===
+BR-03, BR-04
+=== DOC 1191 ===
+Market News
+=== DOC 1192 ===
+News ingestion, classification, summarization
+=== DOC 1193 ===
+BP-03: Khó so sánh nguồn
+=== DOC 1194 ===
+BR-05
+=== DOC 1195 ===
+Market News
+=== DOC 1196 ===
+Deduplication, source comparison, provenance
+=== DOC 1197 ===
+BP-04: Khó đánh giá dự báo
+=== DOC 1198 ===
+BR-06, BR-07
+=== DOC 1199 ===
+Market Forecast
+=== DOC 1200 ===
+Forecast versioning, actual comparison, evaluation
+=== DOC 1201 ===
+BP-05: Báo cáo chậm
+=== DOC 1202 ===
+BR-08, BR-09
+=== DOC 1203 ===
+Analysis & Reporting
+=== DOC 1204 ===
+Analytical services, Auker orchestration, report generation
+=== DOC 1205 ===
+BP-06: Khó khai thác tài liệu nội bộ
+=== DOC 1206 ===
+BR-10, BR-11, BR-12
+=== DOC 1207 ===
+AI Assistant
+=== DOC 1208 ===
+Document ingestion, retrieval, RBAC, Auker
+=== DOC 1209 ===
+40. Acceptance Criteria
+=== DOC 1210 ===
+40.1. Market Data
+=== DOC 1211 ===
+Hiển thị đúng giá trị và đơn vị.
+=== DOC 1212 ===
+Phân biệt futures và physical.
+=== DOC 1213 ===
+Hiển thị nguồn và thời gian cập nhật.
+=== DOC 1214 ===
+Hỗ trợ dữ liệu lịch sử.
+=== DOC 1215 ===
+Phân biệt dữ liệu real-time, delayed, EOD và manual.
+=== DOC 1216 ===
+Không hiển thị dữ liệu mật cho người không có quyền.
+=== DOC 1217 ===
+Các phép tính crack spread phải có thể tái lập từ đầu vào và phiên bản công thức.
+=== DOC 1218 ===
+40.2. News Intelligence
+=== DOC 1219 ===
+Người dùng có thể nhập nội dung và upload file.
+=== DOC 1220 ===
+AI trích xuất và tóm tắt nội dung.
+=== DOC 1221 ===
+Hiển thị nguồn và thời điểm.
+=== DOC 1222 ===
+Có khả năng phân loại chủ đề.
+=== DOC 1223 ===
+Có khả năng phát hiện tin trùng lặp.
+=== DOC 1224 ===
+Có khả năng truy xuất tài liệu nguồn.
+=== DOC 1225 ===
+Không tự động loại bỏ thông tin nguồn khi phát hiện trùng lặp.
+=== DOC 1226 ===
+40.3. Forecast
+=== DOC 1227 ===
+Có thể nhập và lưu dự báo.
+=== DOC 1228 ===
+Phân biệt nguồn dự báo.
+=== DOC 1229 ===
+Có thể so sánh dự báo với thực tế.
+=== DOC 1230 ===
+Không ghi đè các phiên bản dự báo cũ.
+=== DOC 1231 ===
+Các chỉ số sai số có thể được tái tính từ dữ liệu đầu vào.
+=== DOC 1232 ===
+40.4. Market Analysis
+=== DOC 1233 ===
+Có thể truy xuất dữ liệu thị trường liên quan.
+=== DOC 1234 ===
+Có thể thực hiện các phép tính định lượng thông qua Analytical Services.
+=== DOC 1235 ===
+Có thể kết hợp dữ liệu giá và tin tức.
+=== DOC 1236 ===
+Phân biệt dữ kiện, tương quan, giả thuyết và nhận định.
+=== DOC 1237 ===
+Có nguồn tham chiếu cho các kết luận quan trọng.
+=== DOC 1238 ===
+Có thể lưu phiên bản kết quả phân tích.
+=== DOC 1239 ===
+40.5. AI Chat
+=== DOC 1240 ===
+Có thể truy vấn Market Data.
+=== DOC 1241 ===
+Có thể truy vấn News.
+=== DOC 1242 ===
+Có thể truy vấn tài liệu được cấp quyền.
+=== DOC 1243 ===
+Có thể tổng hợp thông tin từ nhiều nguồn.
+=== DOC 1244 ===
+Có thể trả lời bằng nguồn tham chiếu.
+=== DOC 1245 ===
+Có thể tạo báo cáo theo yêu cầu.
+=== DOC 1246 ===
+Không truy xuất dữ liệu vượt quyền.
+=== DOC 1247 ===
+Không được tự ý thực hiện phép tính tài chính thay cho Analytical Services khi có công cụ tính toán tương ứng.
+=== DOC 1248 ===
+40.6. Reporting
+=== DOC 1249 ===
+Tạo được Morning Briefing.
+=== DOC 1250 ===
+Tạo được End-of-day Report.
+=== DOC 1251 ===
+Tạo được báo cáo theo yêu cầu.
+=== DOC 1252 ===
+Xuất được PDF.
+=== DOC 1253 ===
+Nội dung báo cáo có nguồn tham chiếu.
+=== DOC 1254 ===
+Nội dung báo cáo tuân thủ quyền truy cập.
+=== DOC 1255 ===
+Lưu được phiên bản và thời điểm dữ liệu được sử dụng.
+=== DOC 1256 ===
+40.7. Auker Integration
+=== DOC 1257 ===
+Các module nghiệp vụ gọi AI thông qua AI Adapter/Auker, không gọi trực tiếp LLM Provider.
+=== DOC 1258 ===
+Request được chuẩn hóa theo AI Task Contract.
+=== DOC 1259 ===
+Auker có thể phân loại nhiệm vụ và lựa chọn chiến lược thực thi.
+=== DOC 1260 ===
+Có thể cấu hình model, reasoning depth và tools theo nhiệm vụ.
+=== DOC 1261 ===
+Có cơ chế timeout, retry và fallback.
+=== DOC 1262 ===
+Có output validation.
+=== DOC 1263 ===
+Có logging và trace ID.
+=== DOC 1264 ===
+Theo dõi được latency và cost.
+=== DOC 1265 ===
+Không thể vượt qua cơ chế authorization của Backend.
+=== DOC 1266 ===
+Kết quả thực thi có thể truy vết theo task ID.
+=== DOC 1267 ===
+40.8. Security
+=== DOC 1268 ===
+Kiểm tra được quyền truy cập của ba nhóm người dùng.
+=== DOC 1269 ===
+Có phân loại dữ liệu.
+=== DOC 1270 ===
+Có document-level permissions.
+=== DOC 1271 ===
+Có audit log.
+=== DOC 1272 ===
+Không rò rỉ giá physical qua AI Chat hoặc báo cáo.
+=== DOC 1273 ===
+Quyền xem và quyền xuất bản/chia sẻ được kiểm soát độc lập.
+=== DOC 1274 ===
+Dữ liệu được gửi đến provider tuân thủ chính sách bảo mật đã thống nhất với BSR.
+=== DOC 1275 ===
+41. AI Evaluation
+=== DOC 1276 ===
+Ngoài kiểm thử chức năng thông thường, cần xây dựng bộ đánh giá chất lượng AI theo từng nhóm nhiệm vụ.
+=== DOC 1277 ===
+Nhóm đánh giá
+=== DOC 1278 ===
+Nội dung
+=== DOC 1279 ===
+Factual Accuracy
+=== DOC 1280 ===
+Độ chính xác của dữ kiện
+=== DOC 1281 ===
+Source Grounding
+=== DOC 1282 ===
+Mức độ phù hợp giữa kết luận và nguồn
+=== DOC 1283 ===
+Extraction Accuracy
+=== DOC 1284 ===
+Độ chính xác trích xuất dữ liệu
+=== DOC 1285 ===
+Summarization Quality
+=== DOC 1286 ===
+Chất lượng tóm tắt
+=== DOC 1287 ===
+Financial Reasoning
+=== DOC 1288 ===
+Chất lượng lập luận tài chính
+=== DOC 1289 ===
+Tool Selection
+=== DOC 1290 ===
+Khả năng lựa chọn đúng công cụ
+=== DOC 1291 ===
+Task Completion
+=== DOC 1292 ===
+Tỷ lệ hoàn thành nhiệm vụ
+=== DOC 1293 ===
+Permission Compliance
+=== DOC 1294 ===
+Tuân thủ quyền truy cập
+=== DOC 1295 ===
+Latency
+=== DOC 1296 ===
+Thời gian phản hồi
+=== DOC 1297 ===
+Cost
+=== DOC 1298 ===
+Chi phí thực thi
+=== DOC 1299 ===
+Các bộ test cần có dữ liệu mẫu, expected outputs hoặc rubric đánh giá, và được sử dụng để so sánh giữa các phiên bản hệ thống.
+=== DOC 1300 ===
+Không đánh giá chất lượng Auker chỉ bằng một chỉ số accuracy tổng hợp. Cần đánh giá theo task category và cân nhắc đồng thời chất lượng, latency và cost.
+=== DOC 1301 ===
+PHẦN XIII. KẾ HOẠCH TRIỂN KHAI VÀ DEFINITION OF DONE
+=== DOC 1302 ===
+42. Trình tự triển khai đề xuất
+=== DOC 1303 ===
+Phase 1. Business & Technical Alignment
+=== DOC 1304 ===
+Xác nhận Business Requirements.
+=== DOC 1305 ===
+Xác nhận danh mục dữ liệu và nguồn.
+=== DOC 1306 ===
+Xác nhận các loại người dùng và quyền.
+=== DOC 1307 ===
+Xác nhận phạm vi MVP.
+=== DOC 1308 ===
+Xác nhận các workflow nghiệp vụ chính.
+=== DOC 1309 ===
+Chốt API contract và kiến trúc tích hợp Auker.
+=== DOC 1310 ===
+Phase 2. Core Platform
+=== DOC 1311 ===
+Thiết lập authentication và RBAC.
+=== DOC 1312 ===
+Thiết lập data model.
+=== DOC 1313 ===
+Xây dựng data ingestion.
+=== DOC 1314 ===
+Xây dựng Market Data module.
+=== DOC 1315 ===
+Xây dựng file upload và document processing.
+=== DOC 1316 ===
+Xây dựng Audit Log.
+=== DOC 1317 ===
+Phase 3. Market Intelligence Workflows
+=== DOC 1318 ===
+Market Overview.
+=== DOC 1319 ===
+News Processing.
+=== DOC 1320 ===
+Market News Feed.
+=== DOC 1321 ===
+Market Briefing.
+=== DOC 1322 ===
+Forecast Management.
+=== DOC 1323 ===
+Reporting.
+=== DOC 1324 ===
+Phase 4. Auker Integration
+=== DOC 1325 ===
+AI Adapter.
+=== DOC 1326 ===
+AI Task Contract.
+=== DOC 1327 ===
+Model allocation.
+=== DOC 1328 ===
+Reasoning allocation.
+=== DOC 1329 ===
+Tool integration.
+=== DOC 1330 ===
+Output validation.
+=== DOC 1331 ===
+Fallback.
+=== DOC 1332 ===
+Observability và cost tracking.
+=== DOC 1333 ===
+Phase 5. Testing & Pilot
+=== DOC 1334 ===
+Functional Testing.
+=== DOC 1335 ===
+Integration Testing.
+=== DOC 1336 ===
+Security Testing.
+=== DOC 1337 ===
+Data Quality Testing.
+=== DOC 1338 ===
+AI Evaluation.
+=== DOC 1339 ===
+User Acceptance Testing.
+=== DOC 1340 ===
+Pilot với nhóm người dùng được lựa chọn.
+=== DOC 1341 ===
+43. Definition of Done
+=== DOC 1342 ===
+Một chức năng chỉ được xem là hoàn thành khi:
+=== DOC 1343 ===
+Đáp ứng Business Requirement tương ứng.
+=== DOC 1344 ===
+Có API contract và data model rõ ràng.
+=== DOC 1345 ===
+Có kiểm tra quyền truy cập.
+=== DOC 1346 ===
+Có xử lý lỗi và trạng thái.
+=== DOC 1347 ===
+Có logging và monitoring cần thiết.
+=== DOC 1348 ===
+Có test case.
+=== DOC 1349 ===
+Đạt acceptance criteria.
+=== DOC 1350 ===
+Không làm ảnh hưởng đến dữ liệu hoặc chức năng đã triển khai.
+=== DOC 1351 ===
+Có tài liệu kỹ thuật cần thiết.
+=== DOC 1352 ===
+Được xác nhận bởi người phụ trách nghiệp vụ hoặc người được ủy quyền.
+=== DOC 1353 ===
+PHẦN XIV. CÁC VẤN ĐỀ CẦN BSR VÀ ENGINEERING XÁC NHẬN
+=== DOC 1354 ===
+44. Business Clarifications
+=== DOC 1355 ===
+Danh mục chỉ số thị trường ưu tiên trong MVP.
+=== DOC 1356 ===
+Danh mục sản phẩm lọc dầu cần theo dõi.
+=== DOC 1357 ===
+Công thức crack spread chính thức của BSR.
+=== DOC 1358 ===
+Các nguồn dữ liệu thương mại hiện có và quyền sử dụng.
+=== DOC 1359 ===
+Quy trình nhập và xác nhận dữ liệu physical.
+=== DOC 1360 ===
+Các loại báo cáo ưu tiên.
+=== DOC 1361 ===
+Các nhóm người dùng được phép xem từng loại dữ liệu.
+=== DOC 1362 ===
+Quy trình phê duyệt báo cáo và khuyến nghị.
+=== DOC 1363 ===
+Các chỉ số định lượng để đánh giá thành công của pilot.
+=== DOC 1364 ===
+45. Technical Clarifications
+=== DOC 1365 ===
+Hạ tầng triển khai: Cloud, private cloud hay on-premises.
+=== DOC 1366 ===
+Cơ sở dữ liệu và hệ thống lưu trữ.
+=== DOC 1367 ===
+Time-series storage và search infrastructure.
+=== DOC 1368 ===
+Cơ chế tích hợp các nguồn dữ liệu thương mại.
+=== DOC 1369 ===
+API contract giữa BSR Backend và Auker.
+=== DOC 1370 ===
+Phương thức authentication và authorization giữa các service.
+=== DOC 1371 ===
+Cơ chế quản lý tài liệu và vector indexing.
+=== DOC 1372 ===
+Retention policy.
+=== DOC 1373 ===
+Backup và disaster recovery.
+=== DOC 1374 ===
+Workload profile và performance targets.
+=== DOC 1375 ===
+Provider và model availability.
+=== DOC 1376 ===
+Chính sách lưu trữ AI execution metadata.
+=== DOC 1377 ===
+46. Tài liệu kỹ thuật cần được phát triển tiếp
+=== DOC 1378 ===
+Tài liệu này là Business Requirements và Product/Technical Specification ở cấp hệ thống. Để triển khai, cần phát triển thêm các tài liệu chi tiết:
+=== DOC 1379 ===
+Technical Design Document (TDD): Thiết kế kiến trúc, service boundaries, database schema và deployment.
+=== DOC 1380 ===
+API Specification: Định nghĩa endpoint, request/response schema, authentication và error handling.
+=== DOC 1381 ===
+Data Contract Specification: Định nghĩa schema, đơn vị, timestamp, source metadata và data quality rules.
+=== DOC 1382 ===
+Auker Integration Specification: Định nghĩa AI Task Contract, tool contract, model allocation, fallback, observability và evaluation.
+=== DOC 1383 ===
+UI/UX Specification: Wireframe, navigation, component behavior và user workflows.
+=== DOC 1384 ===
+Test & Evaluation Plan: Functional test, integration test, security test, data test và AI evaluation.
+=== DOC 1385 ===
+Deployment & Operations Guide: Hạ tầng, CI/CD, monitoring, logging, backup và incident handling.
+=== DOC 1386 ===
+PHỤ LỤC A. NGUYÊN TẮC KIẾN TRÚC QUAN TRỌNG ĐỐI VỚI AUKER
+=== DOC 1387 ===
+Để tránh nhầm lẫn về phạm vi trách nhiệm giữa Auker và BSR Backend, cần thống nhất các nguyên tắc sau:
+=== DOC 1388 ===
+Năng lực
+=== DOC 1389 ===
+BSR Backend
+=== DOC 1390 ===
+Analytical Services
+=== DOC 1391 ===
+Auker
+=== DOC 1392 ===
+Authentication
+=== DOC 1393 ===
+Chịu trách nhiệm
+=== DOC 1394 ===
+Không
+=== DOC 1395 ===
+Không
+=== DOC 1396 ===
+Authorization
+=== DOC 1397 ===
+Chịu trách nhiệm
+=== DOC 1398 ===
+Tuân thủ quyền được cấp
+=== DOC 1399 ===
+Không tự quyết định quyền
+=== DOC 1400 ===
+Data access
+=== DOC 1401 ===
+Quản lý và kiểm soát
+=== DOC 1402 ===
+Truy cập qua interface được cấp
+=== DOC 1403 ===
+Yêu cầu qua tools được cấp
+=== DOC 1404 ===
+Data persistence
+=== DOC 1405 ===
+Chịu trách nhiệm
+=== DOC 1406 ===
+Không phải hệ thống lưu trữ chính
+=== DOC 1407 ===
+Không phải hệ thống lưu trữ nghiệp vụ chính
+=== DOC 1408 ===
+Business workflow
+=== DOC 1409 ===
+Chịu trách nhiệm
+=== DOC 1410 ===
+Cung cấp phép phân tích
+=== DOC 1411 ===
+Điều phối nhiệm vụ AI
+=== DOC 1412 ===
+Financial calculations
+=== DOC 1413 ===
+Gọi dịch vụ tính toán
+=== DOC 1414 ===
+Thực hiện
+=== DOC 1415 ===
+Chọn và gọi công cụ phù hợp
+=== DOC 1416 ===
+Model selection
+=== DOC 1417 ===
+Không
+=== DOC 1418 ===
+Không
+=== DOC 1419 ===
+Chịu trách nhiệm
+=== DOC 1420 ===
+Reasoning allocation
+=== DOC 1421 ===
+Không
+=== DOC 1422 ===
+Không
+=== DOC 1423 ===
+Chịu trách nhiệm
+=== DOC 1424 ===
+Tool orchestration
+=== DOC 1425 ===
+Cung cấp tools và permissions
+=== DOC 1426 ===
+Cung cấp analytical tools
+=== DOC 1427 ===
+Chịu trách nhiệm điều phối
+=== DOC 1428 ===
+Output validation
+=== DOC 1429 ===
+Kiểm tra business rules và permissions
+=== DOC 1430 ===
+Kiểm tra tính hợp lệ phép tính
+=== DOC 1431 ===
+Kiểm tra cấu trúc và chất lượng đầu ra AI
+=== DOC 1432 ===
+Cost and latency optimization
+=== DOC 1433 ===
+Theo dõi ở cấp ứng dụng
+=== DOC 1434 ===
+Theo dõi thời gian xử lý
+=== DOC 1435 ===
+Tối ưu model allocation và execution strategy
+=== DOC 1436 ===
+Nguyên tắc cốt lõi: BSR sở hữu và kiểm soát dữ liệu, quyền truy cập và quy trình nghiệp vụ. Analytical Services chịu trách nhiệm về các phép tính có tính xác định. Auker chịu trách nhiệm lựa chọn và điều phối năng lực AI để giải quyết nhiệm vụ với chất lượng, chi phí và độ trễ phù hợp.
+=== DOC 1437 ===
+PHỤ LỤC B. VÍ DỤ WORKFLOW NGHIỆP VỤ ĐẦU CUỐI
+=== DOC 1438 ===
+Ví dụ: Phân tích tác động khi nguồn cung dầu qua eo biển Hormuz bị gián đoạn
+=== DOC 1439 ===
+Bước 1. Tiếp nhận sự kiện
+=== DOC 1440 ===
+News Processing Pipeline tiếp nhận tin tức về nguy cơ gián đoạn nguồn cung dầu qua eo biển Hormuz.
+=== DOC 1441 ===
+Bước 2. Xử lý thông tin
+=== DOC 1442 ===
+Hệ thống trích xuất sự kiện, thời điểm, khu vực, các bên liên quan và nguồn công bố. Các tin liên quan được liên kết với nhau.
+=== DOC 1443 ===
+Bước 3. Xác định dữ liệu liên quan
+=== DOC 1444 ===
+Backend cung cấp dữ liệu thị trường được phép truy cập, bao gồm Brent, WTI, giá sản phẩm, crack spread và các chỉ số vận tải liên quan.
+=== DOC 1445 ===
+Bước 4. Auker phân rã nhiệm vụ
+=== DOC 1446 ===
+Auker xác định cần thực hiện các nhiệm vụ con:
+=== DOC 1447 ===
+Phân tích sự kiện.
+=== DOC 1448 ===
+Truy xuất dữ liệu thị trường.
+=== DOC 1449 ===
+Đánh giá mức độ phơi nhiễm của nguồn cung.
+=== DOC 1450 ===
+Phân tích biến động lịch sử.
+=== DOC 1451 ===
+Kiểm tra các yếu tố logistics.
+=== DOC 1452 ===
+Xây dựng các kịch bản tác động.
+=== DOC 1453 ===
+Bước 5. Thực hiện phân tích
+=== DOC 1454 ===
+Auker gọi các analytical tools phù hợp. Các phép tính định lượng được thực hiện bởi Analytical Services.
+=== DOC 1455 ===
+Bước 6. Tổng hợp kết quả
+=== DOC 1456 ===
+Auker tổng hợp bằng chứng, các giả định và kết quả phân tích thành một báo cáo có cấu trúc.
+=== DOC 1457 ===
+Bước 7. Kiểm tra và trả kết quả
+=== DOC 1458 ===
+Backend kiểm tra quyền truy cập, lưu kết quả và trả về cho người dùng.
+=== DOC 1459 ===
+Bước 8. Theo dõi sau phân tích
+=== DOC 1460 ===
+Hệ thống lưu phiên bản báo cáo, dữ liệu đầu vào và kết quả thực thi để có thể đánh giá lại khi diễn biến thực tế thay đổi.
+=== DOC 1461 ===
+Kết quả cuối cùng không chỉ là bản tóm tắt tin tức, mà là phân tích có liên kết giữa sự kiện, dữ liệu thị trường, các yếu tố nền tảng và những kịch bản có thể ảnh hưởng đến hoạt động kinh doanh của BSR.
+=== DOC 1462 ===
+KẾT LUẬN
+=== DOC 1463 ===
+BSR Market Intelligence Platform được xây dựng để giải quyết các vấn đề nghiệp vụ về dữ liệu phân tán, theo dõi thị trường thủ công, thiếu khả năng so sánh nguồn thông tin, khó đánh giá dự báo và mất nhiều thời gian trong quá trình phân tích, báo cáo.
+=== DOC 1464 ===
+Hệ thống cần kết hợp ba năng lực chính:
+=== DOC 1465 ===
+Market Data & Intelligence Platform: Tập trung hóa và quản lý dữ liệu thị trường, tin tức, dự báo và tài liệu.
+=== DOC 1466 ===
+Financial Analytical Services: Cung cấp các phép tính và phân tích định lượng có thể kiểm chứng, tái lập.
+=== DOC 1467 ===
+Auker – Specialized AI Allocation & Orchestration: Điều phối mô hình, reasoning, tools và quy trình AI để tạo ra phân tích có chiều sâu với chất lượng, latency và cost phù hợp.
+=== DOC 1468 ===
+Mục tiêu không chỉ là tự động hóa việc tạo báo cáo, mà là xây dựng một năng lực Market Intelligence có thể liên tục theo dõi, kết nối và phân tích các diễn biến thị trường, cung cấp thông tin có căn cứ và hỗ trợ BSR đưa ra quyết định kinh doanh tốt hơn.

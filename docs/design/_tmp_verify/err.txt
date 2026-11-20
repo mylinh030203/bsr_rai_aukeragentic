@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D:\ReasonaryAI\BSR_Market_Intel - auker\docs\design\_tmp_verify\verify_all.py", line 498, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "D:\ReasonaryAI\BSR_Market_Intel - auker\docs\design\_tmp_verify\verify_all.py", line 491, in main
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+  File "D:\Python\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u1ea7' in position 5567: character maps to <undefined>

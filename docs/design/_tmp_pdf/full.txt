@@ -1,0 +1,1542 @@
+=== PAGE 1 ===
+ĐẶC TẢ YÊU CẦU NGHIỆP VỤ, SẢN PHẨM
+VÀ TRIỂN KHAI KỸ THUẬT
+BSR MARKET INTELLIGENCE PLATFORM
+Phiên bản: 2.0
+Trạng thái: Draft for Business Review, Product Design & Engineering Implementation
+Khách hàng: BSR – Đội Market Intelligence
+Sản phẩm: Reasonary AI – BSR Market Intelligence Platform
+Lớp trí tuệ nhân tạo: Auker
+Ngôn ngữ: Tiếng Việt cho toàn app
+PHẦN I. BỐI CẢNH NGHIỆP VỤ VÀ YÊU
+CẦU KINH DOANH
+1. Bối cảnh nghiệp vụ (Business Context)
+Đội Market Intelligence của BSR có nhiệm vụ theo dõi, thu thập, tổng hợp và phân tích thông tin
+thị trường dầu thô, sản phẩm lọc dầu và các yếu tố kinh tế, địa chính trị có ảnh hưởng đến hoạt
+động kinh doanh của BSR.
+Để thực hiện nhiệm vụ này, đội ngũ cần khai thác thông tin từ nhiều nguồn khác nhau:
+● Nguồn dữ liệu thương mại: Reuters, S&P Global Platts, Bloomberg.
+● Dữ liệu thị trường công khai: Giá dầu, giá futures, giá sản phẩm lọc dầu, tỷ giá và các
+chỉ số kinh tế vĩ mô.
+● Tin tức trong nước và quốc tế: Các diễn biến về cung cầu, hoạt động khai thác, lọc
+dầu, vận tải, chính sách năng lượng và địa chính trị.
+● Báo cáo nghiên cứu và dự báo: Báo cáo phân tích từ McKinsey, Platts và các tổ chức
+nghiên cứu, tư vấn khác.
+● Dữ liệu nội bộ BSR: Giá physical, giá mua bán, dữ liệu nghiệp vụ và các tài liệu nội bộ
+được quản lý dưới dạng Excel, PDF, Word hoặc các định dạng khác.
+=== PAGE 2 ===
+Các thông tin này đóng vai trò quan trọng trong việc đánh giá xu hướng thị trường, nhận diện
+cơ hội và rủi ro, hỗ trợ hoạt động mua dầu thô, kinh doanh sản phẩm và lập kế hoạch kinh
+doanh.
+Tuy nhiên, quá trình thu thập, đối chiếu, phân tích và biên soạn thông tin hiện vẫn phụ thuộc
+đáng kể vào thao tác thủ công của đội ngũ Market Intelligence.
+BSR cần một nền tảng Market Intelligence tập trung, có khả năng kết nối dữ liệu, tự động hóa
+xử lý thông tin và cung cấp năng lực phân tích chuyên sâu nhằm hỗ trợ đội ngũ chuyên môn
+cũng như lãnh đạo đưa ra quyết định kinh doanh kịp thời và có cơ sở dữ liệu.
+2. Các vấn đề nghiệp vụ hiện tại (Business Problems)
+BP-01. Dữ liệu và thông tin thị trường phân tán
+Thông tin thị trường nằm rải rác trên nhiều nguồn dữ liệu thương mại, website, báo cáo nghiên
+cứu, file Excel và tài liệu nội bộ.
+Hệ quả:
+● Nhân sự phải truy cập nhiều hệ thống để thu thập thông tin.
+● Khó có một góc nhìn tập trung về tình hình thị trường.
+● Mất thời gian đối chiếu dữ liệu giữa các nguồn.
+● Khó truy xuất lại thông tin và nguồn tham chiếu khi cần phân tích.
+BP-02. Theo dõi diễn biến thị trường và tin tức chưa được tự động hóa đầy
+đủ
+Việc cập nhật tin tức và diễn biến thị trường trong ngày vẫn cần nhiều thao tác thủ công.
+Hệ quả:
+● Có thể chậm nắm bắt những sự kiện có ảnh hưởng lớn đến thị trường.
+● Khó theo dõi liên tục các chủ đề quan trọng.
+● Tốn nguồn lực để đọc, phân loại và tổng hợp lượng lớn thông tin.
+● Khó đánh giá mức độ ảnh hưởng của một sự kiện đến các chỉ số thị trường liên quan.
+BP-03. Khó đánh giá giá trị bổ sung giữa các nguồn thông tin
+BSR sử dụng nhiều nguồn dữ liệu thương mại và có thể tham khảo thêm kết quả phân tích từ
+các hệ thống AI.
+Tuy nhiên, hiện chưa có quy trình tập trung để:
+● So sánh mức độ trùng lặp giữa các nguồn.
+=== PAGE 3 ===
+● Xác định nguồn nào cung cấp thông tin mới hoặc có giá trị bổ sung.
+● Đánh giá mức độ khác biệt giữa thông tin từ các nhà cung cấp và kết quả AI.
+● Theo dõi chất lượng và độ tin cậy của thông tin theo nguồn.
+BP-04. Chưa có quy trình tập trung để theo dõi và đánh giá dự báo
+Dự báo thị trường được cung cấp bởi nhiều tổ chức và nguồn nghiên cứu khác nhau.
+BSR cần khả năng lưu trữ dự báo theo từng thời điểm, đối chiếu với dữ liệu thực tế và đánh giá
+chất lượng dự báo theo thời gian.
+Nếu không lưu lại các phiên bản dự báo, việc đánh giá độ chính xác trong quá khứ và so sánh
+hiệu quả giữa các nguồn sẽ gặp khó khăn.
+BP-05. Việc tạo báo cáo và phân tích đột xuất mất nhiều thời gian
+Lãnh đạo có thể cần báo cáo hoặc phân tích nhanh khi thị trường xuất hiện biến động bất
+thường hoặc khi phát sinh một vấn đề kinh doanh cụ thể.
+Quá trình chuẩn bị thường yêu cầu nhân sự:
+● Thu thập dữ liệu từ nhiều nguồn.
+● Tìm kiếm tin tức và báo cáo liên quan.
+● Đối chiếu diễn biến lịch sử.
+● Tổng hợp nhận định và biên soạn báo cáo.
+Điều này làm tăng thời gian phản hồi và phụ thuộc vào nguồn lực của đội ngũ chuyên môn.
+BP-06. Dữ liệu nội bộ chưa được khai thác thuận tiện qua AI
+Một phần dữ liệu nội bộ của BSR đang được lưu trữ trong file Excel và các tài liệu nghiệp vụ.
+Người dùng chưa có một giao diện hội thoại thống nhất để truy vấn các tài liệu này kết hợp với
+thông tin thị trường, trong phạm vi quyền truy cập được cấp.
+Hệ quả:
+● Khó tìm kiếm và tổng hợp thông tin từ nhiều tài liệu.
+● Khó kết hợp dữ liệu nội bộ với bối cảnh thị trường.
+● Lãnh đạo và nhân sự phải phụ thuộc vào việc tìm kiếm, tổng hợp thủ công.
+3. Mục tiêu kinh doanh (Business Objectives)
+BO-01. Tập trung hóa thông tin thị trường
+=== PAGE 4 ===
+Cung cấp một giao diện thống nhất để theo dõi dữ liệu giá, tin tức, báo cáo nghiên cứu, dự báo
+và các thông tin thị trường quan trọng.
+BO-02. Nâng cao tốc độ cập nhật và khả năng giám sát thị trường
+Tự động hóa các bước thu thập, cập nhật, phân loại, tổng hợp và theo dõi thông tin từ những
+nguồn dữ liệu được tích hợp.
+BO-03. Nâng cao chất lượng phân tích thị trường
+Kết hợp dữ liệu tài chính theo chuỗi thời gian, tin tức, các yếu tố nền tảng và bối cảnh liên thị
+trường để cung cấp nhận định có chiều sâu hơn.
+BO-04. Theo dõi và đánh giá chất lượng dự báo
+Lưu trữ các phiên bản dự báo, so sánh với kết quả thực tế và theo dõi hiệu quả của từng nguồn
+dự báo.
+BO-05. Rút ngắn thời gian tạo báo cáo và hỗ trợ quyết định
+Cho phép người dùng tạo báo cáo định kỳ hoặc báo cáo đột xuất dựa trên dữ liệu và thông tin
+đã được hệ thống tập trung hóa.
+BO-06. Khai thác dữ liệu nội bộ thông qua AI
+Cho phép người dùng truy vấn dữ liệu và tài liệu nội bộ bằng giao diện hội thoại, đồng thời kết
+hợp với dữ liệu thị trường khi phù hợp và được cấp quyền.
+4. Yêu cầu nghiệp vụ (Business Requirements)
+Business
+ID Kết quả hệ thống cần đáp ứng
+Requirement
+BR-0 Tập trung hóa dữ liệu Hiển thị các chỉ số thị trường trên một nền tảng thống nhất,
+1 thị trường có nguồn và thời điểm cập nhật
+BR-0 Theo dõi diễn biến thị Hỗ trợ theo dõi lịch sử, biến động giá và các chỉ số liên
+2 trường quan
+BR-0 Thu thập và tổng hợp Cho phép nhập, tải lên, thu thập và xử lý thông tin từ nhiều
+3 tin tức nguồn
+BR-0 Phân tích thông tin thị Tóm tắt, phân loại, liên kết sự kiện và giải thích bối cảnh thị
+4 trường trường
+BR-0 So sánh nguồn thông Hỗ trợ nhận diện nội dung trùng lặp, thông tin mới và giá trị
+5 tin bổ sung giữa các nguồn
+BR-0 Lưu trữ dự báo theo nguồn và thời điểm, không ghi đè
+Quản lý dự báo
+6 phiên bản cũ
+=== PAGE 5 ===
+BR-0
+Đánh giá dự báo So sánh dự báo với dữ liệu thực tế và theo dõi sai số
+7
+BR-0 Hỗ trợ phân tích và Cung cấp phân tích về xu hướng, tác động thị trường và
+8 khuyến nghị các phương án kinh doanh có liên quan
+BR-0
+Tạo báo cáo Hỗ trợ báo cáo định kỳ và báo cáo đột xuất theo yêu cầu
+9
+BR-1 Cho phép truy vấn dữ liệu thị trường và tài liệu nội bộ bằng
+Truy vấn bằng AI
+0 ngôn ngữ tự nhiên
+BR-1 Đảm bảo dữ liệu physical và thông tin mật chỉ được truy
+Bảo vệ dữ liệu nội bộ
+1 cập bởi người dùng được cấp quyền
+BR-1 Truy xuất nguồn tham Các thông tin, nhận định và báo cáo do AI tạo cần có
+2 chiếu nguồn dữ liệu hoặc tài liệu tham chiếu phù hợp
+5. Kết quả nghiệp vụ kỳ vọng (Expected Business
+Outcomes)
+Nền tảng cần tạo ra giá trị thực tế cho BSR trên các phương diện:
+1. Research Efficiency: Giảm thời gian nhân sự dành cho việc thu thập, đối chiếu và tổng
+hợp thông tin.
+2. Market Visibility: Nâng cao khả năng theo dõi diễn biến thị trường từ nhiều nguồn trên
+một giao diện thống nhất.
+3. Timeliness: Rút ngắn thời gian từ khi xuất hiện sự kiện thị trường đến khi thông tin
+được xử lý và cung cấp cho người dùng.
+4. Analytical Depth: Cung cấp phân tích có bối cảnh, kết nối dữ liệu giá, tin tức và các
+yếu tố nền tảng thay vì chỉ tóm tắt thông tin riêng lẻ.
+5. Forecast Evaluation: Tạo cơ sở dữ liệu lịch sử để đánh giá chất lượng dự báo theo
+nguồn và theo thời gian.
+6. Decision Support: Hỗ trợ lãnh đạo và các bộ phận chuyên môn đưa ra quyết định kinh
+doanh dựa trên dữ liệu và phân tích có thể kiểm chứng.
+Các chỉ số định lượng cụ thể như tỷ lệ giảm thời gian chuẩn bị báo cáo, thời gian cập nhật
+thông tin, độ chính xác trích xuất và mức độ sử dụng hệ thống cần được BSR và Reasonary
+thống nhất trong giai đoạn xác định baseline và nghiệm thu pilot.
+6. Phạm vi và giới hạn nghiệp vụ (Business Scope &
+Boundaries)
+6.1. Phạm vi hiện tại
+Nền tảng tập trung vào Market Intelligence, bao gồm:
+=== PAGE 6 ===
+1. Market Overview.
+2. Market Data.
+3. Market News & Intelligence.
+4. Market Forecast.
+5. Market Analysis & Recommendations.
+6. AI Assistant & Reporting.
+6.2. Ngoài phạm vi triển khai hiện tại
+● Không xây dựng một Risk Management Platform hoàn chỉnh trong giai đoạn này.
+● Không duy trì Risk Heatmap làm giao diện trung tâm.
+● Không triển khai hệ thống đánh giá rủi ro doanh nghiệp toàn diện.
+● Không tự động công bố hoặc chia sẻ dữ liệu physical và dữ liệu mật ra ngoài phạm vi
+được cấp quyền.
+● Không yêu cầu tích hợp toàn bộ ERP, Finance, Procurement, Production và các hệ
+thống vận hành BSR ngay trong MVP.
+● Các khuyến nghị AI có vai trò hỗ trợ phân tích và ra quyết định, không tự động thực hiện
+giao dịch hoặc quyết định kinh doanh thay người có thẩm quyền.
+Các yếu tố địa chính trị và rủi ro có ảnh hưởng đến thị trường vẫn được giữ lại như một phần
+của Market Intelligence.
+PHẦN II. TỔNG QUAN SẢN PHẨM VÀ
+NGUYÊN TẮC THIẾT KẾ
+7. Mục tiêu sản phẩm
+BSR Market Intelligence Platform là hệ thống trí tuệ thị trường doanh nghiệp, được xây dựng
+nhằm thu thập, chuẩn hóa, phân tích và phân phối thông tin thị trường dầu khí.
+Hệ thống cần hỗ trợ người dùng BSR:
+1. Theo dõi thị trường dầu thô và các sản phẩm lọc dầu trên toàn cầu.
+2. Tập trung dữ liệu thị trường từ nhiều nguồn thương mại, công khai và nội bộ.
+3. Tự động thu thập, phân loại và tổng hợp tin tức thị trường.
+4. So sánh dự báo từ các tổ chức nghiên cứu và phân tích khác nhau.
+5. Phân tích mối quan hệ giữa các yếu tố thị trường, giá cả và hiệu quả kinh tế lọc dầu.
+6. Tạo báo cáo Market Intelligence và các khuyến nghị hỗ trợ ra quyết định.
+7. Truy vấn dữ liệu thị trường và tài liệu nội bộ được cấp quyền thông qua AI Chat.
+=== PAGE 7 ===
+Hệ thống phải đảm bảo khả năng truy xuất nguồn gốc giữa thông tin đầu vào, nguồn dữ liệu
+gốc, kết quả phân tích và các khuyến nghị được tạo ra.
+8. Các module chức năng
+Hệ thống bao gồm sáu module chức năng chính:
+Module Chức năng chính
+Tổng quan diễn biến thị trường và các yếu tố dẫn
+Market Overview
+dắt
+Market Data Quản lý, hiển thị và phân tích dữ liệu thị trường
+Market News & Intelligence Thu thập, phân loại, tổng hợp và phân tích tin tức
+Market Forecast Quản lý, theo dõi và đánh giá dự báo
+Market Analysis & Recommendations Phân tích tác động và tạo khuyến nghị
+AI Assistant & Reporting Truy vấn dữ liệu, phân tích và tạo báo cáo qua AI
+Các năng lực quản trị, bảo mật, quản lý dữ liệu và điều phối AI là những thành phần dùng
+chung cho toàn bộ hệ thống.
+9. Nguyên tắc triển khai
+● Data-centric: Dữ liệu thị trường và tài liệu phải được lưu trữ, quản lý độc lập với các kết
+quả do AI tạo ra.
+● Source-grounded: Các kết luận do AI tạo ra phải có tham chiếu đến dữ liệu và nguồn
+thông tin làm cơ sở.
+● Time-aware: Dữ liệu thị trường, tin tức, dự báo và kết quả phân tích phải lưu giữ đầy đủ
+các mốc thời gian liên quan.
+● Permission-aware: Quyền truy cập phải được kiểm tra trước khi dữ liệu được cung cấp
+cho mô hình AI.
+● Model-independent: Logic nghiệp vụ không được phụ thuộc trực tiếp vào một nhà cung
+cấp LLM cụ thể.
+● Auditable: Các bước xử lý quan trọng, thay đổi dữ liệu, yêu cầu AI và kết quả đầu ra
+phải có khả năng truy vết.
+● Incremental: Kiến trúc phải cho phép bổ sung nguồn dữ liệu, phương pháp phân tích và
+năng lực AI mà không phải thiết kế lại các module hiện có.
+● Deterministic where possible: Các phép tính tài chính, quy đổi đơn vị, thống kê và
+kiểm tra dữ liệu phải được thực hiện bằng dịch vụ tính toán có kết quả xác định, không
+giao cho LLM tự tính.
+● Human-controlled: Các quyết định kinh doanh và hành động có ảnh hưởng thực tế vẫn
+thuộc quyền kiểm soát của người có thẩm quyền.
+=== PAGE 8 ===
+PHẦN III. NGƯỜI DÙNG, VAI TRÒ VÀ
+PHÂN QUYỀN
+10. Nhóm người dùng
+Hệ thống dự kiến phục vụ khoảng 1.550 người dùng.
+Số lượng dự
+Nhóm người dùng Trách nhiệm chính
+kiến
+Lãnh đạo và quản lý 40 Theo dõi thông tin, truy vấn dữ liệu, tạo báo cáo
+Đội Market
+10 Quản lý dữ liệu, tin tức, tài liệu và dự báo
+Intelligence
+Truy cập thông tin thị trường và báo cáo được
+Người dùng nội bộ 1.500
+phê duyệt
+10.1. Lãnh đạo và quản lý
+● Xem thông tin thị trường được cấp quyền.
+● Truy cập dữ liệu physical mật nếu được cấp quyền cụ thể.
+● Truy vấn dữ liệu qua AI Chat.
+● Yêu cầu tạo báo cáo đột xuất.
+● Xem báo cáo ngày, tuần, tháng.
+● Xem các nhận định, dự báo và khuyến nghị.
+● Xuất báo cáo theo quyền được cấp.
+● Xem nội dung phân tích nội bộ.
+Quyền xem dữ liệu mật không đồng nghĩa với quyền công bố hoặc phát hành dữ liệu đó ra bên
+ngoài.
+10.2. Đội Market Intelligence
+● Nhập tin tức và thông tin thị trường.
+● Upload file Excel, PDF, Word và các định dạng được hỗ trợ.
+● Nhập dữ liệu giá physical.
+● Cập nhật thông tin từ Reuters, Platts và các nguồn khác.
+● Kiểm tra, chỉnh sửa và xác nhận dữ liệu AI trích xuất.
+● Theo dõi trạng thái xử lý.
+● Quản lý nguồn thông tin và dữ liệu đầu vào.
+● Tạo và quản lý dự báo nếu được phân quyền.
+10.3. Người dùng nội bộ
+=== PAGE 9 ===
+● Xem thông tin thị trường đã được phê duyệt và cho phép phổ biến nội bộ.
+● Xem báo cáo được công bố cho nhóm người dùng.
+● Truy vấn dữ liệu và tài liệu được cấp quyền.
+● Không mặc định được xem giá physical mật.
+● Không được truy cập dữ liệu nguồn hoặc nội dung bị hạn chế.
+11. Phân quyền truy cập
+Hệ thống phải hỗ trợ phân quyền theo:
+● Vai trò người dùng (Role-based Access Control – RBAC).
+● Phòng ban (Department).
+● Phân loại dữ liệu (Data Classification).
+● Quyền truy cập cấp tài liệu (Document-level Permissions).
+● Quyền riêng cho từng người dùng (Individual Permissions).
+11.1. Phân loại dữ liệu
+Phân loại Mô tả
+Public Thông tin thị trường công khai
+Internal Thông tin được phép lưu hành nội bộ
+Confidential Thông tin nghiệp vụ nhạy cảm
+Giá physical và dữ liệu thương mại
+Restricted
+mật
+11.2. Các nguyên tắc bảo mật bắt buộc
+1. Backend phải kiểm tra quyền truy cập trước khi truy xuất dữ liệu.
+2. AI chỉ được nhận những thông tin mà người dùng gửi yêu cầu có quyền truy cập.
+3. Kết quả tìm kiếm, câu trả lời AI, báo cáo và file xuất phải tuân thủ cùng một chính sách
+phân quyền.
+4. Dữ liệu Restricted không được xuất hiện trong kết quả trả về cho người dùng không có
+quyền.
+5. Các hoạt động xem, chỉnh sửa, upload, xóa và xuất dữ liệu nhạy cảm phải được ghi
+nhận trong Audit Log.
+6. Quyền xem và quyền xuất bản/chia sẻ dữ liệu phải được cấu hình độc lập.
+7. Nhà cung cấp AI không được sử dụng dữ liệu mật của BSR để huấn luyện mô hình
+hoặc chia sẻ ra bên ngoài nếu chưa có sự cho phép rõ ràng của BSR.
+Yêu cầu triển khai: Cơ chế phân quyền phải được thực thi tại tầng ứng dụng và dữ liệu, không
+được phụ thuộc vào việc yêu cầu LLM tự tuân thủ thông qua prompt.
+=== PAGE 10 ===
+PHẦN IV. YÊU CẦU CHỨC NĂNG
+12. Module 1 – Market Overview
+12.1. Market Snapshot – Tổng quan dữ liệu thị trường
+Hiển thị giá trị mới nhất của các chỉ số:
+● Brent.
+● WTI.
+● Các chỉ số giá dầu thô liên quan.
+● Gasoline và các sản phẩm lọc dầu khác.
+● Giá futures.
+● Giá physical (theo quyền truy cập).
+● Product crack spread.
+● USD/VND.
+● Các chỉ số kinh tế vĩ mô liên quan.
+Mỗi chỉ số phải hỗ trợ:
+Trường Mô tả
+Instrument Mã định danh chỉ số thị trường
+Value Giá trị mới nhất
+Unit Đơn vị đo
+Previous Value Giá trị kỳ trước
+Absolute Change Mức thay đổi tuyệt đối
+Percentage Change Mức thay đổi phần trăm
+Market Timestamp Thời điểm giá trị thị trường được ghi nhận
+Ingestion
+Thời điểm hệ thống tiếp nhận dữ liệu
+Timestamp
+Source Nguồn dữ liệu
+Real-time, Delayed, End-of-day hoặc
+Data Status
+Manual
+Data Quality Trạng thái kiểm tra chất lượng dữ liệu
+Market Timestamp và Ingestion Timestamp phải được lưu riêng biệt.
+Dashboard không được hiển thị dữ liệu đã bị trễ hoặc quá cũ như dữ liệu thời gian thực.
+12.2. Market Highlights – Các diễn biến nổi bật
+AI tổng hợp các diễn biến quan trọng:
+=== PAGE 11 ===
+● Biến động đáng chú ý của thị trường.
+● Diễn biến cung và cầu.
+● Các sự kiện địa chính trị.
+● Thay đổi trong hoạt động của nhà máy lọc dầu.
+● Diễn biến vận tải và logistics.
+● Các sự kiện có khả năng ảnh hưởng đến hoạt động kinh doanh của BSR.
+Mỗi nội dung phải có tham chiếu nguồn, thời điểm công bố và phân biệt rõ giữa sự kiện được
+nguồn thông tin ghi nhận với nhận định do AI tạo ra.
+12.3. Key Market Drivers – Các yếu tố dẫn dắt thị trường
+Hiển thị các yếu tố quan trọng theo nhóm:
+● Nguồn cung dầu thô.
+● Nhu cầu dầu thô.
+● Chính sách OPEC+.
+● Nguồn cung Trung Đông.
+● Vận tải và logistics.
+● Nhu cầu châu Á.
+● Tồn kho dầu.
+● Hoạt động nhà máy lọc dầu.
+● Các chỉ số kinh tế vĩ mô.
+● Tỷ giá ngoại tệ.
+12.4. AI Market Briefing – Bản tin thị trường AI
+Hệ thống tạo bản tổng hợp thị trường bao gồm:
+● Diễn biến thị trường trong 24 giờ gần nhất.
+● Những biến động giá quan trọng.
+● Các yếu tố chính dẫn dắt thị trường.
+● Những thông tin mới đáng chú ý.
+● Những thay đổi so với bản tin trước đó.
+● Các sự kiện cần tiếp tục theo dõi.
+● Tác động tiềm năng đến hoạt động của BSR.
+Hệ thống phải lưu giữ các phiên bản Market Briefing đã tạo để người dùng có thể so sánh sự
+thay đổi trong nhận định thị trường theo thời gian.
+13. Module 2 – Market Data
+13.1. Các nhóm dữ liệu được hỗ trợ
+=== PAGE 12 ===
+A. Crude Oil – Dầu thô
+● Brent Futures.
+● WTI Futures.
+● Brent Physical.
+● WTI Physical, nếu có dữ liệu.
+● Các loại dầu thô khác liên quan đến hoạt động của BSR.
+B. Refined Products – Sản phẩm lọc dầu
+Sản phẩm ưu tiên:
+● Gasoline.
+Các nhóm có thể mở rộng:
+● Diesel.
+● Jet Fuel.
+● Fuel Oil.
+● Các sản phẩm dầu mỏ khác.
+C. Crack Spread
+Hệ thống phải hỗ trợ:
+● Product crack spread.
+● Gasoline crack spread.
+● Crack spread tính theo futures.
+● Crack spread tính theo physical.
+● Crack spread theo công thức riêng của BSR.
+Mỗi công thức crack spread phải có khả năng cấu hình.
+Một phép tính crack spread phải lưu giữ:
+● Formula ID.
+● Danh sách các chỉ số đầu vào.
+● Giá trị đầu vào.
+● Quy tắc quy đổi đơn vị.
+● Thời điểm tính toán.
+● Phiên bản công thức.
+Hệ thống không được trộn lẫn giá futures và physical trong cùng một phép tính, trừ khi công
+thức được cấu hình rõ ràng yêu cầu điều đó.
+D. FX & Macroeconomic Indicators
+=== PAGE 13 ===
+● USD/VND.
+● DXY.
+● Các chỉ số kinh tế vĩ mô khác có liên quan.
+13.2. Cấu trúc dữ liệu thị trường
+Mỗi bản ghi quan sát thị trường (Market Observation) phải bao gồm:
+Trường Mô tả
+Instrument ID Mã định danh duy nhất
+Instrument Name Tên chỉ số
+Asset Category Crude, Product, FX, Macro, Spread
+Futures, Physical, Index hoặc
+Price Type
+Calculated
+Value Giá trị số
+Unit Đơn vị đo
+Currency Đồng tiền định giá
+Market Timestamp Thời điểm ghi nhận giá trên thị trường
+Ingestion
+Thời điểm hệ thống tiếp nhận
+Timestamp
+Source ID Mã nguồn dữ liệu
+Data Status Real-time, Delayed, EOD hoặc Manual
+Valid, Pending, Rejected hoặc
+Quality Status
+Corrected
+Classification Phân loại bảo mật
+Hệ thống phải bảo toàn dữ liệu lịch sử và các lần điều chỉnh dữ liệu. Bản ghi mới không được
+âm thầm ghi đè lên các bản ghi đã lưu trước đó.
+13.3. Hiển thị và trực quan hóa dữ liệu
+Người dùng cần có khả năng:
+● Xem dữ liệu lịch sử dưới dạng chuỗi thời gian.
+● So sánh nhiều chỉ số.
+● Lựa chọn khoảng thời gian.
+● Chuyển đổi giữa các chế độ intraday, daily, weekly và monthly nếu dữ liệu nguồn hỗ trợ.
+● Xem giá trị tuyệt đối và tỷ lệ thay đổi.
+● Xem nguồn dữ liệu và thời điểm cập nhật.
+● Phân biệt futures, physical và dữ liệu tính toán.
+● Xuất dữ liệu theo quyền được cấp.
+13.4. Quản lý nguồn dữ liệu
+=== PAGE 14 ===
+Hệ thống cần có cấu hình nguồn dữ liệu, bao gồm:
+● Source ID và tên nguồn.
+● Loại nguồn: API, file upload, manual input hoặc external provider.
+● Loại dữ liệu được cung cấp.
+● Tần suất cập nhật.
+● Trạng thái kết nối.
+● Quy tắc kiểm tra dữ liệu.
+● Quyền sử dụng và phân loại bảo mật.
+● Thông tin lỗi ingestion.
+Không mặc định rằng tất cả nguồn thương mại đều có API hoặc quyền truy cập tự động. Việc
+tích hợp phụ thuộc vào giấy phép và khả năng kỹ thuật của từng nhà cung cấp.
+14. Module 3 – Market News & Intelligence
+14.1. News Input và File Upload
+Cho phép người dùng:
+● Nhập nội dung tin tức trực tiếp.
+● Nhập URL nếu hệ thống được phép truy cập.
+● Upload PDF, Word, Excel và các định dạng được hỗ trợ.
+● Nhập báo cáo nghiên cứu.
+● Nhập thông tin từ nguồn thương mại.
+● Gắn nguồn, ngày công bố và phân loại bảo mật.
+Mỗi tài liệu hoặc tin tức phải được lưu cùng metadata và quyền truy cập.
+14.2. News Processing Pipeline
+Quy trình xử lý tin tức:
+1. Tiếp nhận dữ liệu.
+2. Kiểm tra định dạng và tính hợp lệ.
+3. Trích xuất nội dung.
+4. Chuẩn hóa metadata.
+5. Phát hiện trùng lặp.
+6. Phân loại chủ đề.
+7. Trích xuất thực thể và sự kiện.
+8. Tóm tắt nội dung.
+9. Xác định các chỉ số hoặc thị trường liên quan.
+10. Lưu trữ và lập chỉ mục.
+11. Đưa vào Market News Feed và các workflow phân tích.
+=== PAGE 15 ===
+Mỗi bước cần có trạng thái xử lý và thông tin lỗi để có thể retry hoặc kiểm tra thủ công.
+14.3. News Classification
+Hệ thống cần hỗ trợ phân loại tin tức theo các nhóm:
+● Crude Supply.
+● Crude Demand.
+● Refining Operations.
+● Refined Products.
+● OPEC+.
+● Geopolitics.
+● Shipping & Freight.
+● Inventory.
+● Macroeconomics.
+● FX.
+● Energy Policy.
+● Other.
+Danh mục có thể được cấu hình và mở rộng.
+14.4. News Deduplication
+Hệ thống cần nhận diện các tin tức có nội dung tương tự hoặc cùng mô tả một sự kiện.
+Kết quả xử lý cần phân biệt:
+● Tin trùng lặp gần như hoàn toàn.
+● Các phiên bản cập nhật của cùng một sự kiện.
+● Các bài viết độc lập về cùng một sự kiện.
+● Thông tin mới có giá trị bổ sung.
+Không được tự động xóa nội dung nguồn. Các bản tin liên quan phải được liên kết để người
+dùng có thể truy xuất nguồn gốc.
+14.5. News Coverage Comparison
+Cho phép so sánh nội dung giữa các nguồn thông tin.
+Hệ thống cần hỗ trợ:
+● Xác định chủ đề được nhiều nguồn đề cập.
+● Xác định nguồn cung cấp thông tin mới.
+● So sánh các chi tiết khác biệt giữa các nguồn.
+● Phát hiện thông tin chưa được các nguồn khác đề cập.
+=== PAGE 16 ===
+● Hiển thị nguồn và thời điểm công bố.
+● Phân biệt dữ kiện từ nguồn với nhận định do AI tổng hợp.
+Mục tiêu là đánh giá độ bao phủ và giá trị bổ sung của nguồn, không tự động kết luận nguồn
+nào đáng tin cậy hơn chỉ dựa trên số lượng bài viết.
+14.6. Market News Feed
+Cung cấp danh sách tin tức với khả năng:
+● Lọc theo thời gian.
+● Lọc theo nguồn.
+● Lọc theo chủ đề.
+● Lọc theo thị trường hoặc thực thể liên quan.
+● Tìm kiếm nội dung.
+● Xem bản tóm tắt.
+● Xem nguồn gốc và thời điểm.
+● Xem các tin liên quan.
+● Xem trạng thái xử lý.
+14.7. Continuous News Monitoring
+Trong giai đoạn có tích hợp nguồn tự động, hệ thống cần hỗ trợ:
+● Theo dõi các nguồn tin được cấu hình.
+● Tự động tiếp nhận nội dung mới.
+● Phát hiện sự kiện quan trọng.
+● Cập nhật chủ đề đang theo dõi.
+● Tạo thông báo theo điều kiện cấu hình.
+Cơ chế cảnh báo và tần suất cập nhật phụ thuộc khả năng cung cấp dữ liệu và giấy phép của
+từng nguồn.
+15. Module 4 – Market Forecast
+15.1. Forecast Input
+Cho phép nhập dự báo từ:
+● Các tổ chức nghiên cứu.
+● Các nhà cung cấp dữ liệu thương mại.
+● Báo cáo phân tích.
+● Dự báo nội bộ do người dùng có quyền nhập.
+Thông tin dự báo cần lưu:
+=== PAGE 17 ===
+Trường Mô tả
+Forecast ID Mã dự báo
+Source Nguồn dự báo
+Instrument Chỉ số được dự báo
+Forecast Value Giá trị dự báo
+Forecast Period Khoảng thời gian dự báo
+Forecast Horizon Thời hạn dự báo
+Publication Date Ngày công bố
+Ingestion Date Ngày hệ thống tiếp nhận
+Version Phiên bản dự báo
+Phương pháp dự báo nếu
+Methodology
+có
+Source
+Tài liệu nguồn
+Document
+Classification Phân loại bảo mật
+15.2. Forecast Versioning
+Mỗi lần cập nhật dự báo phải tạo một phiên bản mới.
+Không ghi đè dự báo cũ.
+Hệ thống phải hỗ trợ:
+● Xem các phiên bản theo thời gian.
+● So sánh thay đổi giữa các phiên bản.
+● Xác định thời điểm công bố.
+● Xác định nguồn dự báo.
+● Truy xuất tài liệu gốc.
+15.3. Forecast vs Actual
+Hệ thống so sánh dự báo với kết quả thực tế sau khi dữ liệu thực tế được cập nhật.
+Các chỉ số đánh giá có thể bao gồm:
+● Absolute Error.
+● Percentage Error.
+● Mean Absolute Error (MAE).
+● Mean Absolute Percentage Error (MAPE), khi phù hợp.
+● Forecast Bias.
+● Accuracy theo nguồn.
+● Accuracy theo instrument.
+● Accuracy theo forecast horizon.
+=== PAGE 18 ===
+Cần xử lý rõ trường hợp dữ liệu thực tế thiếu, thay đổi hoặc được điều chỉnh sau khi công bố.
+15.4. Forecast Accuracy Dashboard
+Hiển thị:
+● So sánh dự báo và thực tế.
+● Sai số theo nguồn.
+● Sai số theo thời hạn dự báo.
+● Xu hướng chất lượng dự báo qua thời gian.
+● So sánh các phiên bản dự báo.
+Các chỉ số đánh giá phải được tính toán bằng dịch vụ thống kê xác định, không để LLM tự tính.
+16. Module 5 – Market Analysis & Recommendations
+16.1. Market Trend Analysis
+Hệ thống hỗ trợ phân tích:
+● Xu hướng giá dầu thô.
+● Xu hướng giá sản phẩm.
+● Biến động crack spread.
+● Quan hệ giữa Brent và WTI.
+● Quan hệ giữa crude, product và freight.
+● Biến động tỷ giá.
+● Biến động cung cầu.
+● Các trạng thái thị trường khác nhau theo thời gian.
+Các phân tích cần sử dụng dữ liệu lịch sử và hiển thị khoảng thời gian, dữ liệu đầu vào,
+phương pháp và nguồn liên quan.
+16.2. Financial Time-Series Analysis
+Hệ thống cần hỗ trợ các phép phân tích chuỗi thời gian như:
+● Return và price change.
+● Rolling volatility.
+● Moving average.
+● Trend detection.
+● Correlation.
+● Rolling correlation.
+● Spread analysis.
+● Historical regime comparison.
+=== PAGE 19 ===
+● Forecast error analysis.
+Các phương pháp và tham số phân tích cần được lưu lại để có thể tái lập kết quả.
+16.3. Cross-Market Analysis
+Hệ thống phân tích mối quan hệ giữa:
+● Crude prices.
+● Refined product prices.
+● Crack spreads.
+● Freight và shipping.
+● Supply and demand.
+● Refinery operations.
+● Inventory.
+● FX.
+● Macroeconomic indicators.
+● Geopolitical developments.
+Không mặc định rằng tương quan đồng nghĩa với quan hệ nhân quả.
+Các nhận định về nguyên nhân và tác động phải phân biệt rõ:
+● Dữ liệu quan sát được.
+● Mối tương quan thống kê.
+● Giả thuyết giải thích.
+● Kết luận có bằng chứng hỗ trợ.
+16.4. Market Impact Analysis
+Khi xuất hiện sự kiện quan trọng, hệ thống cần hỗ trợ phân tích:
+1. Sự kiện là gì?
+2. Các thị trường hoặc chỉ số nào có liên quan?
+3. Cơ chế tác động tiềm năng là gì?
+4. Những dữ liệu nào đang hỗ trợ nhận định?
+5. Những yếu tố nào có thể làm thay đổi kết quả?
+6. Những chỉ số nào cần tiếp tục theo dõi?
+7. Mức độ không chắc chắn của phân tích là gì?
+16.5. Geopolitical Intelligence
+Theo dõi và phân tích các yếu tố địa chính trị có ảnh hưởng đến thị trường năng lượng:
+● Xung đột và bất ổn khu vực.
+=== PAGE 20 ===
+● Gián đoạn nguồn cung.
+● Chính sách năng lượng.
+● Lệnh trừng phạt.
+● Các tuyến vận tải chiến lược.
+● Rủi ro vận tải và logistics.
+Hệ thống cần liên kết sự kiện với thị trường, nguồn cung, vận tải và các chỉ số liên quan.
+16.6. AI Market Recommendations
+AI có thể tạo các khuyến nghị hỗ trợ phân tích và quyết định, bao gồm:
+● Các diễn biến cần theo dõi.
+● Các kịch bản thị trường.
+● Các yếu tố có thể ảnh hưởng đến hoạt động mua dầu thô.
+● Các yếu tố có thể ảnh hưởng đến hiệu quả kinh tế lọc dầu.
+● Các phương án cần xem xét.
+● Các rủi ro và giả định liên quan.
+Mỗi khuyến nghị phải thể hiện:
+● Bối cảnh.
+● Dữ liệu và nguồn tham chiếu.
+● Lập luận.
+● Giả định.
+● Các yếu tố không chắc chắn.
+● Mức độ tin cậy hoặc giới hạn của phân tích.
+● Thời điểm tạo và phiên bản.
+Khuyến nghị chỉ có vai trò hỗ trợ ra quyết định. Không tự động thực hiện giao dịch hoặc quyết
+định kinh doanh thay người có thẩm quyền.
+17. Module 6 – AI Assistant & Reporting
+17.1. AI Chat
+Người dùng có thể truy vấn bằng ngôn ngữ tự nhiên, ví dụ:
+● Brent đã biến động như thế nào trong 30 ngày qua?
+● Những yếu tố nào đang dẫn dắt thị trường dầu?
+● So sánh diễn biến Brent và WTI.
+● Crack spread gasoline đang thay đổi như thế nào?
+● Những tin tức nào có thể ảnh hưởng đến nguồn cung dầu?
+● So sánh dự báo của các tổ chức khác nhau.
+● Tóm tắt những thay đổi đáng chú ý kể từ bản tin gần nhất.
+=== PAGE 21 ===
+● Tạo báo cáo về một chủ đề thị trường cụ thể.
+AI Chat cần hỗ trợ:
+● Truy vấn dữ liệu thị trường.
+● Truy vấn tin tức.
+● Truy vấn báo cáo và tài liệu.
+● Kết hợp dữ liệu từ nhiều module.
+● Thực hiện phân tích thông qua các analytical services.
+● Tạo nội dung có dẫn nguồn.
+● Tạo báo cáo theo yêu cầu.
+17.2. Chat Processing Workflow
+Một yêu cầu AI Chat được xử lý theo quy trình:
+1. Nhận câu hỏi từ người dùng.
+2. Xác thực người dùng và quyền truy cập.
+3. Phân tích ý định và loại nhiệm vụ.
+4. Xác định nguồn dữ liệu cần thiết.
+5. Truy xuất dữ liệu theo quyền.
+6. Xác định các phép phân tích cần thực hiện.
+7. Gửi nhiệm vụ AI qua Auker.
+8. Auker lựa chọn mô hình, mức độ suy luận, công cụ và chiến lược thực thi phù hợp.
+9. Thực hiện các analytical tools hoặc truy vấn cần thiết.
+10. Tổng hợp kết quả.
+11. Kiểm tra cấu trúc, nguồn tham chiếu và các điều kiện đầu ra.
+12. Trả kết quả cho người dùng.
+13. Lưu lịch sử và thông tin kiểm toán theo chính sách.
+17.3. Document Upload & Question Answering
+Người dùng được phép upload tài liệu theo quyền được cấp.
+Hệ thống cần hỗ trợ:
+● Kiểm tra định dạng.
+● Trích xuất nội dung.
+● Lưu metadata.
+● Phân loại tài liệu.
+● Lập chỉ mục tìm kiếm.
+● Truy vấn nội dung bằng AI.
+● Trích dẫn nguồn và vị trí nội dung trong tài liệu.
+Tài liệu cần giữ nguyên classification và quyền truy cập trong toàn bộ quá trình xử lý.
+=== PAGE 22 ===
+17.4. Reporting
+Hệ thống cần hỗ trợ các loại báo cáo:
+● Morning Briefing.
+● End-of-day Report.
+● Daily Market Report.
+● Weekly Market Report.
+● Monthly Market Report.
+● On-demand Market Analysis.
+● Event-driven Market Report.
+Báo cáo phải hỗ trợ:
+● Tạo nội dung tự động.
+● Lưu phiên bản.
+● Hiển thị nguồn tham chiếu.
+● Xuất PDF.
+● Kiểm tra quyền truy cập trước khi xuất.
+● Phân biệt dữ kiện, tính toán và nhận định AI.
+17.5. Report Versioning
+Mỗi báo cáo được tạo phải lưu:
+● Report ID.
+● Report Type.
+● Creation Timestamp.
+● Data Cut-off Timestamp.
+● Source References.
+● AI Model/Allocation Metadata phù hợp với chính sách lưu trữ.
+● Nội dung báo cáo.
+● Version.
+● Người yêu cầu.
+● Trạng thái phê duyệt nếu có.
+Báo cáo đã tạo không được âm thầm thay đổi khi dữ liệu nguồn được cập nhật sau đó.
+PHẦN V. MÔ HÌNH DỮ LIỆU VÀ QUẢN LÝ
+NGUỒN
+=== PAGE 23 ===
+18. Các thực thể dữ liệu chính
+Hệ thống cần quản lý tối thiểu các nhóm thực thể sau:
+Entity Mô tả
+User Người dùng
+Role Vai trò
+Department Phòng ban
+Permission Quyền truy cập
+DataSource Nguồn dữ liệu
+Instrument Chỉ số thị trường
+MarketObservation Bản ghi dữ liệu thị trường
+Formula Công thức tính toán
+NewsItem Tin tức
+Event Sự kiện thị trường
+Document Tài liệu
+Forecast Dự báo
+ForecastVersion Phiên bản dự báo
+Analysis Kết quả phân tích
+Recommendation Khuyến nghị
+Report Báo cáo
+ReportVersion Phiên bản báo cáo
+ChatSession Phiên hội thoại
+ChatMessage Tin nhắn
+AIExecution Lần thực thi AI
+AuditLog Nhật ký kiểm toán
+19. Quản lý thời gian và nguồn gốc dữ liệu
+Đối với các đối tượng có yếu tố thời gian, hệ thống cần phân biệt:
+● Event Time: Thời điểm sự kiện thực tế xảy ra.
+● Publication Time: Thời điểm nguồn công bố thông tin.
+● Market Time: Thời điểm giá hoặc dữ liệu thị trường được ghi nhận.
+● Ingestion Time: Thời điểm hệ thống tiếp nhận dữ liệu.
+● Processing Time: Thời điểm hệ thống xử lý dữ liệu.
+● Creation Time: Thời điểm tạo kết quả phân tích hoặc báo cáo.
+Không được sử dụng một trường timestamp duy nhất để đại diện cho tất cả các loại thời gian.
+20. Data Lineage và Provenance
+=== PAGE 24 ===
+Mỗi kết quả phân tích cần có khả năng truy ngược đến:
+● Dữ liệu thị trường đầu vào.
+● Tin tức hoặc tài liệu tham chiếu.
+● Nguồn cung cấp.
+● Thời điểm dữ liệu được ghi nhận.
+● Phiên bản công thức hoặc phương pháp tính toán.
+● Phiên bản phân tích.
+● Kết quả AI liên quan.
+Đối với dữ liệu được AI trích xuất, cần lưu liên kết đến tài liệu gốc và trạng thái xác nhận nếu
+có.
+PHẦN VI. KIẾN TRÚC HỆ THỐNG
+21. Tổng quan kiến trúc logic
+Kiến trúc hệ thống được chia thành các lớp:
+Layer 1. Presentation Layer
+Bao gồm:
+● Web Application.
+● Dashboard.
+● Market Data Views.
+● News Feed.
+● Forecast Views.
+● AI Chat.
+● Reporting Interface.
+● Administration Interface.
+Layer 2. Application & Business Logic Layer
+Chịu trách nhiệm:
+● User management.
+● Authentication.
+● Authorization.
+● Business workflows.
+● Market data services.
+=== PAGE 25 ===
+● News services.
+● Forecast services.
+● Analysis services.
+● Reporting services.
+● API orchestration nội bộ.
+Layer 3. Data Ingestion & Processing Layer
+Chịu trách nhiệm:
+● External API ingestion.
+● File upload processing.
+● Data validation.
+● Data normalization.
+● News extraction.
+● Document processing.
+● Deduplication.
+● Indexing.
+● Scheduled jobs.
+Layer 4. Data & Storage Layer
+Bao gồm:
+● Relational Database.
+● Time-Series Storage.
+● Object Storage.
+● Search Index.
+● Vector Index nếu cần.
+● Audit Storage.
+Layer 5. Analytical Services Layer
+Chịu trách nhiệm thực hiện các phép tính và phân tích có tính xác định:
+● Price calculations.
+● Unit conversion.
+● Crack spread calculation.
+● Statistical analysis.
+● Time-series analysis.
+● Forecast evaluation.
+● Correlation analysis.
+● Scenario calculations.
+Layer 6. AI Intelligence & Orchestration Layer – Auker
+=== PAGE 26 ===
+Chịu trách nhiệm:
+● Phân loại nhiệm vụ AI.
+● Lựa chọn mô hình.
+● Phân bổ mức độ suy luận.
+● Phân bổ công cụ và agent.
+● Phân rã nhiệm vụ phức tạp.
+● Điều phối thực thi.
+● Kiểm tra đầu ra.
+● Fallback.
+● Theo dõi chất lượng, latency và cost.
+● Tối ưu chiến lược phân bổ theo kết quả thực tế.
+22. Nguyên tắc phân định trách nhiệm
+Thành phần Trách nhiệm
+BSR Frontend Giao diện người dùng và tương tác
+Authentication, authorization, business logic, data access, persistence
+BSR Backend
+và workflow
+Data Pipeline Thu thập, chuẩn hóa, kiểm tra và lập chỉ mục dữ liệu
+Analytical
+Thực hiện phép tính và phân tích định lượng có tính xác định
+Services
+Điều phối trí tuệ nhân tạo, lựa chọn mô hình, reasoning, tools và chiến
+Auker
+lược thực thi
+LLM Providers Cung cấp năng lực mô hình nền tảng
+Nguyên tắc bắt buộc: Các module nghiệp vụ không gọi trực tiếp API của từng LLM Provider.
+Tất cả yêu cầu AI phải đi qua một AI Adapter/AI Service nội bộ, sau đó được Auker điều phối.
+BSR Backend vẫn giữ quyền kiểm soát dữ liệu, quyền truy cập và các hành động nghiệp vụ.
+Auker không được tự ý truy cập database hoặc bỏ qua cơ chế phân quyền của Backend.
+PHẦN VII. TÍCH HỢP AUKER
+23. Vai trò của Auker
+Auker là lớp AI Allocation & Orchestration Layer của nền tảng BSR Market Intelligence.
+Auker không chỉ đóng vai trò chuyển tiếp yêu cầu đến một LLM. Auker chịu trách nhiệm quyết
+định cách thực hiện từng nhiệm vụ AI dựa trên:
+=== PAGE 27 ===
+● Loại nhiệm vụ.
+● Độ phức tạp.
+● Yêu cầu chất lượng.
+● Mức độ suy luận cần thiết.
+● Công cụ cần sử dụng.
+● Thời gian phản hồi yêu cầu.
+● Chi phí thực thi.
+● Khả năng và trạng thái của các mô hình sẵn có.
+Mục tiêu là đạt được chất lượng phân tích phù hợp với từng nhiệm vụ, đồng thời tối ưu chi phí
+và độ trễ.
+24. Các năng lực chính của Auker
+24.1. Task Classification
+Auker cần nhận diện loại nhiệm vụ, ví dụ:
+● Simple factual query.
+● Market data interpretation.
+● News summarization.
+● Multi-source comparison.
+● Financial time-series analysis.
+● Cross-market reasoning.
+● Forecast evaluation.
+● Scenario analysis.
+● Complex market research.
+● Report generation.
+Loại nhiệm vụ là một trong những đầu vào để quyết định chiến lược thực thi.
+24.2. Model Allocation
+Auker có khả năng lựa chọn mô hình phù hợp cho từng nhiệm vụ dựa trên:
+● Năng lực của mô hình.
+● Chất lượng đầu ra đã đo lường.
+● Chi phí input/output.
+● Độ trễ.
+● Khả năng hỗ trợ structured output.
+● Khả năng sử dụng tools.
+● Context window.
+● Tình trạng sẵn sàng của provider.
+=== PAGE 28 ===
+Không bắt buộc mọi yêu cầu đều sử dụng cùng một mô hình.
+24.3. Reasoning-depth Allocation
+Auker có thể phân bổ mức độ suy luận theo độ phức tạp của nhiệm vụ.
+Ví dụ:
+● Simple: truy vấn hoặc tóm tắt đơn giản.
+● Standard: phân tích dữ liệu và nhiều nguồn.
+● Deep: phân tích liên thị trường, nhiều giả thuyết và nhiều bước suy luận.
+Mức độ suy luận phải được kiểm soát theo yêu cầu chất lượng, thời gian phản hồi và chi phí.
+24.4. Task Decomposition
+Đối với nhiệm vụ phức tạp, Auker có thể phân rã thành nhiều bước hoặc nhiệm vụ con.
+Ví dụ câu hỏi:
+"Đánh giá tác động của việc gián đoạn nguồn cung dầu tại Trung Đông đến Brent, gasoline
+crack và hoạt động kinh doanh của BSR."
+Có thể được phân rã thành:
+1. Xác định sự kiện và phạm vi ảnh hưởng.
+2. Truy xuất dữ liệu thị trường liên quan.
+3. Phân tích lịch sử biến động Brent.
+4. Phân tích gasoline crack.
+5. Kiểm tra yếu tố vận tải và logistics.
+6. Đối chiếu các sự kiện tương tự trong lịch sử.
+7. Tổng hợp các kịch bản tác động.
+8. Tạo kết luận và báo cáo có dẫn nguồn.
+Auker quyết định chiến lược thực thi, nhưng các phép tính định lượng phải được thực hiện bởi
+Analytical Services.
+24.5. Tool Allocation
+Auker có thể lựa chọn và gọi các công cụ được Backend cho phép, bao gồm:
+● Market Data Query.
+● News Search.
+● Document Retrieval.
+● Time-Series Analysis.
+● Crack Spread Calculation.
+=== PAGE 29 ===
+● Forecast Comparison.
+● Statistical Analysis.
+● Report Generation.
+Auker chỉ được gọi các tool đã được đăng ký và cấp quyền. Backend phải kiểm tra quyền truy
+cập ở từng lần gọi tool.
+24.6. Output Validation
+Kết quả từ mô hình cần được kiểm tra trước khi trả về:
+● Đúng schema.
+● Có nguồn tham chiếu khi cần.
+● Không chứa dữ liệu ngoài phạm vi quyền.
+● Không có các trường bắt buộc bị thiếu.
+● Phân biệt dữ kiện và nhận định.
+● Có thông tin về giới hạn hoặc độ không chắc chắn khi phù hợp.
+Nếu kết quả không đạt yêu cầu, hệ thống có thể retry, sử dụng mô hình khác hoặc trả về lỗi có
+kiểm soát.
+24.7. Fallback và Reliability
+Auker cần hỗ trợ:
+● Provider failure handling.
+● Model fallback.
+● Timeout handling.
+● Retry policy.
+● Rate-limit handling.
+● Structured error response.
+Fallback không được làm thay đổi âm thầm yêu cầu bảo mật hoặc mức chất lượng tối thiểu của
+nhiệm vụ.
+24.8. Observability và Cost Tracking
+Mỗi lần thực thi cần có khả năng theo dõi:
+● Task ID.
+● Model/provider được sử dụng.
+● Task category.
+● Reasoning configuration.
+● Tool calls.
+● Input/output tokens nếu provider cung cấp.
+=== PAGE 30 ===
+● Cost estimate hoặc cost thực tế.
+● Latency.
+● Retry count.
+● Execution status.
+● Output quality metadata nếu có.
+Dữ liệu này phục vụ đánh giá hiệu quả vận hành và tối ưu phân bổ.
+24.9. Continuous Optimization
+Auker có thể sử dụng kết quả thực thi và đánh giá chất lượng để cải thiện chiến lược phân bổ
+theo thời gian.
+Việc tối ưu cần dựa trên các tín hiệu:
+● Task success.
+● Output quality.
+● Latency.
+● Cost.
+● User feedback.
+● Evaluation results.
+Không được tự động thay đổi business rules, quyền truy cập hoặc các chính sách bảo mật của
+BSR.
+25. Chuẩn tích hợp Auker
+25.1. Integration Architecture
+Các module nghiệp vụ gọi AI thông qua một interface nội bộ thống nhất.
+Luồng tổng quát:
+1. Module nghiệp vụ tạo AI Task.
+2. Backend xác thực và kiểm tra quyền.
+3. AI Adapter chuẩn hóa yêu cầu.
+4. Auker nhận nhiệm vụ và lựa chọn chiến lược thực thi.
+5. Auker gọi mô hình và tools được phép.
+6. Kết quả được kiểm tra và chuẩn hóa.
+7. Backend tiếp nhận kết quả.
+8. Backend lưu trữ và trả kết quả cho module nghiệp vụ.
+25.2. Chuẩn AI Task Contract
+Mỗi yêu cầu gửi đến Auker cần có các thông tin logic sau:
+=== PAGE 31 ===
+Field Mô tả
+task_id Mã nhiệm vụ duy nhất
+task_type Loại nhiệm vụ
+task_payload Nội dung và dữ liệu đầu vào
+context Ngữ cảnh nghiệp vụ cần thiết
+allowed_tools Danh sách tools được phép
+output_schema Cấu trúc đầu ra yêu cầu
+quality_requirement Yêu cầu chất lượng
+latency_requiremen
+Yêu cầu thời gian phản hồi
+t
+cost_constraint Giới hạn chi phí nếu có
+Thông tin người dùng đã được Backend xác
+user_context
+thực
+permission_scope Phạm vi dữ liệu được phép sử dụng
+trace_id Mã truy vết xuyên suốt
+Các trường trên là hợp đồng logic. Chi tiết JSON schema, authentication, transport protocol và
+API endpoint cần được định nghĩa trong tài liệu API Contract riêng.
+25.3. Output Contract
+Kết quả AI cần hỗ trợ:
+● task_id.
+● status.
+● result.
+● structured_output.
+● source_references.
+● tool_execution_summary.
+● model_execution_metadata.
+● validation_status.
+● error_details nếu có.
+Không bắt buộc hiển thị toàn bộ metadata kỹ thuật cho người dùng cuối.
+25.4. AI Provider Adapter
+Hệ thống cần có lớp adapter để chuẩn hóa giao tiếp với các provider.
+Mục tiêu:
+● Không phụ thuộc một provider cụ thể.
+● Chuẩn hóa request và response.
+● Chuẩn hóa error handling.
+=== PAGE 32 ===
+● Quản lý timeout và retry.
+● Hỗ trợ thay đổi hoặc bổ sung provider.
+● Theo dõi usage và cost.
+Auker quyết định chiến lược phân bổ. Adapter chịu trách nhiệm giao tiếp kỹ thuật với provider.
+26. Auker Specialized Financial Intelligence
+Auker cần được khai thác như một lớp trí tuệ chuyên biệt cho phân tích tài chính và thị trường
+hàng hóa, thay vì chỉ sử dụng năng lực hội thoại tổng quát.
+26.1. Financial Time-Series Intelligence
+Thiết kế để phân tích dữ liệu tài chính và thị trường hàng hóa theo thời gian.
+Năng lực bao gồm:
+● Nhận diện xu hướng thị trường.
+● Phát hiện thay đổi trạng thái thị trường.
+● Phân tích mô hình biến động lịch sử.
+● Đánh giá quan hệ giữa các chỉ số.
+● Phân tích giá dầu thô, crack spread, giá sản phẩm lọc dầu và tỷ giá.
+26.2. Cross-Market Financial Reasoning
+Kết nối biến động thị trường với các yếu tố nền tảng:
+● Cung và cầu.
+● Hoạt động lọc dầu.
+● Địa chính trị.
+● Điều kiện kinh tế vĩ mô.
+● Vận tải và logistics.
+● Biến động tỷ giá.
+Mục tiêu là giúp BSR không chỉ theo dõi từng chỉ số riêng lẻ mà còn hiểu được bối cảnh và các
+cơ chế có thể ảnh hưởng đến hoạt động kinh doanh lọc dầu.
+26.3. Evidence-based Analysis
+Các phân tích phải kết hợp:
+● Market data.
+● News and events.
+● Historical observations.
+● Forecasts.
+=== PAGE 33 ===
+● Analytical calculations.
+● Source documents.
+Kết quả cần thể hiện rõ dữ kiện, bằng chứng, giả định và nhận định.
+26.4. Analytical Services
+Các phép tính tài chính và thống kê phải được cung cấp thông qua các dịch vụ chuyên biệt.
+Ví dụ:
+Analytical Service Chức năng
+Market Data Service Truy xuất dữ liệu thị trường
+Tính crack spread và các spread
+Spread Calculator
+khác
+Time-Series Analyzer Phân tích chuỗi thời gian
+Volatility Analyzer Tính toán và phân tích biến động
+Correlation Analyzer Phân tích tương quan
+Forecast Evaluator Đánh giá dự báo
+Historical Analogue
+Tìm các giai đoạn lịch sử tương tự
+Search
+Scenario Analyzer Tính toán và so sánh kịch bản
+LLM chịu trách nhiệm diễn giải và tổng hợp kết quả từ các dịch vụ này, không thay thế các phép
+tính định lượng.
+PHẦN VIII. DỮ LIỆU, LƯU TRỮ VÀ CHẤT
+LƯỢNG
+27. Nguyên tắc lưu trữ
+● Dữ liệu nguồn phải được lưu độc lập với kết quả AI.
+● Không ghi đè dữ liệu lịch sử.
+● Lưu phiên bản khi có thay đổi quan trọng.
+● Lưu nguồn gốc và thời điểm tiếp nhận.
+● Lưu trạng thái kiểm tra dữ liệu.
+● Áp dụng phân loại bảo mật.
+● Có chính sách retention và archival.
+=== PAGE 34 ===
+28. Data Quality
+Hệ thống cần hỗ trợ các kiểm tra:
+● Missing values.
+● Invalid format.
+● Out-of-range values.
+● Duplicate records.
+● Unit inconsistency.
+● Currency inconsistency.
+● Timestamp inconsistency.
+● Stale data.
+● Unexpected changes.
+Dữ liệu không đạt kiểm tra cần được đánh dấu và xử lý theo workflow, không tự động sử dụng
+như dữ liệu hợp lệ.
+29. Document Processing
+Đối với file upload:
+1. Kiểm tra định dạng.
+2. Kiểm tra kích thước và giới hạn upload.
+3. Quét bảo mật theo chính sách hệ thống.
+4. Trích xuất nội dung.
+5. Lưu file gốc.
+6. Lưu metadata.
+7. Gắn classification và permissions.
+8. Lập chỉ mục tìm kiếm.
+9. Cho phép truy vấn theo quyền.
+Tài liệu gốc cần được bảo toàn để truy xuất và kiểm chứng.
+PHẦN IX. GIAO DIỆN VÀ TRẢI NGHIỆM
+NGƯỜI DÙNG
+30. Navigation
+Giao diện chính nên được tổ chức theo sáu module:
+=== PAGE 35 ===
+1. Overview.
+2. Market Data.
+3. Market News.
+4. Forecast.
+5. Analysis.
+6. AI Assistant & Reports.
+Các chức năng quản trị được bố trí riêng theo quyền.
+Giao diện trung tâm cần chuyển từ cách tiếp cận Risk-centric sang Market-centric. Risk và
+Geopolitical Intelligence được thể hiện như các chủ đề phân tích thị trường, không phải module
+trung tâm độc lập trong giai đoạn này.
+31. AI Assistant Interface
+AI Chat cần hỗ trợ:
+● Nhập câu hỏi.
+● Chọn hoặc đính kèm tài liệu.
+● Hiển thị trạng thái xử lý.
+● Hiển thị câu trả lời có cấu trúc.
+● Hiển thị nguồn tham chiếu.
+● Hiển thị bảng và biểu đồ khi phù hợp.
+● Yêu cầu tạo báo cáo.
+● Tiếp tục hội thoại dựa trên ngữ cảnh được phép.
+Người dùng cần phân biệt được nội dung nào là dữ liệu nguồn, kết quả tính toán và nhận định
+AI.
+32. Report Interface
+Người dùng cần có khả năng:
+● Chọn loại báo cáo.
+● Chọn khoảng thời gian.
+● Chọn phạm vi chủ đề.
+● Xem trước nội dung.
+● Yêu cầu tạo lại hoặc điều chỉnh báo cáo.
+● Xuất PDF theo quyền.
+● Xem các phiên bản đã tạo.
+=== PAGE 36 ===
+PHẦN X. BẢO MẬT, HIỆU NĂNG VÀ VẬN
+HÀNH
+33. Security
+Hệ thống cần hỗ trợ:
+● Authentication.
+● RBAC.
+● Department-level access.
+● Document-level permissions.
+● Data classification.
+● Secure file storage.
+● Encryption in transit.
+● Encryption at rest theo chính sách triển khai.
+● Audit logging.
+● Session management.
+● API access control.
+Mọi truy vấn AI và việc xuất báo cáo phải tuân thủ quyền truy cập giống như truy vấn trực tiếp
+trên hệ thống.
+34. Audit Log
+Các hoạt động cần ghi nhận:
+● Đăng nhập và đăng xuất.
+● Truy cập dữ liệu nhạy cảm.
+● Tạo, chỉnh sửa và xóa dữ liệu.
+● Upload và download tài liệu.
+● Tạo báo cáo.
+● Xuất dữ liệu.
+● Thay đổi quyền.
+● AI request có liên quan đến dữ liệu nhạy cảm.
+● Các thao tác quản trị.
+Audit Log cần có thời gian, người thực hiện, hành động, đối tượng và kết quả.
+=== PAGE 37 ===
+35. Performance và Reliability
+Các yêu cầu định lượng cụ thể cần được thống nhất trong giai đoạn technical design và pilot.
+Các chỉ số cần đo:
+● API response time.
+● Dashboard loading time.
+● Data ingestion latency.
+● News processing latency.
+● AI response latency.
+● Report generation time.
+● System availability.
+● Error rate.
+● Failed job rate.
+● Concurrent users.
+Hệ thống cần có:
+● Logging.
+● Monitoring.
+● Alerting.
+● Retry mechanism.
+● Job status tracking.
+● Backup và recovery.
+● Error handling.
+Không đặt một cam kết latency hoặc availability cụ thể khi chưa có workload profile và hạ tầng
+triển khai được thống nhất.
+PHẦN XII. TIÊU CHÍ NGHIỆM THU
+39. Business Requirements Traceability
+Mỗi Business Requirement cần được liên kết với module và tiêu chí nghiệm thu tương ứng.
+Business
+Business Problem Module Thành phần kỹ thuật
+Requirement
+BP-01: Dữ liệu phân Data ingestion, normalization,
+BR-01, BR-02 Market Data
+tán time-series storage
+=== PAGE 38 ===
+BP-02: Theo dõi tin News ingestion, classification,
+BR-03, BR-04 Market News
+tức thủ công summarization
+BP-03: Khó so sánh Deduplication, source
+BR-05 Market News
+nguồn comparison, provenance
+BP-04: Khó đánh giá Market Forecast versioning, actual
+BR-06, BR-07
+dự báo Forecast comparison, evaluation
+BP-05: Báo cáo Analysis & Analytical services, Auker
+BR-08, BR-09
+chậm Reporting orchestration, report generation
+BP-06: Khó khai BR-10, BR-11, Document ingestion, retrieval,
+AI Assistant
+thác tài liệu nội bộ BR-12 RBAC, Auker
+40. Acceptance Criteria
+40.1. Market Data
+● Hiển thị đúng giá trị và đơn vị.
+● Phân biệt futures và physical.
+● Hiển thị nguồn và thời gian cập nhật.
+● Hỗ trợ dữ liệu lịch sử.
+● Phân biệt dữ liệu real-time, delayed, EOD và manual.
+● Không hiển thị dữ liệu mật cho người không có quyền.
+● Các phép tính crack spread phải có thể tái lập từ đầu vào và phiên bản công thức.
+40.2. News Intelligence
+● Người dùng có thể nhập nội dung và upload file.
+● AI trích xuất và tóm tắt nội dung.
+● Hiển thị nguồn và thời điểm.
+● Có khả năng phân loại chủ đề.
+● Có khả năng phát hiện tin trùng lặp.
+● Có khả năng truy xuất tài liệu nguồn.
+● Không tự động loại bỏ thông tin nguồn khi phát hiện trùng lặp.
+40.3. Forecast
+● Có thể nhập và lưu dự báo.
+● Phân biệt nguồn dự báo.
+● Có thể so sánh dự báo với thực tế.
+● Không ghi đè các phiên bản dự báo cũ.
+● Các chỉ số sai số có thể được tái tính từ dữ liệu đầu vào.
+40.4. Market Analysis
+=== PAGE 39 ===
+● Có thể truy xuất dữ liệu thị trường liên quan.
+● Có thể thực hiện các phép tính định lượng thông qua Analytical Services.
+● Có thể kết hợp dữ liệu giá và tin tức.
+● Phân biệt dữ kiện, tương quan, giả thuyết và nhận định.
+● Có nguồn tham chiếu cho các kết luận quan trọng.
+● Có thể lưu phiên bản kết quả phân tích.
+40.5. AI Chat
+● Có thể truy vấn Market Data.
+● Có thể truy vấn News.
+● Có thể truy vấn tài liệu được cấp quyền.
+● Có thể tổng hợp thông tin từ nhiều nguồn.
+● Có thể trả lời bằng nguồn tham chiếu.
+● Có thể tạo báo cáo theo yêu cầu.
+● Không truy xuất dữ liệu vượt quyền.
+● Không được tự ý thực hiện phép tính tài chính thay cho Analytical Services khi có công
+cụ tính toán tương ứng.
+40.6. Reporting
+● Tạo được Morning Briefing.
+● Tạo được End-of-day Report.
+● Tạo được báo cáo theo yêu cầu.
+● Xuất được PDF.
+● Nội dung báo cáo có nguồn tham chiếu.
+● Nội dung báo cáo tuân thủ quyền truy cập.
+● Lưu được phiên bản và thời điểm dữ liệu được sử dụng.
+40.7. Auker Integration
+● Các module nghiệp vụ gọi AI thông qua AI Adapter/Auker, không gọi trực tiếp LLM
+Provider.
+● Request được chuẩn hóa theo AI Task Contract.
+● Auker có thể phân loại nhiệm vụ và lựa chọn chiến lược thực thi.
+● Có thể cấu hình model, reasoning depth và tools theo nhiệm vụ.
+● Có cơ chế timeout, retry và fallback.
+● Có output validation.
+● Có logging và trace ID.
+● Theo dõi được latency và cost.
+● Không thể vượt qua cơ chế authorization của Backend.
+● Kết quả thực thi có thể truy vết theo task ID.
+40.8. Security
+=== PAGE 40 ===
+● Kiểm tra được quyền truy cập của ba nhóm người dùng.
+● Có phân loại dữ liệu.
+● Có document-level permissions.
+● Có audit log.
+● Không rò rỉ giá physical qua AI Chat hoặc báo cáo.
+● Quyền xem và quyền xuất bản/chia sẻ được kiểm soát độc lập.
+● Dữ liệu được gửi đến provider tuân thủ chính sách bảo mật đã thống nhất với BSR.
+41. AI Evaluation
+Ngoài kiểm thử chức năng thông thường, cần xây dựng bộ đánh giá chất lượng AI theo từng
+nhóm nhiệm vụ.
+Nhóm đánh giá Nội dung
+Factual Accuracy Độ chính xác của dữ kiện
+Mức độ phù hợp giữa kết luận và
+Source Grounding
+nguồn
+Extraction Accuracy Độ chính xác trích xuất dữ liệu
+Summarization Quality Chất lượng tóm tắt
+Financial Reasoning Chất lượng lập luận tài chính
+Tool Selection Khả năng lựa chọn đúng công cụ
+Task Completion Tỷ lệ hoàn thành nhiệm vụ
+Permission
+Tuân thủ quyền truy cập
+Compliance
+Latency Thời gian phản hồi
+Cost Chi phí thực thi
+Các bộ test cần có dữ liệu mẫu, expected outputs hoặc rubric đánh giá, và được sử dụng để so
+sánh giữa các phiên bản hệ thống.
+Không đánh giá chất lượng Auker chỉ bằng một chỉ số accuracy tổng hợp. Cần đánh giá theo
+task category và cân nhắc đồng thời chất lượng, latency và cost.
+PHẦN XIII. KẾ HOẠCH TRIỂN KHAI VÀ
+DEFINITION OF DONE
+42. Trình tự triển khai đề xuất
+=== PAGE 41 ===
+Phase 1. Business & Technical Alignment
+● Xác nhận Business Requirements.
+● Xác nhận danh mục dữ liệu và nguồn.
+● Xác nhận các loại người dùng và quyền.
+● Xác nhận phạm vi MVP.
+● Xác nhận các workflow nghiệp vụ chính.
+● Chốt API contract và kiến trúc tích hợp Auker.
+Phase 2. Core Platform
+● Thiết lập authentication và RBAC.
+● Thiết lập data model.
+● Xây dựng data ingestion.
+● Xây dựng Market Data module.
+● Xây dựng file upload và document processing.
+● Xây dựng Audit Log.
+Phase 3. Market Intelligence Workflows
+● Market Overview.
+● News Processing.
+● Market News Feed.
+● Market Briefing.
+● Forecast Management.
+● Reporting.
+Phase 4. Auker Integration
+● AI Adapter.
+● AI Task Contract.
+● Model allocation.
+● Reasoning allocation.
+● Tool integration.
+● Output validation.
+● Fallback.
+● Observability và cost tracking.
+Phase 5. Testing & Pilot
+● Functional Testing.
+● Integration Testing.
+● Security Testing.
+● Data Quality Testing.
+=== PAGE 42 ===
+● AI Evaluation.
+● User Acceptance Testing.
+● Pilot với nhóm người dùng được lựa chọn.
+43. Definition of Done
+Một chức năng chỉ được xem là hoàn thành khi:
+1. Đáp ứng Business Requirement tương ứng.
+2. Có API contract và data model rõ ràng.
+3. Có kiểm tra quyền truy cập.
+4. Có xử lý lỗi và trạng thái.
+5. Có logging và monitoring cần thiết.
+6. Có test case.
+7. Đạt acceptance criteria.
+8. Không làm ảnh hưởng đến dữ liệu hoặc chức năng đã triển khai.
+9. Có tài liệu kỹ thuật cần thiết.
+10. Được xác nhận bởi người phụ trách nghiệp vụ hoặc người được ủy quyền.
+PHẦN XIV. CÁC VẤN ĐỀ CẦN BSR VÀ
+ENGINEERING XÁC NHẬN
+44. Business Clarifications
+1. Danh mục chỉ số thị trường ưu tiên trong MVP.
+2. Danh mục sản phẩm lọc dầu cần theo dõi.
+3. Công thức crack spread chính thức của BSR.
+4. Các nguồn dữ liệu thương mại hiện có và quyền sử dụng.
+5. Quy trình nhập và xác nhận dữ liệu physical.
+6. Các loại báo cáo ưu tiên.
+7. Các nhóm người dùng được phép xem từng loại dữ liệu.
+8. Quy trình phê duyệt báo cáo và khuyến nghị.
+9. Các chỉ số định lượng để đánh giá thành công của pilot.
+45. Technical Clarifications
+1. Hạ tầng triển khai: Cloud, private cloud hay on-premises.
+2. Cơ sở dữ liệu và hệ thống lưu trữ.
+=== PAGE 43 ===
+3. Time-series storage và search infrastructure.
+4. Cơ chế tích hợp các nguồn dữ liệu thương mại.
+5. API contract giữa BSR Backend và Auker.
+6. Phương thức authentication và authorization giữa các service.
+7. Cơ chế quản lý tài liệu và vector indexing.
+8. Retention policy.
+9. Backup và disaster recovery.
+10. Workload profile và performance targets.
+11. Provider và model availability.
+12. Chính sách lưu trữ AI execution metadata.
+46. Tài liệu kỹ thuật cần được phát triển tiếp
+Tài liệu này là Business Requirements và Product/Technical Specification ở cấp hệ thống. Để
+triển khai, cần phát triển thêm các tài liệu chi tiết:
+1. Technical Design Document (TDD): Thiết kế kiến trúc, service boundaries, database
+schema và deployment.
+2. API Specification: Định nghĩa endpoint, request/response schema, authentication và
+error handling.
+3. Data Contract Specification: Định nghĩa schema, đơn vị, timestamp, source metadata
+và data quality rules.
+4. Auker Integration Specification: Định nghĩa AI Task Contract, tool contract, model
+allocation, fallback, observability và evaluation.
+5. UI/UX Specification: Wireframe, navigation, component behavior và user workflows.
+6. Test & Evaluation Plan: Functional test, integration test, security test, data test và AI
+evaluation.
+7. Deployment & Operations Guide: Hạ tầng, CI/CD, monitoring, logging, backup và
+incident handling.
+PHỤ LỤC A. NGUYÊN TẮC KIẾN TRÚC
+QUAN TRỌNG ĐỐI VỚI AUKER
+Để tránh nhầm lẫn về phạm vi trách nhiệm giữa Auker và BSR Backend, cần thống nhất các
+nguyên tắc sau:
+Analytical
+Năng lực BSR Backend Auker
+Services
+Authentication Chịu trách nhiệm Không Không
+=== PAGE 44 ===
+Tuân thủ quyền Không tự quyết định
+Authorization Chịu trách nhiệm
+được cấp quyền
+Truy cập qua Yêu cầu qua tools được
+Data access Quản lý và kiểm soát
+interface được cấp cấp
+Không phải hệ Không phải hệ thống
+Data persistence Chịu trách nhiệm
+thống lưu trữ chính lưu trữ nghiệp vụ chính
+Cung cấp phép
+Business workflow Chịu trách nhiệm Điều phối nhiệm vụ AI
+phân tích
+Financial Chọn và gọi công cụ
+Gọi dịch vụ tính toán Thực hiện
+calculations phù hợp
+Model selection Không Không Chịu trách nhiệm
+Reasoning
+Không Không Chịu trách nhiệm
+allocation
+Cung cấp tools và Cung cấp analytical Chịu trách nhiệm điều
+Tool orchestration
+permissions tools phối
+Kiểm tra business Kiểm tra tính hợp lệ Kiểm tra cấu trúc và
+Output validation
+rules và permissions phép tính chất lượng đầu ra AI
+Cost and latency Theo dõi ở cấp ứng Theo dõi thời gian Tối ưu model allocation
+optimization dụng xử lý và execution strategy
+Nguyên tắc cốt lõi: BSR sở hữu và kiểm soát dữ liệu, quyền truy cập và quy trình nghiệp vụ.
+Analytical Services chịu trách nhiệm về các phép tính có tính xác định. Auker chịu trách nhiệm
+lựa chọn và điều phối năng lực AI để giải quyết nhiệm vụ với chất lượng, chi phí và độ trễ phù
+hợp.
+PHỤ LỤC B. VÍ DỤ WORKFLOW NGHIỆP
+VỤ ĐẦU CUỐI
+Ví dụ: Phân tích tác động khi nguồn cung dầu qua eo
+biển Hormuz bị gián đoạn
+Bước 1. Tiếp nhận sự kiện
+News Processing Pipeline tiếp nhận tin tức về nguy cơ gián đoạn nguồn cung dầu qua eo biển
+Hormuz.
+Bước 2. Xử lý thông tin
+=== PAGE 45 ===
+Hệ thống trích xuất sự kiện, thời điểm, khu vực, các bên liên quan và nguồn công bố. Các tin
+liên quan được liên kết với nhau.
+Bước 3. Xác định dữ liệu liên quan
+Backend cung cấp dữ liệu thị trường được phép truy cập, bao gồm Brent, WTI, giá sản phẩm,
+crack spread và các chỉ số vận tải liên quan.
+Bước 4. Auker phân rã nhiệm vụ
+Auker xác định cần thực hiện các nhiệm vụ con:
+● Phân tích sự kiện.
+● Truy xuất dữ liệu thị trường.
+● Đánh giá mức độ phơi nhiễm của nguồn cung.
+● Phân tích biến động lịch sử.
+● Kiểm tra các yếu tố logistics.
+● Xây dựng các kịch bản tác động.
+Bước 5. Thực hiện phân tích
+Auker gọi các analytical tools phù hợp. Các phép tính định lượng được thực hiện bởi Analytical
+Services.
+Bước 6. Tổng hợp kết quả
+Auker tổng hợp bằng chứng, các giả định và kết quả phân tích thành một báo cáo có cấu trúc.
+Bước 7. Kiểm tra và trả kết quả
+Backend kiểm tra quyền truy cập, lưu kết quả và trả về cho người dùng.
+Bước 8. Theo dõi sau phân tích
+Hệ thống lưu phiên bản báo cáo, dữ liệu đầu vào và kết quả thực thi để có thể đánh giá lại khi
+diễn biến thực tế thay đổi.
+Kết quả cuối cùng không chỉ là bản tóm tắt tin tức, mà là phân tích có liên kết giữa sự kiện, dữ
+liệu thị trường, các yếu tố nền tảng và những kịch bản có thể ảnh hưởng đến hoạt động kinh
+doanh của BSR.
+KẾT LUẬN
+=== PAGE 46 ===
+BSR Market Intelligence Platform được xây dựng để giải quyết các vấn đề nghiệp vụ về dữ liệu
+phân tán, theo dõi thị trường thủ công, thiếu khả năng so sánh nguồn thông tin, khó đánh giá
+dự báo và mất nhiều thời gian trong quá trình phân tích, báo cáo.
+Hệ thống cần kết hợp ba năng lực chính:
+1. Market Data & Intelligence Platform: Tập trung hóa và quản lý dữ liệu thị trường, tin
+tức, dự báo và tài liệu.
+2. Financial Analytical Services: Cung cấp các phép tính và phân tích định lượng có thể
+kiểm chứng, tái lập.
+3. Auker – Specialized AI Allocation & Orchestration: Điều phối mô hình, reasoning,
+tools và quy trình AI để tạo ra phân tích có chiều sâu với chất lượng, latency và cost phù
+hợp.
+Mục tiêu không chỉ là tự động hóa việc tạo báo cáo, mà là xây dựng một năng lực Market
+Intelligence có thể liên tục theo dõi, kết nối và phân tích các diễn biến thị trường, cung cấp
+thông tin có căn cứ và hỗ trợ BSR đưa ra quyết định kinh doanh tốt hơn.

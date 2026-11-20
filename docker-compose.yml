@@ -1,0 +1,36 @@
+services:
+  bsr:
+    build: .
+    image: bsr-market-intelligence:local
+    container_name: bsr-market-intelligence
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      # Production posture by default: the app refuses to start when this secret
+      # is missing, empty or a documented placeholder. For a local demo
+      # workspace use the overlay, which sets its own secret and volume:
+      #   docker compose -f docker-compose.yml -f compose.demo.yml up -d --build
+      BSR_ENV: ${BSR_ENV:-production}
+      BSR_SECRET_KEY: ${BSR_SECRET_KEY:-}
+      BSR_DATABASE: /data/bsr.db
+      # Pinned, not inherited: a stray .env must never seed demo users into the
+      # production volume. The demo overlay pins seeding to 1 for itself.
+      BSR_SEED_ON_START: "0"
+      BSR_PORT: "8000"
+      BSR_THREADS: ${BSR_THREADS:-4}
+    volumes:
+      - bsr-data:/data
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request,sys;sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/health',timeout=4).status==200 else 1)
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  bsr-data:
